@@ -1,0 +1,25 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { breadcrumbSchema } from '../../lib/seo';
+const lang = 'en';
+const frames = [
+  { slug: 'plan-comparator', title: 'Student loan plan comparator: RAP, IBR and Tiered Standard', h: 1300, who: 'Financial aid offices, credit unions, employers that offer a student loan benefit, libraries' },
+  { slug: 'sai-calculator', title: 'Student Aid Index and Pell Grant estimator, 2026-27', h: 1400, who: 'High school counselors, college access programs, TRIO and Upward Bound offices' },
+];
+const code = (f: (typeof frames)[number]) => `<iframe src="${SITE_URL}/embed/${f.slug}/" title="${f.title}" width="100%" height="${f.h}" style="border:0;max-width:1000px" loading="lazy"></iframe>`;
+---
+<PageLayout title="Embed the student loan plan comparator or SAI calculator" description="Embed a free student loan comparator (RAP, IBR, Tiered Standard) or a 2026-27 SAI and Pell estimator on your site with one iframe line, no cookie and no tracking." lang={lang} noindex={true} jsonLd={[breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Embed the calculator', path: route('widget', lang) }])]} breadcrumbs={[{ label: 'Embed the calculator' }]} showAuthor={false}>
+  <header class="mb-6">
+    <h1 class="font-serif text-3xl font-bold text-navy-900 md:text-4xl">Embed a calculator</h1>
+    <p class="mt-3 text-lg text-navy-700">One line of code. When the rates change on July 1 or the FAFSA tables change for a new award year, the embedded tool updates itself.</p>
+  </header>
+  <div class="prose prose-slate max-w-none">
+    <p>Terms: keep the credit link under the frame visible, do not alter the frame, and present results as estimates, since the servicer and the school decide. The frame sets no cookie and sends us nothing about its users. Questions: <a href={route('contact', lang)}>contact page</a>.</p>
+    {frames.map((f) => <><h2>{f.title}</h2><p>For: {f.who}.</p><pre class="overflow-x-auto rounded-lg bg-navy-900 p-4 text-sm text-white"><code>{code(f)}</code></pre></>)}
+  </div>
+  <div class="mt-8 overflow-hidden rounded-xl border border-navy-200">
+    <iframe src="/embed/plan-comparator/" title="Student loan plan comparator" width="100%" height="1300" style="border:0" loading="lazy"></iframe>
+  </div>
+</PageLayout>

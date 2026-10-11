@@ -1,0 +1,282 @@
+
+
+Federal Register, Volume 90 Issue 107 (Thursday, June 5, 2025)
+
+
+[Federal Register Volume 90, Number 107 (Thursday, June 5, 2025)]
+[Notices]
+[Pages 23922-23925]
+From the Federal Register Online via the Government Publishing Office [www.gpo.gov]
+[FR Doc No: 2025-10243]
+
+
+-----------------------------------------------------------------------
+
+DEPARTMENT OF EDUCATION
+
+
+Federal Need Analysis Methodology for the 2026-27 Award Year--
+Federal Pell Grant, Federal Work-Study, Federal Supplemental 
+Educational Opportunity Grant, William D. Ford Federal Direct Loan, and 
+TEACH Grant Programs
+
+AGENCY: Federal Student Aid, Department of Education.
+
+ACTION: Notice.
+
+-----------------------------------------------------------------------
+
+SUMMARY: The Secretary announces the annual updates to the tables used 
+in the statutory Federal Need Analysis Methodology (Need Analysis) that 
+determines a student's Student Aid Index (SAI) for award year (AY) 
+2026-27 for student financial aid programs, Assistance Listing Numbers 
+(ALN) 84.007, 84.033, 84.063, 84.268, and 84.379. The intent of this 
+notice is to alert the financial aid community and the broader public 
+to these required annual updates used in the determination of student 
+aid eligibility.
+
+FOR FURTHER INFORMATION CONTACT: Heather Hall Lewis. Telephone: (202) 
+453-6519. Email: [email protected].
+    If you are deaf, hard of hearing, or have a speech disability and 
+wish to access telecommunications relay services, please dial 7-1-1.
+
+SUPPLEMENTARY INFORMATION: Part F of title IV of the Higher Education 
+Act of 1965, as amended (HEA), specifies the criteria, data elements, 
+calculations, and tables that make up the Need Analysis.
+    Section 478 of the HEA requires the Secretary to annually update 
+the following five tables for inflation: the Income Protection 
+Allowance (IPA), the Adjusted Net Worth (NW) of a Business or Farm, the 
+Asset Protection Allowance, the Assessment Schedules and Rates, and the 
+Employment Expense Allowance. The updates are based, in general, upon 
+increases in items such as, but not limited to, the Consumer Price 
+Index (CPI).
+
+[[Page 23923]]
+
+    The Secretary updates the above tables to account for inflation 
+that took place between April 2020 and April in the year prior to the 
+beginning of each award year. The increases in the tables must be based 
+on a percentage equal to the percentage increase in the Consumer Price 
+Index for All Urban Consumers (CPI-U) for April of the applicable year.
+    This notice includes the 2026-27 AY values for the tables in 
+sections 1 (Income Protection Allowance), 2 (Adjusted Net Worth of a 
+Business or Farm), 3 (Asset Protection Allowance), 4 (Assessment 
+Schedules and Rates), and 5 (Employment Expense Allowance).
+    1. Income Protection Allowance (IPA). This allowance is the amount 
+of living expenses associated with the maintenance of an individual or 
+family that offset the family's income. The allowance varies by family 
+size and marital status. The IPA for dependent students is $11,770. The 
+IPAs for parents of dependent students and independent students are 
+listed in the tables below.
+
+                      Parents of Dependent Students
+------------------------------------------------------------------------
+               Family size                  Income protection allowance
+------------------------------------------------------------------------
+2.......................................                         $29,190
+3.......................................                          36,330
+4.......................................                          44,880
+5.......................................                          52,950
+6.......................................                          61,930
+------------------------------------------------------------------------
+For each additional family member add $6,990.
+------------------------------------------------------------------------
+
+
+    Married Independent Students With Dependents Other Than a Spouse
+------------------------------------------------------------------------
+               Family size                  Income protection allowance
+------------------------------------------------------------------------
+3.......................................                         $57,730
+4.......................................                          71,280
+5.......................................                          84,120
+6.......................................                          98,370
+------------------------------------------------------------------------
+For each additional family member add $11,110.
+------------------------------------------------------------------------
+
+
+     Single Independent Students With Dependents Other Than a Spouse
+------------------------------------------------------------------------
+               Family size                  Income protection allowance
+------------------------------------------------------------------------
+2.......................................                         $54,950
+3.......................................                          68,430
+4.......................................                          84,480
+5.......................................                          99,700
+6.......................................                         116,590
+------------------------------------------------------------------------
+For each additional family member add $13,180.
+------------------------------------------------------------------------
+
+
+       Independent Students Without Dependents Other Than a Spouse
+------------------------------------------------------------------------
+             Marital status                 Income protection allowance
+------------------------------------------------------------------------
+Single..................................                         $18,310
+Married.................................                          29,350
+------------------------------------------------------------------------
+
+    2. Adjusted Net Worth (NW) of a Business or Farm. A portion of the 
+full NW (assets less debts) of a business or farm is excluded from the 
+calculation of an SAI because (1) the income produced from these assets 
+is already assessed in another part of the formula, and (2) the formula 
+protects a portion of the value of the assets.
+    The portion of these assets included in the contribution 
+calculation is computed according to the following schedule. This 
+schedule is used for parents of dependent students, independent 
+students without dependents other than a spouse, and independent 
+students with dependents other than a spouse.
+
+                Adjusted Net Worth of a Business or Farm
+------------------------------------------------------------------------
+ If the NW of a business or farm is .
+                 . .                     Then the adjusted NW is . . .
+------------------------------------------------------------------------
+Less than $1.........................  $0.
+$1 to $175,000.......................  $0 + 40% of NW.
+$175,001 to $520,000.................  $70,000 + 50% of NW over
+                                        $175,000.
+$520,001 to $870,000.................  $242,500 + 60% of NW over
+                                        $520,000.
+$870,001 or more.....................  $452,500 + 100% of NW over
+                                        $870,000.
+------------------------------------------------------------------------
+
+
+[[Page 23924]]
+
+    3. Asset Protection Allowance (APA). This allowance protects a 
+portion of NW (assets less debts) from being considered available for 
+postsecondary educational expenses. There is one asset protection 
+allowance table for parents of dependent students, independent students 
+with dependents other than a spouse, and independent students without 
+dependents other than a spouse.
+
+    Parents of Dependent Students, Independent Students With Dependents Other Than a Spouse, and Independent
+                                 Students Without Dependents Other Than a Spouse
+----------------------------------------------------------------------------------------------------------------
+                                                        And the older parent or the independent student is . . .
+   If the age of the older parent or the independent
+                   student is . . .                    ---------------------------------------------------------
+                                                                  Married                       Single
+----------------------------------------------------------------------------------------------------------------
+                                                        Then the allowance is . . .
+----------------------------------------------------------------------------------------------------------------
+25 or less............................................                            0                            0
+26....................................................                            0                            0
+27....................................................                            0                            0
+28....................................................                            0                            0
+29....................................................                            0                            0
+30....................................................                            0                            0
+31....................................................                            0                            0
+32....................................................                            0                            0
+33....................................................                            0                            0
+34....................................................                            0                            0
+35....................................................                            0                            0
+36....................................................                            0                            0
+37....................................................                            0                            0
+38....................................................                            0                            0
+39....................................................                            0                            0
+40....................................................                            0                            0
+41....................................................                            0                            0
+42....................................................                            0                            0
+43....................................................                            0                            0
+44....................................................                            0                            0
+45....................................................                            0                            0
+46....................................................                            0                            0
+47....................................................                            0                            0
+48....................................................                            0                            0
+49....................................................                            0                            0
+50....................................................                            0                            0
+51....................................................                            0                            0
+52....................................................                            0                            0
+53....................................................                            0                            0
+54....................................................                            0                            0
+55....................................................                            0                            0
+56....................................................                            0                            0
+57....................................................                            0                            0
+58....................................................                            0                            0
+59....................................................                            0                            0
+60....................................................                            0                            0
+61....................................................                            0                            0
+62....................................................                            0                            0
+63....................................................                            0                            0
+64....................................................                            0                            0
+65 or older...........................................                            0                            0
+----------------------------------------------------------------------------------------------------------------
+
+    4. Assessment Schedules and Rates. Two schedules that are subject 
+to updates--one for parents of dependent students and one for 
+independent students with dependents other than a spouse--are used to 
+further limit how much of the family financial resources are considered 
+to go toward educational expenses. For dependent students, the SAI is 
+derived from an assessment of the parents' adjusted available income 
+(AAI). For independent students with dependents other than a spouse, 
+the SAI is derived from an assessment of the family's AAI. The AAI 
+represents a measure of a family's financial strength, which considers 
+both income and assets.
+    The contribution of parents of dependent students, and independent 
+students with dependents other than a spouse, is computed according to 
+the following schedule:
+
+                     Assessment of Available Income
+------------------------------------------------------------------------
+           If AAI is . . .               Then the contribution is . . .
+------------------------------------------------------------------------
+Less than -$8,500....................  -$1,870.
+-$8,500 to $21,800...................  22% of AAI.
+$21,801 to $27,300...................  $4,796 + 25% of AAI over $21,800.
+$27,301 to $32,800...................  $6,171 + 29% of AAI over $27,300.
+
+[[Page 23925]]
+
+ 
+$32,801 to $38,400...................  $7,766 + 34% of AAI over $32,800.
+$38,401 to $43,900...................  $9,670 + 40% of AAI over $38,400.
+$43,901 or more......................  $11,870 + 47% of AAI over
+                                        $43,900.
+------------------------------------------------------------------------
+
+    5. Employment Expense Allowance. This allowance for employment-
+related expenses recognizes additional expenses incurred by working 
+individuals. For parents of dependent students, the employment expense 
+allowance is the lesser of $5,000 or 35% of the total earned income of 
+the student's parent and parent's spouse, if applicable. The employment 
+expense allowance for independent students with dependents other than a 
+spouse is also the lesser of $5,000 or 35% of the combined earned 
+income for the student and student spouse, if applicable. The allowance 
+is the same for independent students without dependents other than a 
+spouse if they are married, but if they are not married, the allowance 
+is zero.
+    Accessible Format: On request to the program contact person listed 
+under FOR FURTHER INFORMATION CONTACT, individuals with disabilities 
+can obtain this document in an accessible format. The Department will 
+provide the requestor with an accessible format that may include Rich 
+Text Format (RTF) or text format (txt), a thumb drive, an MP3 file, 
+braille, large print, audiotape, or compact disc, or other accessible 
+format.
+    Electronic Access to This Document: The official version of this 
+document is the document published in the Federal Register. You may 
+access the official edition of the Federal Register and the Code of 
+Federal Regulations at www.govinfo.gov. At this site, you can view this 
+document, as well as all other documents of this Department published 
+in the Federal Register, in text or Portable Document Format (PDF). To 
+use PDF, you must have Adobe Acrobat Reader, which is available free at 
+this site.
+    You may also access documents of the Department published in the 
+Federal Register by using the article search feature at 
+www.federalregister.gov. Specifically, through the advanced search 
+feature at this site, you can limit your search to documents published 
+by the Department.
+    Program Authority: 20 U.S.C. 1087 et seq.
+
+James Bergeron,
+Acting Chief Operating Officer, Federal Student Aid.
+[FR Doc. 2025-10243 Filed 6-4-25; 8:45 am]
+BILLING CODE 4000-01-P
+
+
+
+

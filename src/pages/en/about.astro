@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+import { P, R, usd, pct, day } from '../../lib/kit';
+const lang = 'en';
+---
+<PageLayout title="Student Loan Ledger by Radif Partners: Who Checks Figures" description="Who publishes this student loan and FAFSA calculator, which 2026 law, rules and Federal Register notices feed it, how it is financed and how to report errors." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path: route('about', lang) }])]} breadcrumbs={[{ label: 'About' }]}>
+  <header class="mb-6"><h1 class="font-serif text-3xl font-bold text-navy-900 md:text-4xl">About {SITE_NAMES[lang]}</h1></header>
+  <div class="prose prose-slate max-w-none prose-headings:font-serif">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>{SITE_NAMES[lang]} is published by Radif Partners, a small company that writes free calculators on top of official texts. We started this one in 2026 because federal student loan repayment changed more in twelve months than in the previous ten years: a new law on {day(P.law.enacted)}, the end of SAVE, two new plans on {day(P.law.newPlansStart)}, new borrowing caps and a deadline in {day(P.law.oldPlansEnd).slice(-4)} for millions of borrowers on older plans. Most explanations we read described the new plans in words. Few let a borrower put in an income and a balance and see the payment, the interest and the end date under each plan.</p>
+    <h2>Why this site does better than the first search result</h2>
+    <p>The comparator computes, for your own numbers, the Repayment Assistance Plan, Income-Based Repayment, the Tiered Standard plan and the 10-year plan, with the formulas of the 2025 law and the regulations of {day(P.law.riseFinalPublished)}: one rate on the whole income for RAP, {usd(P.rap.perDependent)} off per dependent, the {usd(P.rap.minPayment)} floor, the waiver of unpaid interest and the principal match of up to {usd(P.rap.matchMax)}, simulated month by month. It applies the {pct(R.undergrad)}, {pct(R.grad)} and {pct(R.plus)} rates published on September 10, 2026, and the 2026-27 Student Aid Index tables. Each figure links to the text it comes from.</p>
+    <h2>What we do not do</h2>
+    <p>We are not a loan servicer, a lender or a debt relief company, and we do not enroll anyone in a plan. We do not ask for a name, an email or an FSA ID. We do not sell refinancing leads: the refinance calculator shows what a private loan costs and what it takes away, PSLF and income-driven plans first.</p>
+    <h2>How the figures are produced</h2>
+    <p>Every parameter, from the RAP brackets to the Pell Grant maximum, lives in one file with the document it was read on and the date. The engines are small functions that run in your browser. Tests check them against the examples the Department itself published (the {usd(150)} RAP payment and the {usd(176)} prior-plan payment of its June 2026 fact sheet, the {usd(341)} and {usd(262)} standard and tiered payments) and against hand-worked Student Aid Index cases. The <a href={route('method', lang)}>method page</a> lists the formulas and what the calculators leave out.</p>
+    <h2>Funding</h2>
+    <p>The site is free. If advertising is added, it will never sit above a calculator, never come from a refinancing lender presented as advice, and never use what you type, which stays in your browser.</p>
+    <h2>Reporting a mistake</h2>
+    <p>If your servicer quotes a different payment, write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> with the share link of your calculation. Confirmed errors are fixed in the data, turned into a test and dated. See the <a href={route('editorial', lang)}>editorial policy</a> and the <a href={route('terms', lang)}>legal notice</a>.</p>
+    <p class="text-sm text-navy-600">Figures last checked on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-US')}</time>.</p>
+  </div>
+</PageLayout>

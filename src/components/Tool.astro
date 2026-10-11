@@ -1,0 +1,39 @@
+---
+/** Renders a calculator as a hydrated island. `props` come from the page file (default values on that page). */
+import PlanComparator from './calc/PlanComparator';
+import PaymentCalculator from './calc/PaymentCalculator';
+import RapCalculator from './calc/RapCalculator';
+import IbrCalculator from './calc/IbrCalculator';
+import PayoffCalculator from './calc/PayoffCalculator';
+import InterestCalculator from './calc/InterestCalculator';
+import RefiCalculator from './calc/RefiCalculator';
+import ForgivenessCalculator from './calc/ForgivenessCalculator';
+import PslfCalculator from './calc/PslfCalculator';
+import LimitsCalculator from './calc/LimitsCalculator';
+import ParentPlusCalculator from './calc/ParentPlusCalculator';
+import { S529, CollegeSavings } from './calc/SavingsCalculator';
+import SaiCalculator from './calc/SaiCalculator';
+import DeductionCalculator from './calc/DeductionCalculator';
+import { route } from '../i18n/routes';
+import type { ToolKind } from '../lib/page-types';
+interface Props { kind: ToolKind; props?: Record<string, number | string | boolean>; idPrefix?: string }
+const { kind, props = {}, idPrefix } = Astro.props;
+const methodHref = route('method', 'en');
+const common = { methodHref, idPrefix: idPrefix ?? kind, ...props } as Record<string, never>;
+---
+{kind === 'compare' && <PlanComparator client:load {...common} />}
+{kind === 'payment' && <PaymentCalculator client:load {...common} />}
+{kind === 'rap' && <RapCalculator client:load {...common} />}
+{kind === 'ibr' && <IbrCalculator client:load {...common} />}
+{kind === 'payoff' && <PayoffCalculator client:load {...common} />}
+{kind === 'interest' && <InterestCalculator client:load {...common} />}
+{kind === 'refi' && <RefiCalculator client:load {...common} />}
+{kind === 'forgive' && <ForgivenessCalculator client:load {...common} />}
+{kind === 'pslf' && <PslfCalculator client:load {...common} />}
+{kind === 'limits' && <LimitsCalculator client:load {...common} />}
+{kind === 'parentplus' && <ParentPlusCalculator client:load {...common} />}
+{kind === 's529' && <S529 client:load {...common} />}
+{kind === 'savings' && <CollegeSavings client:load {...common} />}
+{kind === 'sai' && <SaiCalculator client:load {...common} />}
+{kind === 'pell' && <SaiCalculator client:load {...common} mode="pell" />}
+{kind === 'deduction' && <DeductionCalculator client:load {...common} />}

@@ -1,0 +1,21 @@
+{
+ "name": "Student Loan Ledger",
+ "short_name": "Student Loan Ledger",
+ "description": "Student loan calculator after the 2025 law: RAP, IBR, Tiered Standard and PSLF compared for your loans, plus the 2026-27 SAI, Pell Grant and interest rates.",
+ "start_url": "/en/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#8A1C1C",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+import { P, R, usd, usdx, day, pct, pellMin } from '../../lib/kit';
+import { table, ext, SOURCES } from '../../lib/helpers';
+const lang = 'en';
+const title = 'Student Loan Calculator Method 2026: Formulas and Limits';
+const description = 'How the RAP, IBR, Tiered Standard, PSLF, SAI and Pell calculators apply Public Law 119-21, 34 CFR 685 and the 2026-27 notices, with their tests and limits.';
+const path = route('method', lang);
+const srcRows = Object.entries(SOURCES).map(([, s]) => [s.label, ext(s.url, new URL(s.url).hostname.replace(/^www\./, ''))]);
+const br = (P.rap.brackets as number[][]).slice(1).map(([top, pc], i) => [`${usd((P.rap.brackets as number[][])[i][0])} to ${usd(top)}`, `${pc}% of AGI`]);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'How we calculate', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'How we calculate', path }])]} breadcrumbs={[{ label: 'How we calculate' }]}>
+  <header class="mb-6"><h1 class="font-serif text-3xl font-bold text-navy-900 md:text-4xl">How the calculators work</h1>
+  <p class="mt-3 text-lg text-navy-700">One parameter file read on the law, the regulations and the Federal Register; small functions that apply each rule in your browser; and tests built from the Department of Education's own examples.</p></header>
+  <div class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h2>Repayment Assistance Plan</h2>
+    <p>Section 455(q) of the Higher Education Act, added by Public Law 119-21, and 34 CFR 685.209 as published on {day(P.law.riseFinalPublished)}. The yearly base payment is {usd(P.rap.floorBase)} when adjusted gross income is {usd(10000)} or less; above that, one percentage applies to the whole AGI:</p>
+    <Fragment set:html={table(['AGI', 'Base payment per year'], [...br, [`over ${usd(100000)}`, `${P.rap.topPct}% of AGI`]], 'Married filing jointly: combined AGI. Married filing separately: your AGI only.', ['l', 'r'])} />
+    <p>Monthly payment = base ÷ 12 − {usd(P.rap.perDependent)} per dependent claimed on your return, with a {usd(P.rap.minPayment)} minimum. When both spouses have eligible loans on a joint return, the payment is multiplied by your share of the couple's balances, with the same minimum. The simulation applies each payment to interest, then principal; unpaid interest of an on-time month is not charged (685.209(h)(4)); if principal fell by less than {usd(P.rap.matchMax)}, it is reduced by the lesser of {usd(P.rap.matchMax)} and the payment, minus what the payment already took off principal (685.209(o)(2)). The payment is recomputed every 12 months on an income grown by the raise you enter. Forgiveness after {P.rap.payments} qualifying payments.</p>
+    <h2>Income-Based Repayment</h2>
+    <p>Section 493C as amended, 34 CFR 685.209(b)(1), (f)(2)-(3) and (g)(1): {P.ibr.oldPct}% of AGI above {P.ibr.povertyPct}% of the HHS poverty guideline for your family size and state group, ÷ 12; {P.ibr.newPct}% for a borrower with no federal loan balance before July 1, 2014 (and no loan after June 30, 2026). The payment never exceeds the 10-year standard payment computed on the balance when you enter the plan. Under {usd(5)} the payment is {usd(0)}; from {usd(5)} to {usd(10)} it is {usd(10)}. Unpaid interest accrues and is paid first. Forgiveness after {P.ibr.newPayments} or {P.ibr.oldPayments} payments. Not modeled: the three-year interest benefit on subsidized loans, and capitalization when you leave the plan. Poverty guidelines: HHS 2026, {usd(P.fpl['2026'].us[0])} for one person in the 48 states and DC plus {usd(P.fpl['2026'].us[1])} per added person.</p>
+    <h2>Fixed plans</h2>
+    <p>10-year standard (685.208(b)(1)): level payment over 120 months, at least {usd(P.standard.minPayment)}. Tiered Standard (HEA 455(d)(7)(A)(i), 685.208(c)(1)): level payment over 10 years below {usd(25000)} of total principal, 15 years from {usd(25000)}, 20 years from {usd(50000)}, 25 years from {usd(100000)}.</p>
+    <h2>Which plans the comparator shows</h2>
+    <p>With any Direct Loan made on or after {day(P.law.newPlansStart)}, only RAP and Tiered Standard are shown, for all loans (HEA 455(d)(7)(A) and (C); 685.209(d)(5)). Otherwise RAP, IBR, Tiered Standard and the 10-year plan. PAYE and ICR are not computed: they end on {day(P.law.oldPlansLastDay)} and are closed to new enrollment. SAVE is closed; its formula (5% or 10% of income above 225% of the poverty guideline) appears only on the SAVE page, as a reference.</p>
+    <h2>PSLF and forgiveness</h2>
+    <p>{P.pslf.payments} qualifying payments while employed full time ({P.pslf.hoursPerWeek} hours a week or more) by a qualifying employer, under 34 CFR 685.219. The projection pays the plan's payment each month for the payments left and reports the balance then. Tax: PSLF forgiveness is excluded by 26 U.S.C. 108(f)(1); since January 1, 2026, section 108(f)(5) excludes only death and disability discharges.</p>
+    <h2>Student Aid Index and Pell Grant</h2>
+    <p>Formulas A (dependent), B (independent without dependents) and C (independent with dependents) of the 2026-27 SAI and Pell Grant Eligibility Guide, with the tables of Federal Register 2025-10243: income protection allowances, payroll tax allowance on 2024 earnings, employment expense allowance (35% of earnings up to {usd(P.sai.eeaMax)}), asset conversion rates ({P.sai.parentAssetRate}% for parents, {P.sai.studentAssetRateDep}% for a dependent student, {P.sai.indDepAssetRate}% for an independent student with dependents), the assessment schedule and rounding to the dollar. Maximum Pell when 2024 AGI is at or under 175% of the 2024 poverty guideline (225% for a single parent), or for non-filers (SAI −1,500). Award = {usd(P.pell.max)} − SAI when the SAI is at most {usd(P.pell.max - pellMin)}; minimum award {usdx(pellMin)} for incomes under the minimum-Pell lines (275% to 400% of poverty); none when the SAI reaches twice the maximum (Public Law 119-21 sec. 83001(b)). Simplified: untaxed income additions and offsets are left out of the form, and the school's enrollment-intensity proration is not applied.</p>
+    <h2>Interest rates and limits</h2>
+    <p>Rates for loans first disbursed {day(R.from)} to {day(R.to)}: {pct(R.undergrad)}, {pct(R.grad)} and {pct(R.plus)}, from the notice of September 10, 2026. Loan limits: 34 CFR 685.203 and HEA 455(a)(4) to (8). The auto pay reduction ({pct(P.autopay.standardCut)}, or {pct(P.autopay.promoCut)} in total for borrowers enrolled by {day(P.autopay.promoEnrollBy)}) is not applied unless you lower the rate yourself.</p>
+    <h2>Tests</h2>
+    <p>The engines run on every build against the Department's published examples (RAP {usd(150)} at {usd(45000)} with no dependent; prior-plan {usd(176)}; 10-year {usd(341)} and Tiered Standard {usd(262)} on {usd(30000)}), the tier and bracket boundaries, the IBR rounding rules, the payroll tax example of the SAI guide and hand-computed SAI cases. A failing test blocks publication.</p>
+    <h2>What the calculators do not do</h2>
+    <ul>
+      <li>They do not read your loans or replace your servicer's calculation.</li>
+      <li>They assume on-time payments and the income path you enter.</li>
+      <li>They do not model FFEL or Perkins loans, consolidation with mixed rates, state forgiveness programs or the school's final aid package.</li>
+    </ul>
+    <h2>Every source</h2>
+    <Fragment set:html={table(['Document', 'Site'], srcRows, `Read on ${day(P.retrieved_at)}; copies are kept with the code.`, ['l', 'l'])} />
+    <p>Questions or corrections: <a href={route('contact', lang)}>contact page</a>. See also the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+  </div>
+</PageLayout>

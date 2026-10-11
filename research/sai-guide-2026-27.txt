@@ -1,0 +1,1848 @@
+2026–27
+Student Aid Index (SAI) 
+and Pell Grant Eligibility Guide 
+Version 1.1 
+August 2025 
+U.S. Department of Education’s 
+Federal Student Aid 
+
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ i 
+Table of Contents 
+Table of Contents ......................................................................................................................... i  
+List of Tables used in SAI .......................................................................................................... iii 
+Calculation ................................................................................................................................. iii 
+Formula A ............................................................................................................................... iii 
+Formula B ............................................................................................................................... iii 
+Formula C .............................................................................................................................. iii 
+List of Remaining Tables ............................................................................................................ iv 
+Introduction and Overview...........................................................................................................1  
+Determining Federal Pell Grant Eligibility ....................................................................................2  
+Step 1: Determine Maximum Federal Pell Grant Eligibility .......................................................2  
+Step 2: Calculate Student Aid Index ........................................................................................2  
+Step 3: Determine Minimum Pell Grant Eligibility ..................................................................... 2 
+Step 1: Determine Maximum Pell Grant Eligibility .......................................................................3  
+Dependent Student..................................................................................................................3  
+Independent Student ...............................................................................................................3  
+State of Legal Residence.........................................................................................................3  
+Poverty Guidelines ..................................................................................................................4  
+SAI for Maximum Pell Grant Recipients ...................................................................................4  
+Step 2: Calculate Student Aid Index ............................................................................................ 5 
+Notes for Calculating the SAI ......................................................................................................5  
+Notes for Using the SAI Formula Worksheets .............................................................................5  
+Formula A – Dependent Students ............................................................................................ 6 
+Supplementary Tables for Formula A – Dependent Students ....................................................10  
+Formula B – Independent Students Without Dependent(s) Other than a Spouse ..................14 
+Supplementary Tables for Formula B – Independent Students Without Dependent(s) Other than 
+a Spouse...................................................................................................................................17  
+Formula C – Independent Students with Dependent(s) Other than a Spouse ........................19 
+Supplementary Tables for Formula C – Independent Students with Dependent(s) Other than a 
+Spouse......................................................................................................................................22  
+Step 3: Determine Minimum Pell Grant Eligibility ......................................................................25  
+Dependent Student................................................................................................................25  
+Independent Student .............................................................................................................25  
+SAI for Minimum Pell Grant Recipients ..................................................................................25  
+Federal Pell Grant Flag .............................................................................................................26  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ ii 
+Appendix A: Acronyms ..............................................................................................................27  
+Appendix B: Dependency Status ...............................................................................................29  
+Students with Unusual Circumstances...................................................................................29  
+Provisionally Independent Students .......................................................................................30  
+Appendix C: Family Size ...........................................................................................................31  
+Calculated Family Size ..........................................................................................................31  
+Self-Reported Family Size .....................................................................................................33  
+Hierarchy Rules .....................................................................................................................34  
+Appendix D: Non-Tax Filer vs. Tax Filer ....................................................................................35  
+Appendix E: Applicants or Contributors Required to Provide Assets .........................................36  
+Appendix F: Determining Married Status Indicator ....................................................................37  
+Appendix G: Determining “Single Parent” Status Indicator ........................................................38  
+Has Dependents Indicator Logic ............................................................................................ 38 
+Single Parent Status Indicator Logic ......................................................................................38  
+Appendix H: Determining Income Source Information ...............................................................40  
+Appendix I: Additional Resources..............................................................................................41  
+Appendix J: ISIR Input Field IDs Used in SAI Calculation .........................................................42  
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ iii 
+List of Tables used in SAI  
+Calculation 
+ 
+Formula A 
+Table A1: Payroll Tax Allowance............................................................................................ 10 
+Table A2: Income Protection Allowance .................................................................................12  
+Table A3: Businesses/ Farms Net Worth Adjustment .............................................................12  
+Table A4: Asset Protection Allowance (Parents Only) ............................................................12  
+Table A5: Parents’ Contribution from Adjusted Available Income ...........................................13  
+ 
+Formula B 
+Table B1: Payroll Tax Allowance 17 
+Table B2: Businesses/ Farms Net Worth Adjustment 18 
+Table B3: Asset Protection Allowance 18 
+ 
+Formula C 
+Table C1: Payroll Tax Allowance 22 
+Table C2: Income Protection Allowance – Married with Dependents 23 
+Table C3: Income Protection Allowance – Single with Dependents 23 
+Table C4: Businesses/ Farms Net Worth Adjustment 23 
+Table C5: Asset Protection Allowance 24 
+Table C6: Assessment from Adjusted Available Income 24 
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ iv 
+List of Remaining Tables 
+ 
+Table 1: Determination of SAI Formula Type .........................................................................5  
+Table 2: Pell Grant Flag .......................................................................................................26  
+Table 3: Acronyms...............................................................................................................27  
+Table 4: Family Size Indicator..............................................................................................31  
+Table 5: Self-Reported Family Size .....................................................................................33  
+Table 6: Married Status Indicator .........................................................................................37  
+Table 7: Has Dependents Indicator .....................................................................................38  
+Table 8: Single Parent Status Indicator ................................................................................39  
+Table 9: SAI Worksheet/ISIR Input Field ID Mapping ..........................................................42  
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 1 
+Introduction and Overview 
+The Student Aid Index (SAI) and Pell Grant Eligibility Guide is designed to assist financial aid 
+administrators (FAAs) and software vendors by introducing updated calculations for federal stu-
+dent aid eligibility, including the Pell Grant calculations, using the Student Aid Index (SAI) for the 
+2026-27 award year. This guide represents the implementation of the SAI at the time of publica-
+tion and serves as a companion document to the FAFSA® Specifications Guide. 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 2 
+Determining Federal Pell Grant 
+Eligibility 
+The Federal Pell Grant scheduled award determination consists of three steps. 
+Step 1: Determine Maximum Federal Pell Grant Eligi-
+bility 
+Use the Maximum Pell Grant criteria to identify applicants eligible for a maximum Pell Grant 
+award. 
+• Applicants who did not file taxes are assigned an SAI of -1500; no further calculation is 
+needed.  
+• For all other applicants eligible for a maximum Pell Grant award, proceed to Step 2: Calcu-
+late Student Aid Index. Applicants will be assigned the calculated SAI or 0, whichever is 
+less. 
+Step 2: Calculate Student Aid Index 
+The Student Aid Index (SAI) is a number that determines each student’s eligibility for certain 
+types of federal student aid, including Pell Grants. This number is calculated with the SAI formu-
+las, which use the information that students provide on the FAFSA® form. All applicants will 
+have a calculated SAI, but not all applicants will be determined to be eligible for a Pell Grant.  
+• If the applicant’s SAI is less than or equal to zero, the student is eligible for a Maximum Pell 
+Grant and should retain the calculated SAI. 
+• If the applicant’s calculated SAI is greater than the corresponding award year’s maximum 
+Pell Grant award minus minimum Pell Grant award, the applicant is not eligible for a Pell 
+Grant under Step 2 and should proceed to Step 3: Determine Minimum Pell Grant Eligibility.  
+Step 3: Determine Minimum Pell Grant Eligibility 
+Use the Minimum Pell Grant criteria to identify additional applicants eligible for a minimum Pell 
+Grant.  
+• For applicants meeting the Minimum Pell Grant eligibility requirements, package the mini-
+mum Pell Grant and retain the SAI calculated in Step 2. The remainder of the aid package 
+should be based on the calculated SAI. 
+• For applicants not qualifying for Minimum Pell Grant eligibility, package based on the calcu-
+lated SAI from Step 2. 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 3 
+Step 1: Determine Maximum Pell 
+Grant Eligibility 
+Use the Maximum Pell Grant criteria to determine eligibility based on tax filing status (e.g., non- 
+tax filer), adjusted gross income (if tax filer), state of legal residence, and applicable poverty 
+guidelines. Under HEA Sec. 401(b)(1)(A) a student is eligible for a Maximum Pell Grant if any of 
+the following is true: 
+Dependent Student 
+• Maximum Pell Indicator = 1: The student’s parent(s) did not file a federal income tax re-
+turn; or 
+• Maximum Pell Indicator = 2: The student’s parent is a single parent (as defined in Appen-
+dix G) and has an (AGI + Foreign Income Exclusion Amount) greater than zero and less 
+than or equal to 225% of the poverty guideline for the applicant’s family size and state of le-
+gal residence; or 
+• Maximum Pell Indicator = 3: The student’s parent is not a single parent and has an (AGI + 
+Foreign Income Exclusion Amount) greater than zero and less than or equal to 175% of the 
+poverty guideline for the applicant’s family size and state of legal residence. 
+Independent Student 
+• Maximum Pell Indicator = 1: The student (and spouse, if applicable) did not file a federal 
+income tax return; or 
+• Maximum Pell Indicator = 2: The student is a single parent (as defined in Appendix G) and 
+has an (AGI + Foreign Income Exclusion Amount) greater than zero and less than or equal 
+to 225% of the poverty guideline for the applicant’s family size and state of legal residence; 
+or 
+• Maximum Pell Indicator = 3: The student is not a single parent and has an (AGI + Foreign 
+Income Exclusion Amount) greater than zero and less than or equal to 175% of the poverty 
+guideline for the applicant’s family size and state of legal residence. 
+ 
+Note: The Maximum Pell Indicator (1, 2, or 3) will be returned on the ISIR, if applicable. 
+Note: Before determining maximum Pell eligibility for a tax filer, the family size needs to be de-
+termined by using Appendix C and that value will be used throughout the calculation. See Ap-
+pendix D to determine non-tax filers vs. tax filer status and Appendix G to determine Single Par-
+ent status.  
+ 
+As a reminder, in Step 1 for a dependent student, the parents need to both qualify as non-filers 
+to meet Maximum Pell Indicator 1 logic. For an independent student, the student and student’s 
+spouse, if applicable, must be non-filers to meet Maximum Pell Indicator 1 logic.  
+ 
+State of Legal Residence  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 4 
+The state of legal residence (SLR) will either be that of a parent (for a dependent student) or 
+student (for an independent student). There are three potential values used in the Maximum and 
+Minimum Pell Grant eligibility determination processes. See below: 
+• Hawaii 
+• Alaska 
+• Other* (includes the 48-contiguous states, U.S. territories, foreign addresses, etc.) 
+*If the SLR is unknown or blank, presume Other for purposes of the SAI calculation. 
+Poverty Guidelines  
+Poverty guidelines are used in the Maximum and Minimum Pell Grant eligibility determination 
+processes. Use the U.S. Federal Poverty Guidelines Used to Determine Financial Eligibility for 
+Certain Programs, produced by the Department of Health and Human Services (HHS). To ac-
+cess the 2024 HHS Poverty Guidelines, visit: Federal Register 2024 HHS Poverty Guidelines 
+Note: Always use the poverty guidelines for the prior-prior tax year (e.g., for the 2026-27 award 
+year, use the 2024 poverty guidelines) by state of legal residence. 
+SAI for Maximum Pell Grant Recipients 
+• Maximum Pell Indicator = 1: A dependent student whose parents did not file a federal in-
+come tax return OR an independent student (and spouse, if applicable) who did not file a 
+federal income tax return for the prior-prior tax year is assigned an SAI equal to -1,500, no 
+family size is calculated, and no formula or intermediate values are returned on the ISIR. 
+• Maximum Pell Indicator = 2 or 3: If Maximum Pell Indicator is not 1 then determine check 
+of (AGI + Foreign Income Exclusion) against Poverty Guidelines. If results are TRUE after 
+this check, then SAI is temporarily zero (0). Perform the full formula calculation based on the 
+appropriate formula in Step 2 (below). If the SAI from Step 2 is less than zero (0) then the 
+SAI is set to the calculated value from Step 2. If the SAI from Step 2 is greater than or equal 
+to zero, then the SAI remains zero.  
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 5 
+Step 2: Calculate Student Aid In-
+dex 
+The SAI is calculated using one of three formulas; each is described in more detail below: 
+• Formula A – Dependent students; 
+• Formula B – Independent students without dependents other than a spouse; and 
+• Formula C – Independent students with dependents other than a spouse. 
+ 
+Table 1: Determination of SAI Formula Type 
+Determination of SAI Formula Type 
+If Then 
+Model = Dependent Formula A 
+Model = Independent AND Married Indicator = Married AND Has Dependents In-
+dicator = FALSE 
+Formula B 
+Model = Independent AND Married Indicator = Unmarried AND Has Dependents 
+Indicator = FALSE 
+Formula B 
+Model = Independent AND Married Indicator = Married AND Has Dependents In-
+dicator = TRUE 
+Formula C 
+Model = Independent AND Married Indicator = Unmarried AND Has Dependents 
+Indicator = TRUE 
+Formula C 
+Note: See Appendix G to determine Single Parent status (Has Dependents Indicator) 
+Notes for Calculating the SAI 
+• All calculations, unless noted otherwise in the worksheets, should be rounded to three deci-
+mal places, and then rounded to the nearest whole numbers. Round away from zero for re-
+sults of .500 to .999, round towards zero for results of .001 to .499. Rounding should be per-
+formed so that the intermediate value that is the result of each step does not have any deci-
+mal digits. For example, 11.549 when rounded = 12 and 11.449 when rounded = 11. Like-
+wise, -11.549 when rounded = -12 and -11.449 when rounded = -11. See Note for Table A1 
+for details on payroll tax rounding. 
+• The Maximum and Minimum Pell HHS threshold amounts (e.g., HHS base x 2.25) in Step 1 
+and Step 3 are also first rounded to the nearest whole number before making the Maximum 
+and Minimum Pell determinations. 
+• C ertain applicants will be exempt from asset reporting based on income and federal benefits 
+received (see Appendix E: Applicants or Contributors Required to Provide Assets for more 
+details).  
+• A student’s SAI can be negative. If the calculated SAI is less than -1,500, replace the value 
+with -1,500. If calculated SAI is greater than 999,999 it is set to 999,999. 
+Notes for Using the SAI Formula Worksheets 
+• Boxes with black fill indicate that no value should be entered in those cells. 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 6 
+• Boxes with no fill or no text indicate cells where the user should enter a value. 
+ 
+Formula A – Dependent Students 
+SAI = Parents’ Contribution + Student’s Contribution from Income + Student’s Contribution from 
+Assets 
+Parent Contribution from Income 
+Parent Income Additions 
+a. Parents’ AGI   
+b. Parents’ Deductible Payments to IRA/KEOGH/Other +  
+c. Parents’ Tax-Exempt Interest Income +  
+d. Parents’ Untaxed Portions of IRA Distributions  
+(Subtract IRA rollover; if total is less than zero, enter zero) +  
+e. Parents’ Untaxed Portions of Pensions 
+(Subtract Pension rollover; if total is less than zero, enter zero) +  
+f. Parents’ Foreign Income Exclusion  
+(reported on U.S. Tax Return; if less than zero, enter the abso-
+lute value) +  
+1. Total Parent Income Additions (sum of lines a, b, c, d, e, and f) =  
+Parent Income Offsets 
+g. Parents’ Taxable College Grant and Scholarship Aid (reported 
+as income) 
+ 
+ 
+h. Parents’ Education Credits +  
+i. Parents’ Federal Work-study (FWS) +  
+2. Total Parent Income Offsets (sum of lines g, h, and i) =  
+3. Total Parent Income (line 1 minus line 2) 
+• Total Parent Income Additions – Total Parent Income Offsets 
+• May be a negative number =  
+Allowances Against Parents’ Income 
+4. Parents’ U.S. Income Tax Paid (or Foreign Equivalent)   
+5. Payroll Tax Allowance (Table A1)   
+a. Medicare’s Hospital Insurance (HI) Program Tax Rate (Table 
+A1: Step 1) +  
+b. Old-age, survivors, & disability insurance (OASDI) Tax Rate  
+(Table A1: Step 2) +  
+6. Income Protection Allowance (Table A2) 
+• Use the calculated Family Size to determine the IPA +  
+7. Employment Expense Allowance (EEA) +  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 7 
+• The lesser of: 
+ 35% of parents’ combined income, OR 
+ $ 5,000 
+8. Total Parent Allowances Against Income (sum lines 4, 5a, 5b, 6, 
+and 7) =  
+Parents’ Available Income (PAI) 
+Total Parent Income (line 3)   
+Total Parent Allowances Against Income (line 8) -  
+9. Parent Available Income (line 3 minus line 8) 
+• May be a negative number =  
+ 
+Parent Contribution from Assets 
+10. Annual child support received for the last complete calendar year   
+11. Cash, savings, and checking accounts +  
+12. Net worth of current investments 
+• Includes: time deposits, money market funds, real estate (exclud-
+ing primary residence), vacation homes, income producing prop-
+erty, trusts, stocks, bonds, derivatives, securities, mutual funds, 
+tax shelters, and qualified education benefits 
+• If negative, enter zero +  
+13. Adjusted net worth of businesses and/or farms (Table A3) 
+• Net worth of businesses and/or farms multiplied by the applicable 
+adjustment in Table A3 +  
+14. Net worth (sum of lines 10, 11, 12, and 13) =  
+15. Asset Protection Allowance (APA) (Table A4) -  
+16. Asset Conversion Rate (12%) x 0.12 
+17. Parent Contribution from Assets (PCA) 
+• (Line 14 minus line 15) times line 16 
+• If negative, enter zero =  
+ 
+Total Parent Contribution 
+Parent Adjusted Available Income (PAAI) 
+Parents’ Available Income (line 9)   
+Parents’ Contribution from Assets (line 17) +  
+18. Parent Adjusted Available Income (line 9 plus line 17)  
+• May be a negative number =  
+Parents’ Contribution 
+19. Parents’ Contribution (Table A5) =  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 8 
+• Adjust PAAI (line 18) using Table A5 
+ 
+Student Contribution from Income 
+Student Income Additions 
+a. Student AGI   
+b. Student Deductible Payments to IRA/KEOGH/Other +  
+c. Student Exempt Interest Income +  
+d. Student Untaxed Portions of IRA Distributions  
+(Subtract IRA rollover; if total is less than zero, enter zero) +  
+e. Student Untaxed Portions of Pensions 
+(Subtract Pension rollover; if total is less than zero, enter 
+zero) +  
+f. Student Foreign Income Exclusion  
+(reported on U.S. Tax Return; if less than zero, enter the ab-
+solute value) +  
+20. Total Student Income Additions (sum of lines a, b, c, d, e, and f) =  
+Student Income Offsets 
+g. Student College Grant and Scholarship Aid (reported as in-
+come) 
+  
+h. Student Education Credits +  
+i. Student Federal Work-study (FWS) +  
+21. Total Student Income Offsets (sum of lines g, h, and i) =  
+22. Total Student Income (line 20 minus line 21) 
+• Total Student Income Additions – Total Student Income Offsets 
+• May be a negative number =  
+Allowances Against Student Income 
+23. Student U.S. Income Tax Paid (or Foreign Equivalent)   
+24. Payroll Tax Allowance (Table A1)   
+a. Medicare’s Hospital Insurance (HI) Program Tax Rate (Table 
+A1: Step 1) +  
+b. Old-age, survivors, & disability insurance (OASDI) Tax Rate  
+(Table A1: Step 2) +  
+25. Income Protection Allowance  + 11,770 
+26. Allowance for parents’ negative adjusted available income 
+a. If line 18 is negative, enter line 18 as a positive number 
+b. If line 18 is zero or positive, enter zero +  
+27. Total Student Allowances Against Income (sum lines 23, 24a, 
+24b, 25, and 26) =  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 9 
+Student’s Contribution from Income 
+Total Student Income (line 22)   
+Total Student Allowances Against Income (line 27) -  
+28. Student Available Income (line 22 minus line 27) 
+May be a negative number =  
+29. Assessment of Student Available Income x 0.50 
+30. Student’s Contribution from Income (line 28 times line 29) 
+• If negative (-) set to 0 (zero) =  
+ 
+Student Contribution from Assets 
+31. Cash, savings, and checking accounts   
+32. Net worth of current investments 
+• Includes: time deposits, money market funds, real estate (ex-
+cluding primary residence), vacation homes, income producing 
+property, trusts, stocks, bonds, derivatives, securities, mutual 
+funds, tax shelters, and qualified education benefits 
+• If negative, enter zero +  
+33. Adjusted net worth of business and/or farm (Table A3) 
+• Net worth of business and/or farm multiplied by the applicable 
+adjustment in Table A3 +  
+34. Net worth (sum of lines 31, 32, and 33) =  
+35. Asset Conversion Rate (20%) X 0.20 
+36. Student Contribution from Assets (SCA) 
+• Line 34 times line 35 
+• If negative, enter zero =  
+ 
+Student Aid Index (SAI) 
+Parents’ Contribution (line 19)   
+Student’s Contribution from Income (line 30) +  
+Student’s Contribution from Assets (line 36) +  
+37. Student Aid Index (sum of lines 19, 30, and 36) 
+• If negative and < -1,500, adjust to -1,500 (e.g., if -2,000 set to -
+1,500) 
+• If negative and >= -1,500, do not adjust (e.g., if -1,000 leave as -
+1,000) =  
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 10 
+Supplementary Tables for Formula A – Dependent Students 
+Note for Table A1: In scenarios where spouses have filed different tax returns (e.g., one spouse 
+filed TFS = Single, the other TFS = MFS, etc.) and more than one income earned from work is 
+reported, the calculations for Hospital Insurance (HI) and Old-age, survivors, and disability in-
+surance (OASDI) are performed individually based on each filer’s income earned from work.  
+ 
+Note: If two different tax returns are filed between spouses, the tax rate for the Parent or the 
+Student is also applied as the tax rate for the respective Parent Spouse or Student Spouse.  
+ 
+Calculations for the individual Parent HI, Parent Spouse HI, Student HI, Student Spouse HI, 
+Parent OASDI, Parent Spouse OASDI, Student OASDI, and Student Spouse OASDI are 
+rounded to three (3) decimal places. For example, 10.4575 when rounded to three (3) decimal 
+places = 10.458 and 10.4594 when rounded to three (3) decimal places = 10.459. Once 
+rounded to three (3) decimal places, they are then combined to calculate the Total Parent HI, 
+Total Parent OASDI, Total Student HI, and Total Student OASDI. Each combined total is 
+rounded to the nearest whole number.  
+However, where there are two different tax returns and both filing status are MFJ, the incomes 
+earned from work are first added together, and calculations are performed based on the com-
+bined income earned from work.  
+Table A1:  Payroll Tax Allowance 
+Tax Rate 
+Program 
+Tax Rate 
+Step 1: Medi-
+care’s Hospi-
+tal Insurance 
+(HI) Program 
+Tax Rate 
+If Parent filed as Single, HoH or Qualifying Surviving Spouse: 
+• 1.45% of parent income earned from work up to $200,000, (+) plus 
+• 2.35% of parent income earned from work over $200,000 
+If Parent filed as Married-Filed Joint Return (MFJ): 
+• 1.45% of parent income earned from work up to $250,000, (+) plus 
+• 2.35% of parent income earned from work over $250,000 
+If Parent filed as Married-Filed Separate Return (MFS): 
+• 1.45% of parent income earned from work up to $125,000, (+) plus 
+• 2.35% of parent income earned from work over $125,000 (+) plus 
+If Dependent Student: 
+• 1.45% of dependent student income earned from work up to $200,000, (+) 
+plus 
+• 2.35% of dependent student income earned from work over $200,000. 
+ 
+For example, below is a scenario where the parent self-reported their information 
+(e.g., because they are no longer married to the same spouse). However, the parent 
+spouse is able to use their IRS FTI: 
+If, 
+Parent TFS = MFJ and Parent IEFW = $350,000, AND 
+Parent Spouse TFS = MFS and Parent Spouse IEFW = $96,000 
+ 
+Then, 
+Parent IEFW uses the MFJ tax rate: 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 11 
+$250,000 x 1.45% = $3,625 
+$100,000 x 2.35% = $2,350  
+ 
+$3,625 + $2,350 = $5,975 for Parent Medicare Hospital Insurance (HI) 
+ 
+Parent Spouse IEFW uses the MFS tax rate: 
+$96,000 x 1.45% = $1,392 
+ 
+$1,392 for Parent Spouse HI 
+ 
+Parent HI + Parent Spouse HI = $5,975 + $1,392 = $7,367 Parent Total HI 
+Step 2: Old-
+age, survi-
+vors, and dis-
+ability insur-
+ance 
+(OASDI) Tax 
+Rate 
+If Parent filed as Single, Married-Filed Separate Return (MFS), HoH or Qualifying Sur-
+viving Spouse: 
+6.2% of parent income earned from work up to Contributions and Benefit Base of 
+$168,600 for Tax Year 2024. If parent total income earned from work exceeds 
+$168,600, then calculate using $168,600*. 
+If Parent filed as Married-Filed Joint Return (MFJ): 
+• 6.2% of parent income earned from work up to Contributions and Benefit 
+Base of $337,200 for Tax Year 2024. If parent total income earned from work 
+exceeds $337,200, then calculate using $337,200*. 
+If Dependent Student: 
+• 6.2% of dependent student income earned from work up to Contributions and 
+Benefit Base of $168,600 for Tax Year 2024. If the student’s total income 
+earned from work exceeds $168,600, then calculate using $168,600*. 
+ 
+For example, below is another scenario where the parent self-reported their infor-
+mation (e.g., because they are no longer married to the same spouse). However, the 
+parent spouse is able to use their IRS FTI: 
+If, 
+Parent TFS = MFJ and Parent IEFW = $250,400, AND 
+Parent Spouse TFS = Single and Parent Spouse IEFW = $150,200 
+ 
+Then, 
+Parent IEFW uses the MFJ tax rate: 
+$250,400 x 6.2% = $15,524.8 =  
+ 
+$15,524.8 for Parent OASDI 
+ 
+Parent Spouse IEFW uses the Single tax rate: 
+$150,200 x 6.2% = $9,312.4 
+ 
+$9,312.4 for Parent Spouse OASDI 
+ 
+Parent OASDI + Parent Spouse OASDI = $15,524.8 + $9,312.4 = $24,837.2 
+(apply rounding rules as noted above) = $24,837 Parent Total OASDI 
+*Social Security’s Old-Age, Survivors, and Disability Insurance (OASDI) program limits the amount of earnings 
+subject to taxation for a given year. The same annual limit also applies when those earnings are used in a benefit 
+computation. This limit changes each year with changes in the national average wage index. For earnings in 
+2024, this base is $168,600. 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 12 
+The OASDI tax rate for wages paid in 2024 is set by statute at 6.2 percent for employees and employers, each. 
+Thus, an individual with wages equal to or larger than $168,600 would contribute $10,453 to the OASDI program 
+in 2024. 
+For more information visit: https://www.ssa.gov/oact/cola/cbb.html. 
+ 
+The following tables are based, in part, upon the April 2025 Consumer Price Index for all Urban 
+Consumers (CPI-U).  
+Table A2:  I ncome Protection Allowance 
+Family Size (including student) Income Protection Allowance Amount 
+2 $29,190 
+3 $36,330 
+4 $44,880 
+5 $52,950 
+6 $61,930 
+Note: For each additional household member, add $6,990. 
+ 
+Table A3:  Businesses/ Farms Net Worth Adjustment 
+If the net worth of businesses/ farms is 
+___ 
+Then the adjusted net worth is ____ 
+Less than $1 $0 
+$1 to $175,000 40% of net worth of business/farm 
+$175,001 to $520,000 $70,000 + 50% of net worth over $175,000 
+$520,001 to $870,000 $242,500 + 60% of net worth over $520,000 
+$870,001 or more $452,500 + 100% of net worth over $870,000 
+ 
+Table A4:  Asset Protection Allowance (Parents Only) 
+Age of older 
+parent as of 
+12/31/2025* 
+Allowance if 
+there are two 
+parents** 
+Allowance if 
+there is only 
+one parent 
+Age of older 
+parent as of 
+12/31/2025* 
+Allowance if 
+there are two 
+parents** 
+Allowance if 
+there is only 
+one parent 
+25 or less $0 $0 46 $0 $0 
+26 $0 $0 47 $0 $0 
+27 $0 $0 48 $0 $0 
+28 $0 $0 49 $0 $0 
+29 $0 $0 50 $0 $0 
+30 $0 $0 51 $0 $0 
+31 $0 $0 52 $0 $0 
+32 $0 $0 53 $0 $0 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 13 
+Age of older 
+parent as of 
+12/31/2025* 
+Allowance if 
+there are two 
+parents** 
+Allowance if 
+there is only 
+one parent 
+Age of older 
+parent as of 
+12/31/2025* 
+Allowance if 
+there are two 
+parents** 
+Allowance if 
+there is only 
+one parent 
+33 $0 $0 54 $0 $0 
+34 $0 $0 55 $0 $0 
+35 $0 $0 56 $0 $0 
+36 $0 $0 57 $0 $0 
+37 $0 $0 58 $0 $0 
+38 $0 $0 59 $0 $0 
+39 $0 $0 60 $0 $0 
+40 $0 $0 61 $0 $0 
+41 $0 $0 62 $0 $0 
+42 $0 $0 63 $0 $0 
+43 $0 $0 64 $0 $0 
+44 $0 $0 65 or older $0 $0 
+45 $0 $0    
+* Determine the age of the older parent listed in FAFSA/FAFSA Submission Summary and # as of 12/31/2025. 
+If no parent date of birth is provided, use age 45. 
+** Use the two-parent allowance when the parent indicator is married. 
+ 
+Table A5:  Parents’ Contribution from Adjusted Available Income 
+If the parents’ AAI is ___ Then the parents’ contribution from AAI is ____ 
+Less than -$8,500 -$1,870 
+-$8,500 to $21,800 22% of AAI 
+$21,801 to $27,300 $4,796 + 25% of AAI over $21,800 
+$27,301 to $32,800 $6,171 + 29% of AAI over $27,300 
+$32,801 to $38,400 $7,766 + 34% of AAI over $32,800 
+$38,401 to $43,900 $9,670 + 40% of AAI over $38,400 
+$43,901 or more $11,870 + 47% of AAI over $43,900 
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 14 
+Formula B – Independent Students Without Depend-
+ent(s) Other than a Spouse 
+SAI = Student’s Contribution from Income + Student’s Contribution from Assets 
+ 
+Student Contribution from Income 
+Student (and Spouse) Income Additions 
+a. Student (and Spouse) AGI   
+b. Student (and Spouse) Deductible Payments to 
+IRA/KEOGH/Other +  
+c. Student (and Spouse) Tax-Exempt Interest Income +  
+d. Student (and Spouse) Untaxed Portions of IRA Distributions 
+(Subtract IRA rollover; if total is less than zero, enter zero) +  
+e. Student (and Spouse) Untaxed Portions of Pensions (Subtract 
+Pension rollover; if total is less than zero, enter zero) +  
+f. Student (and Spouse) Foreign Income Exclusion  
+(reported on U.S. Tax Return; if less than zero, enter the abso-
+lute value) +  
+1. Total Student (and Spouse) Income Additions (sum of lines a, b, c, d, 
+e, and f) =  
+Student (and Spouse) Income Offsets 
+g. Student (and Spouse) College Grant and Scholarship Aid   
+h. Student (and Spouse) Education Credits +  
+i. Student (and Spouse) Federal Work-study (FWS) +  
+2. Total Student (and Spouse) Income Offsets (sum of lines g, h, and i) =  
+3. Total Student (and Spouse) Income (line 1 minus line 2) 
+• Total Student (and Spouse) Income Additions – Total Student (and 
+Spouse) Income Offsets 
+• May be a negative number =  
+Allowances Against Student (and Spouse) Income 
+4. Student (and Spouse) U.S. Income Tax Paid (or Foreign Equivalent)   
+5. Payroll Tax Allowance (Table B1)   
+a. Medicare’s Hospital Insurance (HI) Program Tax Rate  
+(Table B1: Step 1) +  
+b. Old-age, survivors, & disability insurance (OASDI) Tax Rate  
+(Table B1: Step 2) +  
+6. Income Protection Allowance (IPA) 
+• If the student indicator is unmarried: $18,310 
+• If the student indicator is married: $29,350 +  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 15 
+7. Employment Expense Allowance (EEA) 
+• If the student indicator is unmarried: $0 
+• If the student indicator is married, the lesser of: 
+ 35% of the student and student’s spouse combined earned 
+income, OR 
+ $5,000 +  
+8. Total Student (and Spouse) Allowances Against Income (sum lines 4, 
+5a, 5b, 6, and 7) =  
+Student’s Contribution from Income 
+Total Student (and Spouse) Income (line 3)   
+Total Student (and Spouse) Allowances Against Income (line 8) -  
+9. Student Available Income (StAI; line 3 minus line 8) 
+• May be a negative number =  
+10. Assessment of Student Available Income (50%) x 0.50 
+11. Student’s Contribution from Income (line 9 times line 10) =  
+ 
+Student Contribution from Assets 
+12. Annual child support received for the last complete calendar year   
+13. Cash, savings, and checking accounts +  
+14. Net worth of current investments 
+• Includes: time deposits, money market funds, real estate (exclud-
+ing primary residence), vacation homes, income producing prop-
+erty, trusts, stocks, bonds, derivatives, securities, mutual funds, tax 
+shelters, and qualified education benefits 
+• If negative, enter zero +  
+15. Adjusted net worth of businesses and/or farms (Table B2) 
+• Net worth of businesses and/or farms multiplied by the applicable 
+adjustment in Table B2 +  
+16. Net worth (sum of lines 12, 13, 14, and 15) =  
+17. Asset Protection Allowance (Table B3) -  
+18. Discretionary Net Worth 
+• Line 16 minus line 17 =  
+19. Asset Conversion Rate (20%) x 0.20 
+20. Student Contribution from Assets (SCA) 
+• Line 18 times line 19 
+• If negative, enter zero =  
+ 
+Student Aid Index 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 16 
+Student Contribution from Income (line 11) 
+• May be a negative number   
+Student Contribution from Assets (line 20) +  
+21. Student Aid Index (SAI; sum of lines 11 and 20) 
+• If negative, and < -1,500, adjust to -1,500 (e.g., If negative 2,000 
+set to -1,500) 
+• If negative, and >= -1,500, do not adjust (e.g., If -1,000 leave as -
+1,000) =  
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 17 
+Supplementary Tables for Formula B – Independent Students Without 
+Dependent(s) Other than a Spouse 
+ 
+Table B1:  Payroll Tax Allowance 
+Tax Rate 
+Program 
+Tax Rate 
+Step 1: 
+Medicare’s 
+Hospital In-
+surance (HI) 
+Program 
+Tax Rate 
+If Student filed as Single, HoH or Qualifying Surviving Spouse: 
+• 1.45% of student income earned from work up to $200,000, (+) plus 
+• 2.35% of student income earned from work over $200,000 
+If Student filed as Married-Filed Joint Return (MFJ): 
+• 1.45% of student income earned from work up to $250,000, (+) plus 
+• 2.35% of student income earned from work over $250,000 
+If Student filed as Married-Filed Separate Return (MFS): 
+• 1.45% of student income earned from work up to $125,000, (+) plus 
+• 2.35% of student income earned from work over $125,000 (+) plus 
+ 
+See Table A1 for Notes and Example.  
+Step 2: Old-
+age, survi-
+vors, and 
+disability in-
+surance 
+(OASDI) 
+Tax Rate 
+If Student filed as Single, Married-Filed Separate Return (MFS), HoH or Qualifying Sur-
+viving Spouse: 
+• 6.2% of student income earned from work up to Contributions and Benefit 
+Base of $168,600 for Tax Year 2024. If student total income earned from work 
+exceeds $168,600, then calculate using $168,600*. 
+ 
+If Student filed as Married-Filed Joint Return (MFJ): 
+• 6.2% of student income earned from work up to Contributions and Benefit 
+Base of $337,200 for Tax Year 2024. If the student income earned from work 
+exceeds $337,200, then calculate using $337,200*. 
+ 
+See Table A1 for Notes and Example. 
+*Social Security’s Old-Age, Survivors, and Disability Insurance (OASDI) program limits the amount of earnings sub-
+ject to taxation for a given year. The same annual limit also applies when those earnings are used in a benefit compu-
+tation. This limit changes each year with changes in the national average wage index. For earnings in 2024, this base 
+is $168,600. 
+The OASDI tax rate for wages paid in 2024 is set by statute at 6.2 percent for employees and employers, each. Thus, 
+an individual with wages equal to or larger than $168,600 would contribute $10,453 to the OASDI program in 2024. 
+For more information visit: https://www.ssa.gov/oact/cola/cbb.html. 
+ 
+ 
+ 
+ 
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 18 
+The following tables are based, in part, upon the April 2025 Consumer Price Index for all Ur-
+ban Consumers (CPI-U).  
+ 
+Table B2:  Businesses/ Farms Net Worth Adjustment 
+If the net worth of businesses/ farms is ___ Then the adjusted net worth is ____ 
+Less than $1 $0 
+$1 to $175,000 40% of net worth of business/farm 
+$175,001 to $520,000 $70,000 + 50% of net worth over $175,000 
+$520,001 to $870,000 $242,500 + 60% of net worth over $520,000 
+$870,001 or more $452,500 + 100% of net worth over $870,000 
+ 
+Table B3:  Asset Protection Allowance 
+Age of stu-
+dent as of 
+12/31/2025 
+Allowance for 
+married stu-
+dent 
+Allowance 
+for unmar-
+ried student 
+Age of stu-
+dent as of 
+12/31/2025 
+Allowance for 
+married stu-
+dent 
+Allowance for 
+unmarried 
+student 
+25 or less $0 $0 46 $0 $0 
+26 $0 $0 47 $0 $0 
+27 $0 $0 48 $0 $0 
+28 $0 $0 49 $0 $0 
+29 $0 $0 50 $0 $0 
+30 $0 $0 51 $0 $0 
+31 $0 $0 52 $0 $0 
+32 $0 $0 53 $0 $0 
+33 $0 $0 54 $0 $0 
+34 $0 $0 55 $0 $0 
+35 $0 $0 56 $0 $0 
+36 $0 $0 57 $0 $0 
+37 $0 $0 58 $0 $0 
+38 $0 $0 59 $0 $0 
+39 $0 $0 60 $0 $0 
+40 $0 $0 61 $0 $0 
+41 $0 $0 62 $0 $0 
+42 $0 $0 63 $0 $0 
+43 $0 $0 64 $0 $0 
+44 $0 $0 65 or older $0 $0 
+45 $0 $0    
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 19 
+Formula C – Independent Students with Dependent(s) 
+Other than a Spouse 
+SAI = Student’s Contribution from Adjusted Available Income  
+Student Contribution from Income 
+Student (and Spouse) Income Additions 
+a. Student (and Spouse) AGI   
+b. Student (and Spouse) Deductible Payments to 
+IRA/KEOGH/Other +  
+c. Student (and Spouse) Tax-Exempt Interest Income +  
+d. Student (and Spouse) Untaxed Portions of IRA Distributions 
+(Subtract IRA rollover; if total is less than zero, enter zero) +  
+e. Student (and Spouse) Untaxed Portions of Pensions (Sub-
+tract Pension rollover; if total is less than zero, enter zero) +  
+f. Student (and Spouse) Foreign Income Exclusion  
+(reported on U.S. Tax Return; if less than zero, enter the ab-
+solute value) +  
+1. Total Student (and Spouse) Income Additions (sum of lines a, b, c, d, 
+e, and f) =  
+Student (and Spouse) Income Offsets 
+g. Student (and Spouse) College Grant and Scholarship Aid   
+h. Student (and Spouse) Education Credits +  
+i. Student (and Spouse) Federal Work-study (FWS) +  
+2. Total Student (and Spouse) Income Offsets (sum of lines g, h, and i) =  
+3. Total Student (and Spouse) Income (line 1 minus line 2) 
+• Total Student (and Spouse) Income Additions – Total Student (and 
+Spouse) Income Offsets 
+• May be a negative number =  
+Allowances Against Student (and Spouse) Income 
+4. Student (and Spouse) U.S. Income Tax Paid (or Foreign Equivalent)   
+5. Payroll Tax Allowance (Table C1)   
+a. Medicare’s Hospital Insurance (HI) Program Tax Rate  
+(Table C1: Step 1) +  
+b. Old-age, survivors, & disability insurance (OASDI) Tax Rate  
+(Table C1: Step 2) +  
+6. Income Protection Allowance (IPA) 
+• See Table C2 if the student indicator is married with dependents 
+• Table C3 if the student indicator is unmarried with dependents +  
+7. Employment Expense Allowance (EEA) +  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 20 
+• If the student indicator is unmarried, the lesser of: 
+ 35% of the student earned income, OR 
+ $ 5,000 
+• If the student indicator is married, the lesser of: 
+ 35% of the student and student’s spouse combined earned 
+income, OR 
+ $ 5,000 
+8. Total Student (and Spouse) Allowances Against Income (sum lines 4, 
+5a, 5b, 6, and 7) =  
+Student’s Available Income (StAI) 
+Total Student (and Spouse) Income (line 3)   
+Total Student (and Spouse) Allowances Against Income (line 8) -  
+9. Student Available Income (StAI; line 3 minus line 8) 
+• May be a negative number =  
+ 
+Student Contribution from Assets 
+10. Annual child support received for the last complete calendar year   
+11. Cash, savings, and checking accounts +  
+12. Net worth of current investments 
+• Includes: time deposits, money market funds, real estate (exclud-
+ing primary residence), vacation homes, income producing prop-
+erty, trusts, stocks, bonds, derivatives, securities, mutual funds, tax 
+shelters, and qualified education benefits 
+• If negative, enter zero +  
+13. Adjusted net worth of businesses and/or farms (Table C4) 
+• Net worth of businesses and/or farms multiplied by the applicable 
+adjustment in Table C4 +  
+14. Net worth (sum of lines 10, 11, 12, and 13) =  
+15. Asset Protection Allowance (APA; Table C5) -  
+16. Discretionary Net Worth 
+• Line 14 minus line 15 =  
+17. Asset Conversion Rate (7%) x 0.07 
+18. Student Contribution from Assets (SCA) 
+• Line 16 times line 17 
+• If negative, enter zero =  
+ 
+Student Aid Index 
+Student Available Income (line 9) 
+• May be a negative number   
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 21 
+Student Contribution from Assets (line 18) +  
+19. Student Adjusted Available Income (AAI; sum of lines 9 and 18) 
+• May be a negative number =  
+20. Total Student Contribution from AAI (Table C6) =  
+Student Aid Index (SAI) 
+• If line 20 is positive, SAI = line 20 
+• If line 20 is negative, and < -1,500, adjust to -1,500 (e.g., If nega-
+tive 2,000 set to -1,500) 
+• If line 20 is negative, and >= -1,500, do not adjust (e.g., If -1,000 
+leave as -1,000) =  
+ 
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 22 
+Supplementary Tables for Formula C – Independent Students with De-
+pendent(s) Other than a Spouse 
+Table C1:  Payroll Tax Allowance 
+Tax Rate Program Tax Rate 
+Step 1: Medicare’s 
+Hospital Insurance 
+(HI) Program Tax 
+Rate 
+If Student filed as Single, HoH or Qualifying Surviving Spouse: 
+• 1.45% of student income earned from work up to $200,000, (+) plus 
+• 2.35% of student income earned from work over $200,000 
+If Student filed as Married-Filed Joint Return (MFJ): 
+• 1.45% of student income earned from work up to $250,000, (+) plus 
+• 2.35% of student income earned from work over $250,000 
+If Student filed as Married-Filed Separate Return (MFS): 
+• 1.45% of student income earned from work up to $125,000, (+) plus 
+• 2.35% of student income earned from work over $125,000 (+) plus 
+ 
+See Table A1 for Notes and Example.  
+Step 2: Old-age, sur-
+vivors, and disability 
+insurance (OASDI) 
+Tax Rate 
+If Student filed as Single, Married-Filed Separate Return (MFS), HoH or 
+Qualifying Surviving Spouse: 
+• 6 .2% of student income earned from work up to Contributions and 
+Benefit Base of $168,600 for Tax Year 2024. If student total income 
+earned from work exceeds $168,600, then calculate using 
+$168,600*. 
+ 
+If Student filed as Married-Filed Joint Return (MFJ): 
+• 6.2% of student income earned from work up to Contributions and 
+Benefit Base of $337,200 for Tax Year 2024. If the student income 
+earned from work exceeds $337,200, then calculate using 
+$337,200*. 
+ 
+See Table A1 for Notes and Example.  
+*Social Security's Old-Age, Survivors, and Disability Insurance (OASDI) program limits the amount of earnings 
+subject to taxation for a given year. The same annual limit also applies when those earnings are used in a benefit 
+computation. This limit changes each year with changes in the national average wage index. For earnings in 
+2024, this base is $168,600. 
+The OASDI tax rate for wages paid in 2024 is set by statute at 6.2 percent for employees and employers, each. 
+Thus, an individual with wages equal to or larger than $168,600 would contribute $10,453 to the OASDI program 
+in 2024. 
+For more information visit: https://www.ssa.gov/oact/cola/cbb.html. 
+ 
+ 
+ 
+ 
+ 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 23 
+ 
+The following tables are based, in part, upon the April 2025 Consumer Price Index for all Ur-
+ban Consumers (CPI-U).  
+ 
+Table C2:  Income Protection Allowance – Married with Dependents 
+Family Size (including Student) Income Protection Allowance Amount 
+3 $57,730 
+4 $71,280 
+5 $84,120 
+6 $98,370 
+Note: For each additional household member, add $11,110. 
+ 
+Table C3:  Income Protection Allowance – Single with Dependents 
+Family Size (including Student) Income Protection Allowance Amount 
+2 $54,950 
+3 $68,430 
+4 $84,480 
+5 $99,700 
+6 $116,590 
+Note: For each additional household member, add $13,180. 
+ 
+Table C4:  Businesses/ Farms Net Worth Adjustment 
+If the net worth of businesses/ farms is ___ Then the adjusted net worth is ____ 
+Less than $1 $0 
+$1 to $175,000 40% of net worth of business/farm 
+$175,001 to $520,000 $70,000 + 50% of net worth over $175,000 
+$520,001 to $870,000 $242,500 + 60% of net worth over $520,000 
+$870,001 or more $452,500 + 100% of net worth over $870,000 
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 24 
+Table C5:  Asset Protection Allowance 
+Age of stu-
+dent as of 
+12/31/2025 
+Allowance for 
+married stu-
+dent 
+Allowance 
+for unmar-
+ried student 
+Age of stu-
+dent as of 
+12/31/2025 
+Allowance for 
+married stu-
+dent 
+Allowance for 
+unmarried 
+student 
+25 or less $0 $0 46 $0 $0 
+26 $0 $0 47 $0 $0 
+27 $0 $0 48 $0 $0 
+28 $0 $0 49 $0 $0 
+29 $0 $0 50 $0 $0 
+30 $0 $0 51 $0 $0 
+31 $0 $0 52 $0 $0 
+32 $0 $0 53 $0 $0 
+33 $0 $0 54 $0 $0 
+34 $0 $0 55 $0 $0 
+35 $0 $0 56 $0 $0 
+36 $0 $0 57 $0 $0 
+37 $0 $0 58 $0 $0 
+38 $0 $0 59 $0 $0 
+39 $0 $0 60 $0 $0 
+40 $0 $0 61 $0 $0 
+41 $0 $0 62 $0 $0 
+42 $0 $0 63 $0 $0 
+43 $0 $0 64 $0 $0 
+44 $0 $0 65 or older $0 $0 
+45 $0 $0    
+ 
+Table C6:  Assessment from Adjusted Available Income 
+If the AAI is ___ Then the contribution from AAI is ____ 
+Less than -$8,500 -$1,870 
+-$8,500 to $21,800 22% of AAI 
+$21,801 to $27,300 $4,796 + 25% of AAI over $21,800 
+$27,301 to $32,800 $6,171 + 29% of AAI over $27,300 
+$32,801 to $38,400 $7,766 + 34% of AAI over $32,800 
+$38,401 to $43,900 $9,670 + 40% of AAI over $38,400 
+$43,901 or more $11,870 + 47% of AAI over $43,900 
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 25 
+Step 3: Determine Minimum Pell 
+Grant Eligibility 
+Use the Minimum Pell Grant criteria to identify additional applicants eligible for a Pell Grant. Un-
+der HEA Sec. 401(b)(1)(C), a student is eligible for a Minimum Pell Grant if any of the following 
+is true: 
+Dependent Student 
+• Minimum Pell Indicator = 1: The student’s parent is a single parent (as defined in Appen-
+dix G), and has an (AGI + Foreign Income Exclusion Amount) less than or equal to 325% of 
+the poverty guideline for the applicant’s family size and state of legal residence; or 
+• Minimum Pell Indicator = 2: The student’s parent is not a single parent and has an (AGI + 
+Foreign Income Exclusion Amount) less than or equal to 275% of the poverty guideline for 
+the applicant’s family size and state of legal residence. 
+Independent Student 
+• Minimum Pell Indicator = 3: The student is a single parent (as defined in Appendix G), and 
+the (AGI + Foreign Income Exclusion Amount) is less than or equal to 400% of the poverty 
+guideline for the applicant’s family size and state of legal residence; or 
+• Minimum Pell Indicator = 4: The student is a parent and is not a single parent, and the 
+(AGI + Foreign Income Exclusion Amount) is less than or equal to 350% of the of the pov-
+erty guideline for the applicant’s family size and state of legal residence; or 
+• Minimum Pell Indicator = 5: The student is not a parent, and the student’s (and spouse’s if 
+applicable) (AGI + Foreign Income Exclusion Amount) is less than or equal to 275% of the 
+poverty guideline for the applicant’s family size and state of legal residence. 
+ 
+Note: The Minimum Pell Indicator (1, 2, 3, 4, or 5) will be returned on the ISIR, if applicable. 
+ 
+For additional information on state of legal residence and poverty guidelines, see Step 1: Deter-
+mine Maximum Pell Grant Eligibility. 
+SAI for Minimum Pell Grant Recipients 
+Students eligible for a Minimum Pell Grant under one of these eligibility criteria retain the SAI 
+calculated in Step 2: Calculate Student Aid Index. All other aid should be packaged using the 
+calculated SAI. 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 26 
+Federal Pell Grant Flag 
+ 
+The Federal Pell Grant Flag, used to determine if the student is potentially eligible for a Pell 
+Grant award, is set to Y when the following occurs. 
+Table 2: Pell Grant Flag 
+If Then 
+Graduate Flag is blank OR Pursuing Teach Certification is “Yes” 
+AND 
+Any of the following are true: 
+SAI is non-blank AND less than or equal to Maximum Pell SAI minus 
+the Minimum Pell SAI 
+OR 
+SAI is less than twice Maximum Pell SAI AND Minimum Pell Indica-
+tor is non-blank 
+OR 
+SAI is non-blank AND Children of Fallen Heroes Indicator is "Eligible 
+for CFH" OR “Eligible Due to Grandfather” 
+OR 
+SAI is non-blank AND Iraq Afghanistan Service Grant Indicator is 
+"Eligible for IASG" OR "Eligible Due to Grandfathering” 
+Pell Grant = Yes 
+ 
+Note: To determine the student’s actual Pell Grant award amount, use the guidance provided in 
+Volume 7 of the Federal Student Aid Handbook. 
+Note: Watch for further guidance on additional impacts from the One Big Beautiful Bill Act 
+(OBBBA) on packaging and Pell Eligibility determination.  
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 27 
+Appendix A: 
+Acronyms 
+ 
+Table 3: Acronyms 
+Acronym Definition 
+AAI Adjusted Available Income 
+AGI Adjusted Gross Income 
+APA Asset Protection Allowance 
+EEA Employment Expense Allowance 
+EITC Earned Income Tax Credit Received During Tax Year 
+FAA Financial Aid Administrator 
+FAFSA Free Application for Federal Student Aid 
+FTI Federal Tax Information 
+FUTURE Act Fostering Undergraduate Talent by Unlocking Resources for Educa-
+tion Act 
+FWS Federal Work-study 
+HEA Higher Education Act 
+HHS Department of Health and Human Services 
+HI Hospital Insurance 
+HoH Head of Household 
+IEFW Income Earned From Work 
+IPA Income Protection Allowance 
+IRA Individual Retirement Account 
+IRS Internal Revenue Service 
+ISIR Institutional Student Information Record 
+N/A Not Applicable 
+OASDI Old-age, survivors, and disability insurance 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 28 
+PAAI Parent Adjusted Available Income 
+PAI Parent Available Income 
+PCA Parent Contribution from Assets 
+SAI Student Aid Index 
+SCA Student Contribution from Assets 
+SLR State of Legal Residence 
+StAI Student Available Income 
+TFS Tax Filing Status 
+U.S. United States 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 29 
+Appendix B: 
+Dependency Status 
+Dependency (independent or dependent) status determines which eligibility criteria is used to 
+evaluate for Maximum or Minimum Pell Grant eligibility. It also drives which SAI formula to use 
+for a student applicant. 
+Under HEA 480(d), a student is automatically determined to be independent for federal student 
+aid purposes if he or she meets one or more of the following criteria: 
+• The student was born before January 1, 2003. 
+• The student is married or remarried (but not separated or divorced) as of the date of the ap-
+plication. 
+• At the beginning of the 2026-27 school year, the student will be enrolled in a master’s or 
+doctoral degree program (e.g., MA, MBA, MD, JD, PhD, EdD, or graduate certificate). 
+• The student is currently serving on active duty in the U.S. Armed Forces or is a National 
+• Guard or Reserves enlistee called into federal active duty for purposes other than training. 
+• The student is a veteran of the U.S. Armed Forces. 
+• The student has or will have one or more children or other people who live with and receive 
+more than half of their support from the student, now and through the last day of the award 
+year. 
+• At any time since the student turned age 13, both student’s parents were deceased, or the 
+student was in foster care or was a dependent or ward of the court. 
+• As determined by a court in the student’s state of legal residence, the student is now, or was 
+upon reaching the age of majority, an emancipated minor (that is, released from control by 
+his or her parent or guardian). 
+• As determined by a court in the student’s state of legal residence, the student is now, or was 
+upon reaching the age of majority, in legal guardianship. 
+• On or after July 1, 2025, the student was determined homeless or at risk of becoming home-
+less by one of the following: 
+ Director or designee of an emergency or transitional shelter, street outreach program, 
+homeless youth drop-in center, or other program serving those experiencing homeless-
+ness 
+ Student's high school or school district 
+ Director or designee of project supported by a federal TRIO or GEAR UP program grant 
+ Financial Aid Administrator 
+Students with Unusual Circumstances 
+For students who do not meet any of the above criteria but who have documented unusual cir-
+cumstances, an FAA can, by professional judgment and on a case-by-case basis, override their 
+dependency status from dependent to independent. For information about unusual circum-
+stances and dependency overrides, see the Application and Verification Guide, which is part of 
+the Federal Student Aid Handbook
+ and can be found on the Knowledge Center Web site.  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 30 
+Provisionally Independent Students 
+Applicants who indicate on the FAFSA form that they do not meet the above criteria to be con-
+sidered an independent student but have an unusual circumstance, or who indicated that they 
+are an unaccompanied homeless youth but do not have a determination from an authorized offi-
+cial, will be processed as provisionally independent. These students will receive a provisional 
+SAI, which is calculated using the same formulas as a standard SAI but cannot be used to pay 
+Federal student aid. Applicants who are provisionally independent will be directed to contact the 
+financial aid office at their school for further guidance. As a reminder, the HEA provides that un-
+accompanied homeless youth determinations are separate from professional judgments made 
+under the unusual circumstances provision. These applicants are also not considered Provision-
+ally Independent students, however, in the absence of a determination, an applicant who has 
+indicated that they are an unaccompanied homeless youth will follow the same FAFSA flow as a 
+Provisionally Independent student to allow them to complete a FAFSA form without parent infor-
+mation.   
+• If a FAFSA application is rejected, then no SAI will be calculated. 
+• If on any transaction, the only reject is for being a provisionally independent student (reject 
+1), then a Provisional SAI will be calculated and returned on the ISIR. If, however, a provi-
+sionally independent student has a reject other than reject 1, then a Provisional SAI will not 
+be calculated and returned on the ISIR.  
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 31 
+Appendix C: Family Size 
+Family size aligns with the number of exemptions* claimed on an individual’s tax return. 
+*Note: While exemptions no longer exist on the tax return since the Tax Cuts and Jobs Act, the 
+IRS database itself still contains an “exemptions” field and returns this value via the IRS FA-
+DDX.  This “exemption” field is the count of all those claimed on the tax return including the 
+filer(s).  
+Calculated Family Size 
+Family size can be calculated using IRS exemptions only or IRS exemptions with applied as-
+sumptions if all input sources required to calculate the family size indicate to use the IRS ex-
+emption information. Inputs to family size are: 
+• D ependency status; 
+• Married indicator; 
+• IRS tax filing status; and 
+• IRS reported exemptions.* 
+ 
+*In scenarios where a taxpayer’s tax Filing Status = NO (did not file taxes) OR where a depend-
+ent students’ exemption = Null (e.g., this is a scenario where there could be no IRS information 
+on file such as IRS response code = 203, 206, or 212 OR no IRS data retrieved on file with 
+FTIM and self-reported income is provided, etc.), then their exemptions would be set to zero (0) 
+for the purposes of the family size calculation. If the calculation appears to be missing the stu-
+dent, then an additional exemption of one (1) is added to the total for the purposes of the family 
+size calculation. 
+Table 4: Family Size Indicator 
+Dependent Students 
+If Then 
+Parent Married Indicator = Married, 
+AND 
+Parent Tax Filing Status = Married Filing Jointly (MFJ), 
+AND 
+Parent Exemptions + (plus) Student Exemptions > 2 
+Parent Family Size = [Parent Exemp-
+tions + Student Exemptions] 
+Parent Married Indicator = Married, 
+AND 
+Parent Tax Filing Status = MFJ, 
+AND 
+Parent Exemptions + (plus) Student Exemptions is <= 2 
+Parent Family Size = [Parent Exemp-
+tions + Student Exemptions]  
+ 
+Assumed Parent Family Size = 3 
+ 
+Parent Married Indicator = Married, 
+AND 
+Parent Tax Filing Status ≠ MFJ, 
+AND 
+Parent Family Size = [Parent Exemp-
+tions + Parent Spouse Exemptions + 
+Student Exemptions] 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 32 
+Dependent Students 
+If Then 
+Parent Spouse Tax Filing Status ≠ MFJ, 
+AND 
+Parent Exemptions + Parent Spouse Exemptions + Student 
+Exemptions > 2 
+Parent Married Indicator = Married, 
+AND 
+Parent Tax Filing Status ≠ MFJ, 
+AND 
+Parent Spouse Tax Filing Status ≠ MFJ, 
+AND 
+Parent Exemptions + Parent Spouse Exemptions + Student 
+Exemptions <= 2 
+Parent Family Size = [Parent Exemp-
+tions + Parent Spouse Exemptions + 
+Student Exemptions]  
+ 
+Assumed Parent Family Size = 3 
+ 
+Parent Married Indicator = Unmarried, 
+AND 
+Parent Exemptions + Student Exemptions >= 2 
+Parent Family Size = [Parent Exemp-
+tions + Student Exemptions] 
+Parent Married Indicator = Unmarried, 
+AND 
+Parent Exemptions + Student Exemptions < 2 
+Parent Family Size = [Parent Exemp-
+tions + Student Exemptions]  
+ 
+Assumed Parent Family Size =2 
+ 
+Independent Students 
+If Then 
+Student Married Indicator = Married, 
+AND 
+student Tax Filing Status = MFJ, 
+AND 
+Student Exemptions is > 1 
+Student Family Size = [Student Ex-
+emptions] 
+Student Married Indicator = Married, 
+AND 
+student Tax Filing Status = MFJ, 
+AND 
+Student Exemptions <= 1 
+Student Family Size = [Student Ex-
+emptions]  
+ 
+Assumed Student Family Size = 2 
+Student Married Indicator = Married, 
+AND 
+Student Tax Filing Status ≠ MFJ, 
+AND 
+Student Exemptions + Student Spouse Exemptions >= 2 
+Student Family Size = [Student Ex-
+emptions + Student Spouse Exemp-
+tions] 
+Student Married Indicator = Married, 
+AND 
+Student Tax Filing Status ≠ MFJ, 
+AND 
+Student Exemptions + Student Spouse Exemptions < 2 
+Student Family Size = [Student Ex-
+emptions + Student Spouse Exemp-
+tions]  
+ 
+Assumed Student Family Size = 2      
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 33 
+Independent Students 
+If Then 
+Student Married Indicator = Unmarried, 
+AND 
+Student Exemptions >= 1 
+Student Family Size = [Student Ex-
+emptions] 
+Student Married Indicator = Unmarried, 
+AND 
+Student Exemptions < 1 
+Student Family Size = [Student Ex-
+emptions]  
+ 
+Assumed Student Family Size = [Stu-
+dent Exemptions] + 1 (assumed stu-
+dent) = 1 
+ 
+Note:  In a scenario where the parent (or independent student) has a TFS = MFJ – BUT they 
+are no longer married to the same spouse, then a self-reported family size must be provided 
+and no assumptions can be made.  
+Self-Reported Family Size 
+For individuals without a calculated family size or for whom the calculated family size is inaccu-
+rate, family size can be self-reported by the applicant. The following persons are included in the 
+self-reported family size. 
+Table 5: Self-Reported Family Size 
+Dependent Students Independent Students 
+• The student 
+• The student’s parents, even if the student is 
+not living with them. Exclude a parent who 
+has died or is not living in the household be-
+cause of separation or divorce. Include a par-
+ent who is on active duty in the U.S. Armed 
+Forces apart from the family. 
+• The student’s siblings if the following are true: 
+o They live with the student’s parents (or live 
+apart because of college enrollment); 
+o They receive more than half of their sup-
+port from the student’s parents; and 
+o They will continue to receive more than 
+half their support from the student’s par-
+ents during the award year. 
+• Other persons if the following are true: 
+o They live with the student’s parents; 
+o They receive more than half of their sup-
+port from the student’s parents; and 
+o They will continue to receive more than 
+half their support from the student’s par-
+ents during the award year. 
+• The student 
+• The student’s spouse, if applicable 
+• The student’s dependent children if the fol-
+lowing are true: 
+o They live with the student (or live apart be-
+cause of college enrollment); 
+o They receive more than half of their sup-
+port from the student; and 
+o They will continue to receive more than 
+half their support from the student during 
+the award year. 
+• Other persons if the following are true: 
+o They live with the student; 
+o They receive more than half of their sup-
+port from the student; and 
+o They will continue to receive more than 
+half their support from the student during 
+the award year. 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 34 
+The provided criteria for “dependent children” or “other persons” aligns with the requirement that 
+family size aligns with whom the parent (or student, if independent) could claim as a dependent 
+on a U.S. tax return if the parent (or student, if independent) were to file a U.S tax return at the 
+time of completing the 2026-27 FAFSA. As a result, unborn children should not be included in 
+the family size. 
+Hierarchy Rules 
+In instances where the family size is calculated, and there is both a Calculated Family Size and 
+a Self-Reported Family Size provided, the Self-Reported Family Size value must be used in the 
+SAI calculation. 
+If more than one family size value is provided on the ISIR, the following hierarchy rules were ap-
+plied: 
+• If the Updated Family Size field [ID 61 or ID183] is non-blank it is used in the SAI calcu-
+lation,  
+• if the Assumed Family Size field [ID 314 or ID 315] is non-blank it is used in the SAI cal-
+culation,  
+• if both the Updated Family Size and Assumed Family Size fields are blank, the FTI ex-
+emptions field(s) [ID 850, ID 870, ID 890, or ID 910] are used as the family size in the 
+SAI calculation.  
+ 
+As a reminder:  Family size is not calculated nor used in the SAI calculation when Maximum Pell 
+Indicator = 1. 
+If any taxpayer data used in the SAI calculation uses only self-reported information (e.g., one 
+spouse uses IRS and the other spouse uses only self-reported income or if dependent, and the 
+dependent student uses only self-reported income information even if both parents use IRS 
+data) then the Family Size used in the SAI calculation must be the Self-Reported (Updated) 
+Family Size captured on the FAFSA. 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 35 
+Appendix D: Non-Tax Filer vs. 
+Tax Filer  
+The student or parent is determined to be a non-tax filer or tax filer based upon the criteria de-
+fined under the Parameter Value Edits in the FAFSA Specifications Guide Volume 5 for the fol-
+lowing field(s): 
+• Parent Non-Tax Filer 
+• Parent Spouse or Partner Non-Tax Filer 
+• Parent Spouse or Partner Tax Filer 
+• Parent Tax Filer 
+• Student Non-Tax Filer 
+• Student Spouse Non-Tax Filer 
+• Student Spouse Tax Filer 
+• Student Tax Filer 
+ 
+If status is tax filer, the following additional variable inputs in the appendices below may need to 
+be determined prior to executing the SAI calculation. 
+Note:  For Step 1, only the parents of dependent students need to both qualify as non-filers to 
+meet Maximum Pell 1 logic; for independent students, both the student and spouse, if applica-
+ble, need to qualify.  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 36 
+Appendix E: Applicants or Con-
+tributors Required to Provide 
+Assets 
+The student or parent is required to provide assets if they meet the criteria defined under the 
+Parameter Value Edits in the FAFSA Specifications Guide Volume 5 for the following field(s): 
+• Independent Student Required to Provide Assets 
+• Parent/Dependent Student Required to Provide Assets 
+ 
+ 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 37 
+Appendix F: Determining Mar-
+ried Status Indicator 
+The married indicator is used in the SAI calculation for several steps. The married indicator is 
+set using the following inputs: 
+• Dependency status 
+• Marital status 
+Table 6: Married Status Indicator 
+Dependent Students  
+If Then 
+Parents’ marital status is Married, Remarried, or Un-
+married and both legal parents living together 
+Set the parent married indicator to Mar-
+ried 
+Parents’ marital status is Single (Never Married), Di-
+vorced, Separated, or Widowed 
+Set the parent married indicator to Un-
+married 
+ 
+Independent Students  
+If Then 
+Student marital status is Single, Divorced, Separated, 
+or Widowed 
+Set the student married indicator to Un-
+married 
+Student marital status is Married or Remarried Set the student married indicator to Mar-
+ried 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 38 
+Appendix G: Determining “Sin-
+gle Parent” Status Indicator  
+Has Dependents Indicator Logic 
+For the SAI calculation to use the correct look-up tables or determine if an independent student 
+qualifies as a single parent, the Has Dependents indicator must first be determined. Inputs to 
+Has Dependents indicator are: 
+• Student Married Indicator 
+• Student Family Size 
+Table 7: Has Dependents Indicator 
+Independent Students 
+If Then 
+Student Married Indicator = Married, 
+AND 
+Student Family Size >= 3 
+Has Dependents Indicator = TRUE 
+Student Married Indicator = Unmarried, 
+AND 
+Student Family Size >= 2 
+Has Dependents Indicator = TRUE 
+Student Married Indicator = Married, 
+AND 
+Student Family Size = 2 
+Has Dependents Indicator = FALSE 
+Student Married Indicator = Unmarried, 
+AND 
+Student Family Size =1 
+Has Dependents Indicator = FALSE 
+Single Parent Status Indicator Logic 
+Determine the Single Parent indicator to identify which Maximum and Minimum Pell AGI thresh-
+old percentage rate to use in the SAI calculation for Maximum Pell indicator 2 or 3 or the Mini-
+mum Pell indicator 1–4. Inputs to determine single parent indicator are: 
+• Dependency status 
+• Married indicator 
+• Has dependents indicator (Independent only) 
+• Tax filing status 
+• Earned income credit (EITC) during tax year response* [ID97 or ID207]. 
+*Note: If the Self-Reported EITC Response during tax year = [blank] or not provided, presume 
+Response = NO for purposes of the SAI calculation. 
+ 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 39 
+ 
+Table 8: Single Parent Status Indicator 
+Dependent Students 
+If Then Else 
+Parent Married Indicator = Un-
+married, 
+AND 
+1. Parent Tax Filing Status 
+= Head of Household, 
+OR 
+2. Parent Tax Filing Status 
+= Qualifying Surviving 
+Spouse, OR 
+3. Parent Self-Reported 
+Parent Earned Income 
+Tax Credit Received 
+During Tax Year (EITC) 
+Response = YES 
+Parent Single Parent Indicator = 
+TRUE 
+Parent Single Parent Indicator = 
+FALSE 
+ 
+Independent Students 
+If Then Else 
+Student Married Indicator = Un-
+married, 
+AND 
+Has Dependents Indicator = 
+TRUE, 
+AND 
+1. Student Tax Filing Sta-
+tus = Head of House-
+hold, OR 
+2. Student Tax Filing Sta-
+tus = Qualifying Surviv-
+ing Spouse, OR 
+3. Student Self-Reported 
+Earned Income Tax 
+Credit Received During 
+Tax Year (EITC) Re-
+sponse = YES 
+Student Single Parent Indicator 
+= TRUE 
+Student Single Parent Indicator 
+= FALSE 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 40 
+Appendix H: Determining In-
+come Source Information 
+An SAI is calculated using any of the following variations, per contributor: 
+• Using only FTI income data (FTI data indicates the data was received from the IRS) 
+• Using some FTI income data and some self-reported income data (combo) OR using some 
+FTI income data and non-tax filer (combo*), or 
+• Using only self-reported income data** 
+*In scenarios where the SAI calculation needs to use a combination of a tax filer (has income) 
+and a non-tax filer (e.g., has no income – did not file taxes or self-reported did not file taxes) 
+only the tax filer income information is used for look-up tables, etc. with one exception as noted 
+above – the family size calculation if using IRS exemptions only.    
+**The FAFSA may also determine that none of the IRS information should be used or ignored.  
+FAFSA will determine the source of the information to use in the SAI calculation. Based on initial 
+checks with the IRS, FAFSA uses the results to determine if the user must provide self-reported 
+income information due to conflicts or if they are a non-U.S. tax filer and need to report foreign 
+income. 
+As a rule, any self-reported income information at field level should replace FTI data at field 
+level in an SAI calculation. For example, if on the ISIR both the FTI data field and the self-re-
+ported data field is populated (e.g., FTI AGI and self-reported AGI fields), the self-reported field 
+is what is used in the SAI calculation. For more guidance around situations where a school be-
+lieves there is conflicting information between FTI data and self-reported data, see Application 
+and Verification Guide, Chapter 4: Special Cases of the Federal Student Aid Handbook 
+(https://fsapartners.ed.gov/knowledge-center/fsa-handbook
+).  
+The student or parent is required to manually provide self-reported income if they meet the crite-
+ria defined under the Parameter Value Edits in the FAFSA Specifications Guide Volume 5 for 
+the following field(s): 
+• Student Manual Entry Required 
+• Student Spouse Manual Entry Required 
+• Parent Manual Entry Required 
+• Parent Spouse or Partner Manual Entry Required 
+ 
+The student or parent is NOT required to manually provide self-reported income if they meet the 
+criteria defined under the Parameter Value Edits in the FAFSA Specifications Guide Volume 5 
+for the following field(s): 
+• Student Manual Entry Not Required 
+• Student Spouse Manual Entry Not Required 
+• Parent Manual Entry Not Required 
+• Parent Spouse or Partner Manual Entry Not Required 
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 41 
+Appendix I: Additional Re-
+sources 
+FAFSA Specifications Guide 
+The FAFSA Specifications Guide is designed to meet the reference needs of financial aid ad-
+ministrators (FAA), programmers and data processing staff who want to incorporate electronic 
+Free Application for Federal Student Aid (FAFSA) functionality into their institutional systems. 
+EDExpress Resources 
+EDExpress resources are associated with the Windows software/PC application that processes, 
+packages, and manages Title IV student financial aid records. 
+  
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 42 
+Appendix J: ISIR Input Field IDs 
+Used in SAI Calculation 
+Included in the table below is a list of ISIR output fields that may be used in the SAI Calculation 
+by Role. If more than one ID is listed under a contributor role in the role column, the first ID 
+maps to the ISIRs manual (or self-reported) field(s) followed by the ISIRs FTI ID field(s) (if appli-
+cable).  If there is only one ID listed, it will either map to the manual (self-reported) OR FTI ID 
+field section of the ISIR.  
+Table 9: SAI Worksheet/ISIR Input Field ID Mapping 
+SAI Worksheet ISIR Input Fields Student Parent Parent 
+Spouse 
+Student 
+Spouse 
+Tax Filing Status 88 
+848 
+198 
+888 
+238 
+908 
+148 
+868 
+AGI 95 
+849 
+205 
+889 
+245 
+909 
+155 
+869 
+Exemptions 850 890 910 870 
+Income earned from work (IEFW) 89 
+852 
+199 
+892 
+239 
+912 
+149 
+872 
+Deductible Payments to IRA/KEOGH/Other 98 
+856 
+208 
+896 
+247 
+916 
+157 
+876 
+Tax-Exempt Interest Income 90 
+857 
+200 
+897 
+240 
+917 
+150 
+877 
+Untaxed Portions of IRA Distributions  91 
+855 
+201 
+895 
+241 
+915 
+151 
+875 
+IRA Rollover 92 202 242 152 
+Untaxed Portions of Pensions  93 
+858 
+203 
+898 
+243 
+918 
+153 
+878 
+Pension Rollover 94 204 244 154 
+Foreign Income Exclusion (reported on U.S. Tax 
+Return) 
+ 
+103 213 251 
+ 
+161 
+Taxable College Grant and Scholarship Aid (re-
+ported as income) 
+ 
+102 
+ 
+212  
+ 
+Education Credits 99 
+854 
+209 
+894 
+248 
+914 
+158 
+874 
+Federal Work-study (FWS) 302 304 305 303 
+U.S. Income Tax Paid (or Foreign Equivalent) 96 
+853 
+206 
+893 
+246 
+913 
+156 
+873 
+Annual child support received for the last complete 
+calendar year  
+ 
+104 
+ 
+214  
+ 
+Cash, savings, and checking accounts 105 215   
+Net worth of current investments 106 216   
+
+2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide 
+ 43 
+SAI Worksheet ISIR Input Fields Student Parent Parent 
+Spouse 
+Student 
+Spouse 
+Adjusted net worth of businesses and/or farms   
+107 217  
+ 
+Assumed (Calculated with Assumptions) Family 
+Size 
+ 
+314 315  
+ 
+Updated (Manual/Self-reported) Family Size 61 183   
+Earned Income Tax Credit Received During Tax 
+Year (EITC) 
+97 207 
+  
+ 
+Note: the full list of ISIR fields and IDs are defined in Volume 4a of the FAFSA Specifications 
+Guide. 
+ 
+ 

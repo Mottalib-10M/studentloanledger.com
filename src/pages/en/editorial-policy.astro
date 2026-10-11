@@ -1,0 +1,29 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+---
+<PageLayout title={`Editorial policy of ${SITE_NAMES[lang]}: law, rules and fixes`} description="Which laws, regulations and Department of Education notices the loan and aid figures come from, which sources never supply a number here, and how an error is corrected." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>Editorial and corrections policy</h1>
+    <p>Borrowers use these tools to choose a repayment plan they may keep for decades, to decide whether to stay in a public service job until forgiveness, or to estimate a Pell Grant before an admission decision. A wrong bracket or an outdated rate can push someone into the wrong plan. Here is where each number comes from and what happens when one is wrong.</p>
+    <h2>Who is responsible</h2><p>Content and calculations: {AUTHOR_NAME}, <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Documents that supply figures</h2>
+    <ul>
+      <li>the statute: Public Law 119-21 of July 4, 2025 and the Higher Education Act as it amends it (sections 455, 493C, 401);</li>
+      <li>the regulations in 34 CFR part 685, as rewritten by the final rule of May 1, 2026, and the PSLF rule of October 31, 2025;</li>
+      <li>Federal Register notices of the Department of Education: yearly interest rates, need analysis tables;</li>
+      <li>Department of Education press releases and fact sheets for dates and transitions (SAVE, auto pay reduction, collections);</li>
+      <li>Federal Student Aid's 2026-27 SAI and Pell Grant Eligibility Guide;</li>
+      <li>the appropriations law that sets the Pell Grant, the HHS poverty guidelines and IRS revenue procedures for tax figures.</li>
+    </ul>
+    <h2>Sources that never supply a number</h2>
+    <p>Personal finance sites, lender blogs, news articles and social media can tell us something changed. They never provide a figure here. When a rule is announced but not yet in a regulation or an official notice, we write it with its status and its date, and the calculators do not apply it.</p>
+    <h2>Review cycle</h2><p>Every figure is re-read at least every {REVIEW_CYCLE_MONTHS} months and at each known date: July 1 for new loan rates and plan changes, January for poverty guidelines, October for the FAFSA cycle.</p>
+    <h2>Corrections</h2>
+    <ol><li>We compare the report with the official document.</li><li>We fix the parameter or the engine and add a test that reproduces the case.</li><li>The page carries its new reading date.</li></ol>
+    <h2>Independence</h2><p>No refinancing lender, loan servicer, debt relief company or lead buyer pays to appear here, and no calculator asks for contact details. If a paid link ever appeared, it would be labeled next to it.</p>
+    <p>See also the <a href={route('method', lang)}>method page</a>. Policy version: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

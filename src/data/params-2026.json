@@ -1,0 +1,195 @@
+{
+  "_readme": "Federal student loan and student aid parameters, each read on the official document cited in `sources` (copies in research/). Never type one of these figures in a page: read it here through src/lib/kit.ts. Retrieved 2026-10-11.",
+  "year": 2026,
+  "retrieved_at": "2026-10-11",
+  "valid_from": "2026-07-01",
+  "valid_to": "2027-06-30",
+  "law": {
+    "_source": "obbba (Public Law 119-21, signed July 4, 2025; the Department of Education now calls it the Working Families Tax Cuts Act: riseFinal).",
+    "enacted": "2025-07-04",
+    "newPlansStart": "2026-07-01",
+    "oldPlansEnd": "2028-07-01",
+    "oldPlansLastDay": "2028-06-30",
+    "deferSunsetLoansFrom": "2027-07-01",
+    "secondRehabFrom": "2027-07-01",
+    "riseFinalPublished": "2026-05-01",
+    "riseEffective": "2026-07-01"
+  },
+  "rates": {
+    "_source": "ratesNotice (Federal Register 2026-18493, September 10, 2026): 10-year Treasury high yield at the May 12, 2026 auction 4.468%, rounded to 4.47%, plus the statutory add-on, capped at the statutory maximum. Fixed for the life of the loan.",
+    "treasury": 4.47,
+    "auction": "2026-05-12",
+    "current": { "from": "2026-07-01", "to": "2027-06-30", "undergrad": 6.52, "grad": 8.07, "plus": 9.07 },
+    "addOn": { "undergrad": 2.05, "grad": 3.6, "plus": 4.6 },
+    "cap": { "undergrad": 8.25, "grad": 9.5, "plus": 10.5 },
+    "history": [
+      { "from": "2026-07-01", "undergrad": 6.52, "grad": 8.07, "plus": 9.07 },
+      { "from": "2025-07-01", "undergrad": 6.39, "grad": 7.94, "plus": 8.94 },
+      { "from": "2024-07-01", "undergrad": 6.53, "grad": 8.08, "plus": 9.08 },
+      { "from": "2023-07-01", "undergrad": 5.5, "grad": 7.05, "plus": 8.05 }
+    ]
+  },
+  "autopay": {
+    "_source": "edAutopay (June 18, 2026) and edAutopayExtend (September 29, 2026): 1 percentage point total reduction for borrowers in auto pay, through June 30, 2028, if enrolled by December 31, 2026; the usual reduction outside the offer is 0.25 point. Direct Loans originated after July 1, 2012.",
+    "standardCut": 0.25,
+    "promoCut": 1,
+    "promoEnrollBy": "2026-12-31",
+    "promoEnrollByFirst": "2026-09-30",
+    "promoUntil": "2028-06-30",
+    "promoFrom": "2026-07-01",
+    "enrolledSoFar": "nearly 2 million"
+  },
+  "rap": {
+    "_source": "obbba sec. 82001(d), HEA sec. 455(q); riseFinal, 34 CFR 685.209(b)(2), (f)(5), (g)(3), (h)(4), (k)(7)-(8), (o)(2).",
+    "brackets": [[10000, 0], [20000, 1], [30000, 2], [40000, 3], [50000, 4], [60000, 5], [70000, 6], [80000, 7], [90000, 8], [100000, 9]],
+    "topPct": 10,
+    "floorBase": 120,
+    "perDependent": 50,
+    "minPayment": 10,
+    "matchMax": 50,
+    "payments": 360,
+    "years": 30
+  },
+  "ibr": {
+    "_source": "HEA sec. 493C as amended by obbba sec. 82001(f); riseFinal, 34 CFR 685.209(b)(1), (b)(13)(ii), (f)(2)-(3), (g)(1)(iii), (k)(1)-(2).",
+    "povertyPct": 150,
+    "oldPct": 15,
+    "newPct": 10,
+    "oldPayments": 300,
+    "newPayments": 240,
+    "newBorrowerAfter": "2014-07-01",
+    "zeroBelow": 5,
+    "tenBelow": 10
+  },
+  "save": {
+    "_source": "34 CFR 685.209(f)(1) (REPAYE/SAVE formula, still printed in riseFinal through June 30, 2028); the plan is closed under the settlement approved in March 2026 (edSaveNextSteps).",
+    "povertyPct": 225,
+    "undergradPct": 5,
+    "gradPct": 10,
+    "settlementAnnounced": "2025-12-09",
+    "guidanceSent": "2026-03-27",
+    "noticeDays": 90,
+    "borrowers": "7.5 million"
+  },
+  "standard": {
+    "_source": "34 CFR 685.208(b)(1) (10-year standard, $50 minimum) and (b)(8), (c)(1) (Tiered Standard); HEA sec. 455(d)(7)(A)(i).",
+    "years10": 10,
+    "minPayment": 50,
+    "tiers": [[25000, 10], [50000, 15], [100000, 20], [null, 25]]
+  },
+  "limits": {
+    "_source": "34 CFR 685.203 (eCFR, current) and HEA sec. 455(a)(4)-(6) added by obbba sec. 81001; riseFinal.",
+    "depUndergrad": { "sub": [3500, 4500, 5500], "total": [5500, 6500, 7500], "aggregate": 31000, "aggregateSub": 23000 },
+    "indUndergrad": { "sub": [3500, 4500, 5500], "total": [9500, 10500, 12500], "aggregate": 57500, "aggregateSub": 23000 },
+    "grad": { "annual": 20500, "aggregate": 100000 },
+    "professional": { "annual": 50000, "aggregate": 200000 },
+    "gradOld": { "annualUnsub": 20500, "aggregate": 138500 },
+    "parentPlus": { "annual": 20000, "aggregate": 65000 },
+    "lifetime": 257500,
+    "legacyYearsMax": 3
+  },
+  "pslf": {
+    "_source": "34 CFR 685.219 (eCFR, current, with the qualifying-employer amendments effective July 1, 2026: pslfRule) and HEA sec. 455(m) as amended by obbba sec. 82004.",
+    "payments": 120,
+    "hoursPerWeek": 30,
+    "employerRuleFrom": "2026-07-01",
+    "employerRulePublished": "2025-10-31"
+  },
+  "fpl": {
+    "_source": "hhs2026 (2026 guidelines, used for IBR and RAP-era payment estimates) and frPoverty2024 (2024 guidelines, used by the 2026-27 FAFSA for Pell thresholds, saiGuide). [first person, each additional person], annual dollars.",
+    "2026": { "us": [15960, 5680], "ak": [19950, 7100], "hi": [18360, 6530] },
+    "2024": { "us": [15060, 5380], "ak": [18810, 6730], "hi": [17310, 6190] }
+  },
+  "deduction": {
+    "_source": "irsRp2532 sec. 4.29 (tax year 2026) and 26 U.S.C. 221.",
+    "max": 2500,
+    "single": [85000, 100000],
+    "joint": [175000, 205000],
+    "taxYear": 2026
+  },
+  "employer127": {
+    "_source": "obbba sec. 70412 (26 U.S.C. 127(c)(1)(B) made permanent for payments after December 31, 2025; inflation adjustment for taxable years beginning after 2026) and irsRp2532 sec. 3.09.",
+    "max": 5250,
+    "indexedFrom": 2027
+  },
+  "tax": {
+    "_source": "obbba sec. 70119 rewrote 26 U.S.C. 108(f)(5): from 2026 it excludes only discharges for death or total and permanent disability.",
+    "broadExclusionEnded": "2025-12-31"
+  },
+  "s529": {
+    "_source": "obbba sec. 70413 and 70414 (26 U.S.C. 529): K-12 tuition limit raised from $10,000 to $20,000 for taxable years beginning after December 31, 2025; credential programs added; irsRp2532 sec. 4.42 gift exclusion.",
+    "k12Old": 10000,
+    "k12New": 20000,
+    "giftExclusion": 19000
+  },
+  "pell": {
+    "_source": "approps (Public Law 119-75, approved February 3, 2026: maximum Pell Grant $6,335 for award year 2026-2027) plus the $1,060 of 20 U.S.C. 1070a(b)(5)(A)(i) (hea401); minimum = 10% of the total maximum (hea401 (a)(3)(F)); SAI thresholds: saiGuide; high-SAI rule and grant-aid exclusion: obbba sec. 83001(b), 83004.",
+    "awardYear": "2026-27",
+    "appropriated": 6335,
+    "mandatory": 1060,
+    "max": 7395,
+    "minPct": 10,
+    "maxPellAgiPct": { "singleParent": 225, "other": 175 },
+    "minPellAgiPct": { "depSingleParent": 325, "depOther": 275, "indSingleParent": 400, "indParent": 350, "indNoChild": 275 },
+    "highSaiMultiple": 2,
+    "saiFloor": -1500
+  },
+  "sai": {
+    "_source": "saiGuide (2026-27 Student Aid Index and Pell Grant Eligibility Guide, June 2025) and needAnalysis (Federal Register 2025-10243, June 5, 2025).",
+    "ipaParent": { "base": [29190, 36330, 44880, 52950, 61930], "baseSize": 2, "extra": 6990 },
+    "ipaDependentStudent": 11770,
+    "ipaIndNoDep": { "single": 18310, "married": 29350 },
+    "ipaIndMarriedDep": { "base": [57730, 71280, 84120, 98370], "baseSize": 3, "extra": 11110 },
+    "ipaIndSingleDep": { "base": [54950, 68430, 84480, 99700, 116590], "baseSize": 2, "extra": 13180 },
+    "eeaMax": 5000,
+    "eeaPct": 35,
+    "hi": { "rate": 1.45, "extra": 2.35, "single": 200000, "joint": 250000, "separate": 125000 },
+    "oasdi": { "rate": 6.2, "single": 168600, "joint": 337200 },
+    "assessment": [[-8500, -1870], [21800, 0, 22], [27300, 4796, 25], [32800, 6171, 29], [38400, 7766, 34], [43900, 9670, 40], [null, 11870, 47]],
+    "parentAssetRate": 12,
+    "studentAssetRateDep": 20,
+    "indNoDepAssetRate": 20,
+    "indDepAssetRate": 7,
+    "studentIncomeRate": 50,
+    "businessNetWorth": [[1, 0, 0, 0], [175000, 0, 0, 40], [520000, 70000, 175000, 50], [870000, 242500, 520000, 60], [null, 452500, 870000, 100]],
+    "floor": -1500,
+    "taxYear": 2024,
+    "obbbaFarmBusinessExclusion": { "employeesMax": 100, "from": "2026-07-01" }
+  },
+  "fafsa": {
+    "_source": "edFafsa2728 (September 23, 2026).",
+    "nextLaunch": "2026-09-23",
+    "nextYear": "2027-28"
+  },
+  "sources": {
+    "obbba": { "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm", "label": "Public Law 119-21 (July 4, 2025), Title VIII, secs. 80001 to 85002 (loan limits, repayment, PSLF, Pell) and secs. 70119, 70412 to 70414 (tax)" },
+    "riseFinal": { "url": "https://www.federalregister.gov/documents/2026/05/01/2026-08556/reimagining-and-improving-student-education-federal-student-loan-program-final-regulations", "label": "Department of Education, RISE final regulations, 91 FR 23768 (May 1, 2026), effective July 1, 2026: 34 CFR 685.203, 685.208, 685.209, 685.219" },
+    "ratesNotice": { "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18493/annual-notice-of-interest-rates-for-fixed-rate-federal-student-loans-made-under-the-william-d-ford-federal-direct-loan-program", "label": "Department of Education, Annual Notice of Interest Rates for Fixed-Rate Direct Loans, Federal Register 2026-18493 (September 10, 2026)" },
+    "ecfr209": { "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.209", "label": "34 CFR 685.209, income-driven repayment plans (IBR, RAP, ICR, PAYE, REPAYE), eCFR" },
+    "ecfr208": { "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.208", "label": "34 CFR 685.208, fixed payment plans: 10-year standard and Tiered Standard, eCFR" },
+    "ecfr203": { "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.203", "label": "34 CFR 685.203, Direct Loan annual and aggregate limits, eCFR" },
+    "ecfr219": { "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.219", "label": "34 CFR 685.219, Public Service Loan Forgiveness, eCFR" },
+    "pslfRule": { "url": "https://www.federalregister.gov/documents/2025/10/31/2025-19729/william-d-ford-federal-direct-loan-direct-loan-program", "label": "Department of Education, PSLF qualifying employer final rule, 90 FR 48966 (October 31, 2025), effective July 1, 2026" },
+    "edFactSheet": { "url": "https://www.ed.gov/about/news/press-release/fact-sheet-trump-administration-simplifying-student-loan-repayment", "label": "Department of Education, Fact Sheet: Simplifying Student Loan Repayment (June 9, 2026)" },
+    "edJuly1": { "url": "https://www.ed.gov/about/news/press-release/fact-sheet-trump-administration-making-higher-education-more-affordable-expanding-opportunity-and-simplifying-student-loan-repayment", "label": "Department of Education, Fact Sheet of July 1, 2026: new plans, loan limits and Workforce Pell in effect" },
+    "edSaveNextSteps": { "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-announces-next-steps-borrowers-enrolled-unlawful-save-plan", "label": "Department of Education, Next Steps for Borrowers Enrolled in the SAVE Plan (March 27, 2026)" },
+    "edSaveAgreement": { "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-announces-agreement-missouri-end-biden-administrations-illegal-save-plan", "label": "Department of Education, Agreement with Missouri to end the SAVE Plan (December 9, 2025)" },
+    "edAutopay": { "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-announces-student-loan-interest-rate-reduction", "label": "Department of Education, Student Loan Interest Rate Reduction for auto pay (June 18, 2026)" },
+    "edAutopayExtend": { "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-extends-enrollment-period-student-loan-interest-rate-reduction", "label": "Department of Education, Enrollment Period Extended for the Interest Rate Reduction (September 29, 2026)" },
+    "edCollections": { "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-delays-involuntary-collections-amid-ongoing-student-loan-repayment-improvements", "label": "Department of Education, Involuntary Collections Delayed (January 16, 2026)" },
+    "edRiseFinal": { "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-finalizes-landmark-rule-lower-college-costs-and-simplify-student-loan-repayment", "label": "Department of Education, Final Rule on loan limits and repayment (April 30, 2026)" },
+    "edPslf": { "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-announces-final-rule-public-service-loan-forgiveness-protect-american-taxpayers", "label": "Department of Education, Final Rule on Public Service Loan Forgiveness (October 30, 2025)" },
+    "edFafsa2728": { "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-announces-earliest-fafsa-launch-program-history-second-consecutive-year", "label": "Department of Education, 2027-28 FAFSA form launched (September 23, 2026)" },
+    "hhs2026": { "url": "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines", "label": "HHS ASPE, 2026 Poverty Guidelines for the 48 states and DC, Alaska and Hawaii" },
+    "frPoverty2024": { "url": "https://www.federalregister.gov/documents/2024/01/17/2024-00796/annual-update-of-the-hhs-poverty-guidelines", "label": "Federal Register, Annual Update of the HHS Poverty Guidelines, 2024 (January 17, 2024), used for 2026-27 Pell thresholds" },
+    "saiGuide": { "url": "https://fsapartners.ed.gov/sites/default/files/2025-06/202627StudentAidIndexSAIandPellGrantEligibilityGuide.pdf", "label": "Federal Student Aid, 2026-27 Student Aid Index (SAI) and Pell Grant Eligibility Guide" },
+    "needAnalysis": { "url": "https://www.federalregister.gov/documents/2025/06/05/2025-10243/federal-need-analysis-methodology-for-the-2026-27-award-year-federal-pell-grant-federal-work-study-federal-supplemental-educational-opport", "label": "Federal Register 2025-10243, Federal Need Analysis Methodology for the 2026-27 Award Year (June 5, 2025)" },
+    "approps": { "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ75/html/PLAW-119publ75.htm", "label": "Public Law 119-75 (February 3, 2026), consolidated appropriations: maximum Pell Grant of $6,335 for award year 2026-2027" },
+    "hea401": { "url": "https://www.law.cornell.edu/uscode/text/20/1070a", "label": "20 U.S.C. 1070a (HEA sec. 401), Federal Pell Grants: total maximum and minimum award" },
+    "irsRp2532": { "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf", "label": "IRS Revenue Procedure 2025-32, inflation adjustments for tax year 2026 (sec. 4.29 student loan interest)" },
+    "irc221": { "url": "https://www.law.cornell.edu/uscode/text/26/221", "label": "26 U.S.C. 221, interest on education loans" },
+    "irc108": { "url": "https://www.law.cornell.edu/uscode/text/26/108", "label": "26 U.S.C. 108(f), student loan discharges" },
+    "irc127": { "url": "https://www.law.cornell.edu/uscode/text/26/127", "label": "26 U.S.C. 127, educational assistance programs (employer student loan payments)" },
+    "irc529": { "url": "https://www.law.cornell.edu/uscode/text/26/529", "label": "26 U.S.C. 529, qualified tuition programs" }
+  }
+}

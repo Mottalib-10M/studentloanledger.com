@@ -1,0 +1,71 @@
+/** Home text. Every figure is read from the data through the kit (RECETTE §17.4, point 7). */
+import type { FAQ, Helpers } from '../lib/page-types';
+import { P, R, usd, usdx, pct, day, rapPayment, ibrPayment, standard10, tieredStandard, pellMin, ibrLine } from '../lib/kit';
+
+const L = P.law;
+const ex = { agi: 52000, bal: 38000 };
+const rapEx = rapPayment({ agi: ex.agi, dependents: 0 }).payment;
+const ibrEx = ibrPayment({ agi: ex.agi, familySize: 1, newBorrower: true, balance: ex.bal, rate: R.undergrad }).payment;
+const tierEx = tieredStandard(ex.bal, R.undergrad);
+
+export const HOME = {
+  kicker: 'Federal student loans and aid · 2026-27',
+  title: 'Student Loan Calculator 2026: RAP vs IBR vs Tiered Standard',
+  description: `Student loan calculator for the 2025 law: RAP, IBR, Tiered Standard and 10-year payments for your own loans, PSLF, the 2026-27 rates (${pct(R.undergrad)}) and Pell.`,
+  h1: 'Student loan calculator after the 2025 reform: which plan costs you less',
+  resume: `On ${day(L.newPlansStart)} the Repayment Assistance Plan opened, and a borrower with a ${usd(ex.agi)} income and no dependent now owes ${usd(rapEx)} a month on it, against ${usd(ibrEx)} on Income-Based Repayment and ${usd(tierEx.payment)} on the Tiered Standard plan for a ${usd(ex.bal)} balance. Those three numbers come from three different formulas: RAP takes 1% to 10% of your whole adjusted gross income, minus ${usd(P.rap.perDependent)} per dependent; IBR takes ${P.ibr.newPct}% or ${P.ibr.oldPct}% of income above 150% of the poverty guideline; the Tiered Standard plan spreads the balance over 10 to 25 years. Which one wins depends on your income path, your balance and whether you took a loan after ${day(L.newPlansStart)}, which closes IBR for good. This comparator runs every plan open to you, year by year, with the exact rules of Public Law 119-21 and the regulations of ${day(L.riseFinalPublished)}, including the RAP interest waiver and the matching principal payment of up to ${usd(P.rap.matchMax)} that the guides ranking first describe without computing, and with the ${pct(R.undergrad)}, ${pct(R.grad)} and ${pct(R.plus)} rates published for loans disbursed from ${day(R.from)}.`,
+  menuTitle: 'Which plans are open to you depends on one date',
+  menuIntro: (h: Helpers) => `<p>The 2025 law split borrowers in two. Loans made before ${day(L.newPlansStart)} keep a wider menu until ${day(L.oldPlansLastDay)}; anyone who receives a new Direct Loan on or after that date repays all of their Direct Loans under the two new plans only (${h.src('obbba', 'HEA section 455(d)(7)')}). The table reads the regulation as published on ${day(L.riseFinalPublished)} (${h.src('ecfr209', '34 CFR 685.209')}).</p>`,
+  menu: (_h: Helpers): string[][] => [
+    ['Only loans made before July 1, 2026', `RAP, IBR, 10-year standard and the other fixed plans; PAYE and ICR only until ${day(L.oldPlansLastDay)}`, `If you are on PAYE or ICR and choose nothing by ${day(L.oldPlansEnd)}: RAP, or IBR for loans RAP cannot take`],
+    ['At least one loan made on or after July 1, 2026', 'RAP or Tiered Standard, for all your Direct Loans', 'Tiered Standard'],
+    ['Former SAVE borrowers', 'Any plan open to your loans, chosen within the 90-day notice from your servicer', 'Standard or Tiered Standard plan'],
+  ],
+  numbersTitle: 'The 2026-27 numbers the calculators use',
+  numbers: (h: Helpers): string[][] => [
+    ['Undergraduate rate (subsidized and unsubsidized)', pct(R.undergrad), h.src('ratesNotice', 'Federal Register, Sept. 10, 2026')],
+    ['Graduate and professional unsubsidized rate', pct(R.grad), h.src('ratesNotice', 'same notice')],
+    ['PLUS rate (parent PLUS; Grad PLUS under the interim exception)', pct(R.plus), h.src('ratesNotice', 'same notice')],
+    ['RAP minimum payment', usd(P.rap.minPayment), h.src('ecfr209', '34 CFR 685.209(g)(3)')],
+    ['RAP reduction per dependent', usd(P.rap.perDependent), h.src('obbba', 'HEA 455(q)(4)(B)')],
+    ['IBR income line, single borrower (150% of poverty)', usd(ibrLine(1)), h.src('hhs2026', 'HHS 2026 guideline')],
+    ['Graduate student annual limit', usd(P.limits.grad.annual), h.src('ecfr203', '34 CFR 685.203')],
+    ['Professional student annual limit', usd(P.limits.professional.annual), h.src('ecfr203', 'same section')],
+    ['Parent PLUS limit per student, per year / total', `${usd(P.limits.parentPlus.annual)} / ${usd(P.limits.parentPlus.aggregate)}`, h.src('obbba', 'HEA 455(a)(5)')],
+    ['Lifetime federal loan limit (parent PLUS excluded)', usd(P.limits.lifetime), h.src('obbba', 'HEA 455(a)(6)')],
+    ['Maximum Pell Grant', usd(P.pell.max), h.src('approps', 'Public Law 119-75')],
+    ['Minimum Pell Grant (10% of the maximum)', usdx(pellMin), h.src('hea401', '20 U.S.C. 1070a')],
+    ['Student loan interest deduction, tax year 2026', usd(P.deduction.max), h.src('irsRp2532', 'Rev. Proc. 2025-32')],
+  ],
+  deadlinesTitle: 'The dates that change your options',
+  deadlinesIntro: (h: Helpers) => `<p>Every date below comes from the law, a regulation or a Department of Education notice; a change only announced is not applied by the calculators. Sources: ${h.src('edJuly1', 'fact sheet of July 1, 2026')}, ${h.src('edSaveNextSteps', 'SAVE guidance of March 27, 2026')} and ${h.src('edAutopayExtend', 'auto pay notice of September 29, 2026')}.</p>`,
+  deadlines: (_h: Helpers): Array<{ date: string; what: string; who: string }> => [
+    { date: L.enacted, what: 'Public Law 119-21 signed; IBR loses the partial financial hardship test', who: 'Every federal borrower' },
+    { date: L.newPlansStart, what: 'RAP and Tiered Standard open; new graduate, professional and parent PLUS limits; Grad PLUS closed to new periods; Workforce Pell starts', who: 'Borrowers choosing a plan; students borrowing for 2026-27' },
+    { date: L.newPlansStart, what: `SAVE borrowers start receiving a 90-day notice to pick a plan`, who: `About ${P.save.borrowers} SAVE borrowers` },
+    { date: P.autopay.promoEnrollBy, what: `Last day to join auto pay and get the ${pct(P.autopay.promoCut)} total rate cut, kept until ${day(P.autopay.promoUntil)}`, who: 'Direct Loan borrowers not yet on auto pay' },
+    { date: L.deferSunsetLoansFrom, what: 'Loans made from this date lose the unemployment and economic hardship deferments; forbearance limited to 9 months in 24; second loan rehabilitation allowed', who: 'New loans; borrowers in default' },
+    { date: L.oldPlansLastDay, what: 'Last day of ICR and PAYE', who: 'Borrowers still on those plans' },
+    { date: L.oldPlansEnd, what: 'Borrowers who did not choose are moved to RAP, or to IBR for loans RAP cannot repay', who: 'Former ICR and PAYE borrowers' },
+  ],
+  toolsTitle: 'Every calculator and guide',
+  foldTitle: 'How the plans work',
+  sections: (h: Helpers) => [
+    { title: 'RAP: one rate on your whole income', html: `<p>RAP is not built like the old income-driven plans. It does not subtract a protected amount from income. It looks at the bracket your adjusted gross income falls in and applies that percentage to all of it: nothing above ${usd(P.rap.floorBase)} a year under ${usd(10000)}, then 1% above ${usd(10000)}, 2% above ${usd(20000)}, and so on to 10% above ${usd(100000)}. The yearly amount is divided by 12, then ${usd(P.rap.perDependent)} is taken off for each dependent you claim, and the result cannot fall under ${usd(P.rap.minPayment)}. Because the rate jumps at each ${usd(10000)} step, a raise from ${usd(49900)} to ${usd(50100)} moves the payment from ${usd(rapPayment({ agi: 49900, dependents: 0 }).payment)} to ${usd(rapPayment({ agi: 50100, dependents: 0 }).payment)}. The ${h.a('rap-calculator', 'RAP calculator')} shows your bracket.</p>` },
+    { title: 'What happens to the interest on RAP', html: `<p>On the older plans a low payment often left part of the monthly interest unpaid, and balances grew. On RAP, each on-time payment wipes the interest it did not cover, and if the payment cut your principal by less than ${usd(P.rap.matchMax)}, the Department adds the difference, up to ${usd(P.rap.matchMax)} or the amount you paid if smaller (${h.src('ecfr209', '34 CFR 685.209(o)(2)')}). The balance therefore goes down every month you pay on time. The flip side is the horizon: any balance left is forgiven only after ${P.rap.payments} qualifying payments, ten years more than IBR for a new borrower. ${h.a('rap-interest-waiver-and-match', 'The waiver and the match explained')}.</p>` },
+    { title: 'IBR after the 2025 law', html: `<p>IBR survives for loans made before ${day(L.newPlansStart)}, and the law dropped its old entry test, the partial financial hardship. The payment is ${P.ibr.oldPct}% of income above 150% of the poverty guideline, or ${P.ibr.newPct}% for someone with no federal loan balance before July 1, 2014, never more than the 10-year standard payment. Unpaid interest still accrues on IBR. Forgiveness comes after ${P.ibr.newPayments / 12} years for a new borrower and ${P.ibr.oldPayments / 12} for the others. For a single borrower the income line is ${usd(ibrLine(1))} in 2026, so a low income often pays less on IBR than on RAP, while a middle income often pays less on RAP. ${h.a('rap-vs-ibr', 'RAP or IBR')}.</p>` },
+    { title: 'The Tiered Standard plan', html: `<p>It replaces the 10-year standard for anyone with a loan made from ${day(L.newPlansStart)}: a fixed payment over 10 years under ${usd(25000)} of total principal, 15 years from ${usd(25000)}, 20 years from ${usd(50000)} and 25 years from ${usd(100000)}. A longer term means a lower payment and more interest. On ${usd(ex.bal)} at ${pct(R.undergrad)} the payment is ${usd(tierEx.payment)} over ${tierEx.years} years, against ${usd(standard10(ex.bal, R.undergrad))} over 10. For PSLF it counts only when its payment is at least the 10-year amount. ${h.a('tiered-standard-repayment-plan', 'Tiered Standard in detail')}.</p>` },
+    { title: 'SAVE is closed', html: `<p>A court approved the settlement between the Department and Missouri in March 2026. No one can enroll in SAVE, pending applications were denied, and from ${day(L.newPlansStart)} servicers send each SAVE borrower a notice with a 90-day deadline to choose a plan; without a choice, the servicer moves the loans to the Standard or Tiered Standard plan (${h.src('edSaveNextSteps', 'Department of Education, March 27, 2026')}). The ${h.a('save-plan-calculator', 'SAVE plan page')} shows what your old SAVE payment becomes on each plan.</p>` },
+    { title: 'Borrowing for 2026-27: new caps', html: `<p>Graduate students can borrow up to ${usd(P.limits.grad.annual)} a year and ${usd(P.limits.grad.aggregate)} in total in unsubsidized loans; professional students ${usd(P.limits.professional.annual)} and ${usd(P.limits.professional.aggregate)}. New Grad PLUS loans stopped for periods starting ${day(L.newPlansStart)}, and parents can borrow ${usd(P.limits.parentPlus.annual)} a year and ${usd(P.limits.parentPlus.aggregate)} per student. Students already enrolled with a loan for their program by June 30, 2026 keep the old limits for up to ${P.limits.legacyYearsMax} academic years. ${h.a('how-much-student-loan', 'How much you can borrow')}.</p>` },
+    { title: 'What these calculators do not do', html: `<p>They do not log in to your account, read your loan list or enroll you. They assume each payment is on time and that your income moves by the raise you enter. They do not model the three-year interest subsidy of IBR on subsidized loans, consolidation of loans with different rates, or state programs. Your servicer computes the official payment. The ${h.a('method', 'method page')} lists every formula and its source.</p>` },
+  ],
+  faqs: [
+    { q: 'Is RAP cheaper than IBR for me?', a: `It depends on income. With ${usd(ex.agi)} of income, no dependent and ${usd(ex.bal)} of loans, RAP asks ${usd(rapEx)} a month and IBR for a new borrower ${usd(ibrEx)}. At low incomes IBR is often lower because it ignores the first 150% of the poverty guideline, ${usd(ibrLine(1))} for one person. RAP does not let interest pile up, but forgiveness takes ${P.rap.payments / 12} years.` },
+    { q: 'Can I still choose IBR after July 1, 2026?', a: `Yes if all your Direct Loans were made before ${day(L.newPlansStart)}. Taking one new Direct Loan on or after that date limits all your Direct Loans to RAP and the Tiered Standard plan under section 455(d)(7) of the Higher Education Act. Graduate students weighing a new loan in 2026-27 should run both cases in the comparator first.` },
+    { q: 'What happens if I do nothing before July 1, 2028?', a: `If you are on PAYE or ICR, or in a forbearance tied to them, the Department moves your loans on ${day(L.oldPlansEnd)} to RAP, or to IBR for loans RAP cannot repay, such as a consolidation that repaid a parent PLUS loan. You can choose earlier. Borrowers already on IBR or a fixed plan are not forced to move.` },
+    { q: 'Are the 2026-27 student loan rates fixed?', a: `Yes. Loans first disbursed from ${day(R.from)} to ${day(R.to)} carry ${pct(R.undergrad)} for undergraduates, ${pct(R.grad)} for graduate unsubsidized loans and ${pct(R.plus)} for PLUS loans, for the life of the loan. Each rate is the ${pct(P.rates.treasury)} yield of the May 12, 2026 Treasury auction plus a fixed add-on set by law.` },
+    { q: 'Does forgiveness on RAP or IBR count as taxable income in 2026?', a: `Possibly. The federal exclusion that covered income-driven forgiveness from 2021 to 2025 was rewritten by Public Law 119-21 to cover only death and disability discharges from 2026. PSLF stays tax-free under section 108(f)(1). Someone forgiven on RAP or IBR should plan for a tax bill unless another exclusion, such as insolvency, applies.` },
+    { q: 'Does this calculator send my income or loans anywhere?', a: 'No. Every calculation runs in your browser and nothing you type reaches us or the Department. The share button writes your figures into the page address so you can send the result to a partner or a financial aid office; anyone who opens that link sees them. Your servicer remains the only source of your official payment.' },
+  ] as FAQ[],
+  sources: ['obbba', 'riseFinal', 'ecfr209', 'ratesNotice', 'edJuly1', 'edSaveNextSteps', 'edAutopayExtend', 'hhs2026', 'approps'],
+};

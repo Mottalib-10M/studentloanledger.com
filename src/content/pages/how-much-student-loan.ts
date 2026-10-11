@@ -1,0 +1,45 @@
+import { definePage } from '../../lib/page-types';
+import { P, R, usd, pct, day, annualLimit } from '../../lib/kit';
+
+const L = P.limits;
+const dep4 = L.depUndergrad.total.reduce((a, b) => a + b, 0) + L.depUndergrad.total[2];
+const half = Math.round(L.grad.annual * 0.5);
+
+export default definePage({
+  id: 'how-much-student-loan',
+  group: 'borrow',
+  kind: 'pillar',
+  order: 10,
+  slug: 'how-much-student-loan-can-i-get',
+  nav: 'How much can I borrow',
+  card: 'Annual, aggregate and lifetime federal loan limits for 2026-27',
+  title: 'Federal Student Loan Limits 2026-27: How Much You Can Borrow',
+  description: `Federal student loan limits 2026-27: ${usd(L.depUndergrad.total[0])} for a first-year dependent student, ${usd(L.grad.annual)} for graduate, ${usd(L.professional.annual)} professional, and the ${usd(L.lifetime)} lifetime cap.`,
+  h1: 'How much student loan can you get in 2026-27?',
+  intro: 'The federal Direct Loan limits after the July 1, 2026 reform, for undergraduates, graduate and professional students and parents.',
+  resume: `A dependent undergraduate can borrow ${usd(L.depUndergrad.total[0])} in federal Direct Loans in the first year, ${usd(L.depUndergrad.total[1])} in the second and ${usd(L.depUndergrad.total[2])} from the third year on, of which at most ${usd(L.depUndergrad.sub[0])}, ${usd(L.depUndergrad.sub[1])} and ${usd(L.depUndergrad.sub[2])} can be subsidized; an independent undergraduate can borrow ${usd(L.indUndergrad.total[0])}, ${usd(L.indUndergrad.total[1])} and ${usd(L.indUndergrad.total[2])}. Those undergraduate limits did not change on ${day(P.law.newPlansStart)}. What changed is everything above them. Graduate students are now capped at ${usd(L.grad.annual)} a year and ${usd(L.grad.aggregate)} in total, professional students such as law and medical students at ${usd(L.professional.annual)} and ${usd(L.professional.aggregate)}, new Grad PLUS loans ended for periods starting on that date, parents can borrow ${usd(L.parentPlus.annual)} a year and ${usd(L.parentPlus.aggregate)} in total per student through parent PLUS, and every student faces a lifetime cap of ${usd(L.lifetime)}. Enrollment below full time now cuts each annual limit in proportion, and a school may set a lower cap for a program.`,
+  tool: 'limits',
+  faqs: [
+    { q: 'How much can a freshman borrow in federal student loans for 2026-27?', a: `${usd(L.depUndergrad.total[0])} for a dependent student, with up to ${usd(L.depUndergrad.sub[0])} subsidized if the school finds financial need, and ${usd(L.indUndergrad.total[0])} for an independent student. A dependent student whose parents cannot get a parent PLUS loan, for example after a credit denial, can receive the independent amount. Both are capped by cost of attendance minus other aid.` },
+    { q: 'What is the most a dependent student can borrow for a bachelor’s degree?', a: `The aggregate limit is ${usd(L.depUndergrad.aggregate)}, of which no more than ${usd(L.depUndergrad.aggregateSub)} subsidized. Borrowing the annual maximum for four years adds up to ${usd(dep4)}, so the aggregate cap is reached during the fourth year and a fifth year must be financed otherwise. An independent undergraduate's aggregate is ${usd(L.indUndergrad.aggregate)}, with the same subsidized ceiling.` },
+    { q: 'Do part-time students get lower loan limits now?', a: `Yes, from ${day(P.law.newPlansStart)}. When a student is enrolled less than full time, the annual limit is reduced in direct proportion to the enrollment, following a schedule published by the Secretary. A graduate student at half time, for example, would be limited to about ${usd(half)} instead of ${usd(L.grad.annual)}.` },
+    { q: 'Can my school lend me less than the federal limit?', a: 'Yes. Since July 1, 2026 a financial aid administrator may set a lower annual limit for a program of study, for students and for parents, as long as it applies to everyone in that program. Schools could already reduce a loan case by case; the program-wide cap is new.' },
+    { q: 'Does the lifetime loan limit include parent PLUS loans?', a: `Not the parent PLUS loans a parent borrows for a child. The ${usd(L.lifetime)} cap counts the federal loans a student borrows for their own education, whatever has been repaid or forgiven. A parent who later borrows for their own degree would have those loans counted under their own cap.` },
+    { q: 'I started my graduate program before July 2026. Do the new limits apply to me?', a: `Not right away. A student enrolled in a program on June 30, 2026 who had received a Direct Loan for it keeps the previous limits, including Grad PLUS, for the expected time to finish, at most ${L.legacyYearsMax} academic years. Withdrawing ends the exception; changing majors within the same degree does not.` },
+  ],
+  body: (h) => `
+<h2>The 2026-27 limits at a glance</h2>
+${h.table(['Borrower', 'Annual limit', 'Aggregate limit', 'Rate for 2026-27'], [['Dependent undergraduate, year 1 / 2 / 3+', `${usd(L.depUndergrad.total[0])} / ${usd(L.depUndergrad.total[1])} / ${usd(L.depUndergrad.total[2])}`, usd(L.depUndergrad.aggregate), pct(R.undergrad)], ['Independent undergraduate, year 1 / 2 / 3+', `${usd(L.indUndergrad.total[0])} / ${usd(L.indUndergrad.total[1])} / ${usd(L.indUndergrad.total[2])}`, usd(L.indUndergrad.aggregate), pct(R.undergrad)], ['Graduate student', usd(L.grad.annual), usd(L.grad.aggregate), pct(R.grad)], ['Professional student', usd(L.professional.annual), usd(L.professional.aggregate), pct(R.grad)], ['Parent PLUS, per student', usd(L.parentPlus.annual), usd(L.parentPlus.aggregate), pct(R.plus)]], `Graduate and professional aggregates come on top of undergraduate borrowing; all federal loans of a student are capped at ${usd(L.lifetime)}.`, ['l', 'r', 'r', 'r'])}
+<h2>Graduate and professional students</h2>
+<p>Until June 30, 2026 a graduate student could borrow ${usd(L.gradOld.annualUnsub)} a year in unsubsidized loans and then fill the rest of the cost of attendance with Grad PLUS. Both doors have narrowed. The annual unsubsidized limit stays at ${usd(L.grad.annual)} for a master's or doctoral program, rises to ${usd(L.professional.annual)} for a professional degree, and Grad PLUS is closed to new periods of instruction. A student who completes a professional program after a graduate one shares a combined cap of ${usd(L.professional.aggregate)}. The ${h.a('graduate-loan-limits', 'graduate limits page')} and the ${h.a('professional-loan-limits', 'professional limits page')} work through the gap between these caps and the cost of typical programs.</p>
+<h2>Parents</h2>
+<p>Parent PLUS used to cover up to the cost of attendance minus other aid. From ${day(P.law.newPlansStart)}, all parents of one dependent student can together borrow ${usd(L.parentPlus.annual)} a year and ${usd(L.parentPlus.aggregate)} in total, counted without regard to repayment (${h.src('obbba', 'HEA section 455(a)(5)')}). New parent PLUS loans are repaid on the Tiered Standard plan. The ${h.a('parent-plus-loan-calculator', 'parent PLUS calculator')} shows what that means month by month.</p>
+<h2>Subsidized or unsubsidized</h2>
+<p>Only undergraduates with financial need can receive subsidized loans, up to the subsidized part of each annual limit. The government does not charge interest on them while the student is in school at least half time. Everything above that, and every graduate loan, is unsubsidized: interest runs from disbursement at ${pct(R.undergrad)} or ${pct(R.grad)} for loans first disbursed from ${day(R.from)}. The ${h.a('student-loan-interest-calculator', 'interest calculator')} estimates what accrues before the first bill.</p>
+<h2>Less than full time</h2>
+<p>The 2025 law added a rule that changes the math for working students. When enrollment is below full time, the loan a student may borrow for the year is reduced in direct proportion, rounded to the nearest whole percentage point, under a schedule of reductions published by the Secretary. A student taking three quarters of a full load gets about three quarters of the limit. The rule applies to annual limits only: the aggregate and lifetime caps are not prorated, so part-time students simply reach them more slowly. Enter your enrollment share in the calculator to see the reduced amount.</p>
+<h2>Limits are a ceiling, not an offer</h2>
+<p>Your actual loan is the smallest of the federal limit, your school's program limit if it has one, and your cost of attendance minus grants, scholarships and other aid. The aid office makes that calculation after your FAFSA. Borrowing less than the maximum is always possible and is the most effective way to keep future payments down, as the ${h.a('home', 'plan comparator')} shows on any balance. Limits: ${h.src('ecfr203', '34 CFR 685.203')}.</p>`,
+  related: ['graduate-loan-limits', 'professional-loan-limits', 'parent-plus-loan-calculator', 'lifetime-loan-limit', 'grad-plus-ending', 'interest-rates'],
+  sources: ['ecfr203', 'obbba', 'riseFinal', 'edJuly1', 'ratesNotice'],
+});

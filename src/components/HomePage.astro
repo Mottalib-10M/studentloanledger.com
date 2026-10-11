@@ -1,0 +1,61 @@
+---
+/**
+ * Home, in its own order for this subject (RECETTE §6.6, rule 2): the answer first (folded), then the
+ * "which plans are open to you" grid by loan date, the comparator, the 2026-27 numbers in a table, the
+ * dated deadlines, the calculators by group, the long explanations in accordions, then the FAQ.
+ * Text: src/content/home.ts.
+ */
+import PageLayout from '../layouts/PageLayout.astro';
+import Clamp from './Clamp.astro';
+import Tool from './Tool.astro';
+import { HOME } from '../content/home';
+import { route } from '../i18n/routes';
+import { helpers, SOURCES } from '../lib/helpers';
+import { PAGES } from '../lib/pages';
+import { GROUPS } from '../lib/topics';
+import { day } from '../lib/kit';
+import { faqSchema, organizationSchema, websiteSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+import { LAST_UPDATED } from '../data/site-config';
+const lang = 'en';
+const x = HOME;
+const path = route('home', lang);
+const h = helpers();
+const sources = x.sources.map((k) => ({ name: SOURCES[k].label, url: SOURCES[k].url }));
+const jsonLd = [websiteSchema(lang), organizationSchema(lang), webPageSchema({ name: x.h1, description: x.description, path, lang }), webApplicationSchema({ name: x.h1, description: x.description, path, lang }), faqSchema(x.faqs, lang)];
+const menu = x.menu(h);
+const deadlines = x.deadlines(h);
+---
+<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={x.faqs} sources={sources}>
+  <header class="mb-5">
+    <p class="text-sm font-semibold uppercase tracking-wide text-accent-700">{x.kicker}</p>
+    <h1 class="mt-1 font-serif text-3xl font-bold text-navy-900 md:text-4xl">{x.h1}</h1>
+    <p class="mt-3 text-sm text-navy-600">Law of July 4, 2025, regulations of May 1, 2026 and 2026-27 rates, checked <time datetime={LAST_UPDATED}>{day(LAST_UPDATED)}</time> · <a href={route('method', lang)} class="underline">How we calculate</a> · <a href={route('about', lang)} class="underline">About this site</a></p>
+  </header>
+  <Clamp text={x.resume} lang={lang} id="clamp-home" sentences={2} class="mb-6" />
+  <div class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h2>{x.menuTitle}</h2>
+    <Fragment set:html={x.menuIntro(h)} />
+    <Fragment set:html={h.table(['Your loans', 'Plans you can choose', 'Default if you do nothing'], menu, 'Direct Loans. Parent PLUS loans follow their own rules, see the parent PLUS pages.', ['l', 'l', 'l'])} />
+  </div>
+  <div data-outil class="my-8"><Tool kind="compare" idPrefix="home" /></div>
+  <div class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h2>{x.numbersTitle}</h2>
+    <Fragment set:html={h.table(['Figure', 'Value', 'Official source'], x.numbers(h), 'Award year 2026-27 (July 1, 2026 to June 30, 2027) unless stated.', ['l', 'r', 'l'])} />
+    <h2>{x.deadlinesTitle}</h2>
+    <Fragment set:html={x.deadlinesIntro(h)} />
+    <Fragment set:html={h.table(['Date', 'What happens', 'Who is affected'], deadlines.map((d) => [`<time datetime="${d.date}">${day(d.date)}</time>`, d.what, d.who]), undefined, ['l', 'l', 'l'])} />
+    <h2>{x.toolsTitle}</h2>
+  </div>
+  <div class="mt-4 grid gap-x-8 gap-y-6 md:grid-cols-2">
+    {GROUPS.map((g) => (
+      <section data-chrome>
+        <h3 class="border-b border-navy-200 pb-1 font-serif text-lg font-semibold text-navy-900">{g.label}</h3>
+        <ul class="mt-2 space-y-1.5">{PAGES.filter((p) => p.group === g.id).map((p) => <li><a href={route(p.id, lang)} class="font-medium text-accent-700 hover:underline">{p.nav}</a><span class="text-sm text-navy-600"> · {p.card}</span></li>)}</ul>
+      </section>
+    ))}
+  </div>
+  <section class="prose prose-slate mt-10 max-w-none prose-headings:font-serif">
+    <h2>{x.foldTitle}</h2>
+    {x.sections(h).map((s) => <details class="fold not-prose"><summary><h3 class="fold-h">{s.title}</h3></summary><div class="prose prose-slate max-w-none pb-4"><Fragment set:html={s.html} /></div></details>)}
+  </section>
+</PageLayout>

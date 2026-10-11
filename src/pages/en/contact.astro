@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'en';
+const description = 'Write to us when your servicer quotes a RAP or IBR payment that differs from ours, when the Department changes a rule, or to embed the plan comparator.';
+---
+<PageLayout title={`Contact ${SITE_NAMES[lang]}: payment gaps, rule changes, embed`} description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>Contact</h1>
+    <p>Mailbox: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, read on working days.</p>
+    <h2>Your servicer quoted another payment</h2>
+    <p>Send the share link of your calculation and the payment on your servicer's notice, without your account number. Most gaps come from the income the Department used (an older tax return, or a spouse's income on a joint return), the number of dependents on that return, loans that are not eligible for the plan, such as a parent PLUS loan, or a balance that still includes interest from a forbearance. We tell you which one it is, and correct the site when the mistake is ours.</p>
+    <h2>The Department changed a rule</h2>
+    <p>Repayment rules move by regulation, Federal Register notice and press release. If you see a new document, such as a change to RAP, the SAVE transition, a new interest rate notice or a Pell schedule, send the link. We read it, update the parameter file, rerun the tests and date the page.</p>
+    <h2>Embedding the comparator</h2>
+    <p>Financial aid offices, credit unions, employers with a student loan benefit and libraries can place the plan comparator or the SAI calculator on their pages for free: see the <a href={route('widget', lang)}>embed page</a>.</p>
+    <h2>What we cannot do</h2>
+    <p>We cannot see your loans, change your plan, certify PSLF employment or contact your servicer. Your servicer and your StudentAid.gov account can.</p>
+    <h2>Response time</h2><p>Usually five working days, corrections first. The figures are re-read at least every {REVIEW_CYCLE_MONTHS} months and on each scheduled change: the new interest rates for loans disbursed from July 1, the poverty guidelines each January, the FAFSA cycle each October and the IRS inflation amounts each fall.</p>
+    <h2>Publisher</h2>
+    <LegalIdentity lang={lang} />
+    <p>Content owner: {AUTHOR_NAME}. See the <a href={route('terms', lang)}>legal notice</a>. Updated: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>
