@@ -1,6 +1,6 @@
 import type { Locale } from './routes';
 const en = {
-  updatedOn: 'Rules and rates checked on', editorialPolicy: 'Editorial policy', contactLabel: 'Contact', reviewedBy: 'Checked by',
+  updatedOn: 'Rules and rates last updated', editorialPolicy: 'Editorial policy', contactLabel: 'Contact', reviewedBy: 'Checked by',
   skipToContent: 'Skip to content', mainNav: 'Main navigation', breadcrumbLabel: 'Breadcrumb', breadcrumbHome: 'Home', menuOpen: 'Open menu',
   faqTitle: 'Questions borrowers ask', relatedCalculators: 'Read next', sourcesTitle: 'Law, regulations and notices used on this page', writtenBy: 'Published by',
   asOf: 'Federal student loan and aid rules for award year 2026-27,', lastUpdated: 'checked against the Federal Register and the Department of Education on', footerValidated: 'Sources: Public Law 119-21, 34 CFR 685, Federal Register, Department of Education, IRS',

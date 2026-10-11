@@ -1,0 +1,56 @@
+import { definePage } from '../../lib/page-types';
+import { P, R, usd, pct, day, rapPayment, monthInterest, simulateRap } from '../../lib/kit';
+
+const split = (agi: number, d: number, bal: number) => {
+  const pay = rapPayment({ agi, dependents: d }).payment; const i = monthInterest(bal, R.undergrad);
+  const toP = Math.max(0, pay - i); const waived = Math.max(0, i - pay);
+  const match = toP < P.rap.matchMax ? Math.max(0, Math.min(P.rap.matchMax, pay) - toP) : 0;
+  return { pay, i, toP, waived, match };
+};
+const a = split(36000, 0, 48000); const b = split(15000, 0, 30000); const c = split(70000, 0, 30000);
+const s = simulateRap({ balance: 48000, rate: R.undergrad, agi: 36000, growth: 0, dependents: 0 });
+
+export default definePage({
+  id: 'rap-interest-waiver-and-match',
+  group: 'repay',
+  kind: 'guide',
+  order: 150,
+  slug: 'rap-interest-waiver-and-matching-payment',
+  nav: 'RAP interest waiver and match',
+  card: 'How RAP waives unpaid interest and adds up to $50 to principal each on-time month',
+  title: 'RAP Interest Waiver and $50 Match 2026: How They Work',
+  description: `RAP interest waiver and match 2026: on-time payments wipe unpaid interest and the Department adds up to ${usd(P.rap.matchMax)} to principal; monthly examples, due-date rule.`,
+  h1: 'The RAP interest waiver and matching principal payment',
+  intro: 'Two rules make the Repayment Assistance Plan different from every income-driven plan before it. Here is what they do in a real month.',
+  resume: `On the Repayment Assistance Plan, a balance cannot grow while you pay on time. Two rules guarantee it. First, interest your on-time payment does not cover is not charged: a borrower with ${usd(48000)} of loans at ${pct(R.undergrad)} accrues ${usd(a.i)} of interest a month, pays ${usd(a.pay)} on an income of ${usd(36000)}, and has the remaining ${usd(a.waived)} waived. Second, if the payment reduced principal by less than ${usd(P.rap.matchMax)}, the Department reduces principal by the difference, up to ${usd(P.rap.matchMax)} or the amount paid if that is smaller; here the borrower's principal falls by ${usd(a.match)} although the payment never reached it. Both rules come from section 455(q)(2) of the Higher Education Act, added by the 2025 law, and from 34 CFR 685.209 as published on ${day(P.law.riseFinalPublished)}. They apply only to months with an on-time payment and only while you are not in deferment or forbearance. Paying ahead can cost you the match unless you tell the servicer not to advance the due date.`,
+  mini: 'rapMonth',
+  faqs: [
+    { q: 'What counts as an on-time RAP payment?', a: 'A payment received on or before the due date for the current month, and after the due date of the previous month, under 34 CFR 685.209(o)(3). Auto pay is the simplest way to meet it every month; the Department added a temporary rate reduction to encourage auto pay, partly because RAP benefits depend on timeliness.' },
+    { q: 'Do I get the $50 match if my payment is only $10?', a: `The match is the lesser of ${usd(P.rap.matchMax)} and your payment, minus what the payment already applied to principal. With a ${usd(P.rap.minPayment)} payment that went entirely to interest, the match is ${usd(P.rap.minPayment)}, not ${usd(P.rap.matchMax)}. With ${usd(P.rap.matchMax)} or more paid and nothing reaching principal, the match is the full ${usd(P.rap.matchMax)}.` },
+    { q: 'Is waived interest added back if I leave RAP?', a: 'No. The statute says the unpaid interest of an on-time month shall not be charged to the borrower, so it never becomes part of the balance. If you later move to another plan, interest that accrues from then on follows that plan’s rules, but the amounts waived while you were on RAP are gone for good.' },
+    { q: 'Do I get the match during forbearance or deferment?', a: 'No. The matching principal payment applies only for months in which you are not in deferment or forbearance and make the on-time payment due. Months in forbearance accrue interest under the forbearance rules, and that interest is not covered by the RAP waiver.' },
+    { q: 'Does the match count as income for taxes?', a: 'The law and the regulation describe the match as a reduction of your principal by the Secretary, not a payment to you. Whether such reductions create taxable income is a tax question the Department and the IRS have not addressed in the documents read for this site, so this page makes no claim either way.' },
+  ],
+  body: (h) => `
+<h2>Three borrowers, one month each</h2>
+<p>The interest waiver and the match interact with the size of the payment. The table follows one month for three single borrowers at the 2026-27 undergraduate rate of ${pct(R.undergrad)}.</p>
+${h.table(['Borrower', 'Payment', 'Interest accrued', 'Interest waived', 'Principal paid', 'Match', 'Principal drop'], [[`${usd(15000)} income, ${usd(30000)} owed`, usd(b.pay), usd(b.i), usd(b.waived), usd(b.toP), usd(b.match), usd(b.toP + b.match)], [`${usd(36000)} income, ${usd(48000)} owed`, usd(a.pay), usd(a.i), usd(a.waived), usd(a.toP), usd(a.match), usd(a.toP + a.match)], [`${usd(70000)} income, ${usd(30000)} owed`, usd(c.pay), usd(c.i), usd(c.waived), usd(c.toP), usd(c.match), usd(c.toP + c.match)]], 'One on-time month, no dependents.', ['l', 'r', 'r', 'r', 'r', 'r', 'r'])}
+<p>The first borrower pays the minimum-level amount, all of it goes to interest, the rest of the interest is waived and the match equals the payment. The second pays more than ${usd(P.rap.matchMax)} but still less than the interest, so the match is the full ${usd(P.rap.matchMax)}. The third pays well above the interest: principal falls by more than ${usd(P.rap.matchMax)} on its own and no match is due.</p>
+<h2>Over the whole plan</h2>
+<p>For the second borrower the monthly effects add up. With income flat at ${usd(36000)}, RAP would ${s.paidOff ? `repay the ${usd(48000)} in about ${Math.ceil(s.months / 12)} years` : `bring the balance down every month and leave ${usd(s.forgiven)} to forgive after ${P.rap.payments} payments`}, with ${usd(s.interestWaived)} of interest waived and ${usd(s.matched)} of matching payments along the way. On IBR the same borrower's unpaid interest would accumulate instead. The Department's own fact sheet gives a similar example: ${usd(35000)} of debt and ${usd(45000)} of income, ${usd(150)} paid, about ${usd(40)} of interest waived and a ${usd(50)} match each month, with a balance that always goes down (${h.src('edFactSheet', 'Department of Education, June 9, 2026')}).</p>
+<h2>The order in which a payment is applied</h2>
+<p>The statute sets it: each payment goes first to interest due on each loan, then to fees, then to principal. Only after that does the waiver apply to the interest left over, and the match is measured against the part that reached principal. Because the match is computed on the total principal of all loans on RAP, a borrower with several loans receives one match per month, not one per loan. Principal not paid under the formula is deferred rather than due, which is the legal mechanism that keeps a RAP payment from creating arrears.</p>
+<h2>Paying ahead without losing the match</h2>
+<p>When you pay more than the amount due, the servicer normally advances your next due date, as on other plans. A month without a due date has no on-time payment, and therefore no match. The regulation addresses this directly: the borrower may opt out of advancing the due date, when making an electronic payment or by contacting the servicer, and the Department must disclose the consequences of each choice (${h.src('ecfr209', '34 CFR 685.209(o)(3)')}). With the opt-out, the extra money reduces principal and next month's payment is still due, so the match stays available. Borrowers who do let the due date advance keep credit for qualifying payments and PSLF for each month covered; they just forgo the match for those months.</p>
+<h2>What can interrupt the benefits</h2>
+<p>A late payment loses that month's waiver and match. A deferment or forbearance suspends the match, and interest during most forbearances accrues outside the RAP waiver. Failing to provide income information when asked moves your payment to the amount of a 10-year standard plan on the balance when your loans entered repayment, a much larger figure, until you comply. None of these erases benefits already received. Setting up auto pay, keeping consent for IRS data in place and answering recertification requests are the practical steps that protect the two rules month after month. The ${h.a('autopay-rate-reduction', 'auto pay rate reduction')} adds a lower rate to that routine, and the ${h.a('rap-calculator', 'RAP calculator')} shows your own monthly split.</p>
+<h2>A first year of repayment, month by month</h2>
+<p>Consider a new teacher with ${usd(48000)} of undergraduate loans at ${pct(R.undergrad)} and a first-year salary that puts her AGI at ${usd(36000)}. Her RAP payment is ${usd(a.pay)} a month, below the ${usd(a.i)} of monthly interest. In January she pays on time: the interest is covered up to her payment, the remaining ${usd(a.waived)} is waived and principal drops by the ${usd(a.match)} match. February is identical, and so on through the year, each month lowering principal by ${usd(a.match)} and lowering next month's interest a little with it. After twelve on-time months her principal is about ${usd(a.match * 12)} lower than at the start, and she has had roughly ${usd(a.waived * 12)} of interest waived. On IBR, with the same income, her payment would be different and every dollar of unpaid interest would have stayed on the account.</p>
+<p>Suppose instead she misses the due date in June by a week. That month the unpaid interest is charged and no match is applied. The next on-time month restores both rules, but June's interest remains owed. One late month does not undo the year, which is why the rules forgive occasional slips less than they reward consistency.</p>
+<h2>Joint returns and two borrowers</h2>
+<p>When a married borrower files jointly and the spouse also has loans eligible for RAP, the payment is the couple's RAP amount multiplied by the borrower's share of their combined balances, with the ${usd(P.rap.minPayment)} minimum. The waiver and the match then work on each borrower's own loans and own payment. A couple where one spouse owes most of the debt sees most of the payment, and of the benefits, on that spouse's account. ${h.a('married-borrowers', 'Married borrowers')} explains the split.</p>
+<h2>Why the rules matter more for some borrowers</h2>
+<p>The waiver helps most when the payment is far below the interest, which happens with a large balance and a modest income, typical of graduate borrowers early in their careers. The match helps most when payments are small, because it can double or even multiply the principal reduction a low payment would achieve. Borrowers with incomes high enough to cover interest and more see neither benefit, and for them RAP is simply an income-based payment, to compare with the Tiered Standard plan or IBR on cost. ${h.a('rap-vs-ibr', 'RAP vs IBR')} works through that comparison.</p>`,
+  related: ['rap-calculator', 'rap-vs-ibr', 'autopay-rate-reduction', 'home', 'student-loan-interest-calculator', 'ibr-calculator'],
+  sources: ['obbba', 'ecfr209', 'riseFinal', 'edFactSheet'],
+});

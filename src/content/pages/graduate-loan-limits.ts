@@ -1,0 +1,64 @@
+import { definePage } from '../../lib/page-types';
+import { P, R, usd, pct, day, tieredStandard, rapPayment } from '../../lib/kit';
+
+const G = P.limits.grad; const O = P.limits.gradOld;
+const masters = G.annual * 2;
+const phdYears = Math.ceil(G.aggregate / G.annual);
+const lastYear = G.aggregate - G.annual * (phdYears - 1);
+const cost = 52000; const aid = 4000; const gapYear = cost - aid - G.annual;
+const t = tieredStandard(masters, R.grad);
+const rap = rapPayment({ agi: 68000, dependents: 0 }).payment;
+const threeQ = Math.round(G.annual * 0.75);
+const yearInt = (G.annual * R.grad) / 100;
+
+export default definePage({
+  id: 'graduate-loan-limits',
+  group: 'borrow',
+  kind: 'guide',
+  order: 110,
+  slug: 'graduate-student-loan-limits',
+  nav: 'Graduate loan limits',
+  card: 'The yearly and total federal caps for master’s and doctoral students, and the gap they leave',
+  title: 'Graduate Student Loan Limits 2026-27: Caps and Funding Gap',
+  description: `Graduate student loan limits 2026-27: ${usd(G.annual)} a year and ${usd(G.aggregate)} in total for master’s and doctoral students, with no Grad PLUS. Measure your program’s gap.`,
+  h1: 'Graduate student loan limits and the gap they leave',
+  intro: 'Master’s and doctoral students now borrow under a hard federal ceiling, and the cost of many programs sits well above it.',
+  resume: `A graduate student starting a master’s or doctoral program in 2026-27 can borrow at most ${usd(G.annual)} a year in Direct Unsubsidized Loans and ${usd(G.aggregate)} over a graduate career, on top of whatever was borrowed as an undergraduate, at a fixed ${pct(R.grad)} for loans first disbursed this year. Before ${day(P.law.newPlansStart)} the same ${usd(O.annualUnsub)} unsubsidized loan was only the first layer: Grad PLUS covered the rest of the cost of attendance, with no fixed ceiling. Grad PLUS is now closed to periods of instruction that begin on or after that date, so for a new student the federal contribution stops at ${usd(G.annual)}, whatever the program costs. A two-year master’s therefore brings at most ${usd(masters)} of federal loans. Students in professional programs such as law, medicine and dentistry have higher caps, and students already enrolled on June 30, 2026 keep the old rules for a limited time. Everything above the cap must come from grants, assistantships, savings, an employer or private lenders.`,
+  mini: 'gradCapGap',
+  faqs: [
+    { q: `Is the graduate loan limit ${usd(G.annual)} a year in 2026?`, a: `Yes, for a full-time graduate student who is not in a professional degree program: ${usd(G.annual)} a year in Direct Unsubsidized Loans for periods of enrollment beginning on or after ${day(P.law.newPlansStart)}. The figure did not change; what changed is that Grad PLUS no longer sits above it. Part-time enrollment and a school’s own program cap can bring it lower.` },
+    { q: `Does undergraduate debt count toward the ${usd(G.aggregate)} graduate cap?`, a: `No. The ${usd(G.aggregate)} graduate aggregate counts loans borrowed as a graduate student, in addition to undergraduate borrowing. The old ${usd(O.aggregate)} graduate aggregate included undergraduate loans; the new one does not. All of it still counts toward the ${usd(P.limits.lifetime)} lifetime limit on federal student loans, so a large undergraduate balance can still cut a graduate career short.` },
+    { q: `Can a PhD student borrow more than ${usd(G.aggregate)} in federal loans?`, a: `Not as a graduate student under the new rules. At ${usd(G.annual)} a year, a doctoral student reaches the ${usd(G.aggregate)} aggregate during year ${phdYears}, when only ${usd(lastYear)} remains, and later years get no federal loan at all. Many doctoral programs fund students with stipends and tuition waivers, which reduce the need to borrow in the first place.` },
+    { q: 'How much can a part-time graduate student borrow?', a: `A proportional share of ${usd(G.annual)}. Since ${day(P.law.newPlansStart)} the annual limit shrinks in direct proportion to how far enrollment falls short of full time, rounded to the nearest whole percentage point. A student carrying three quarters of a full load can borrow about ${usd(threeQ)} a year. The ${usd(G.aggregate)} total is not prorated.` },
+    { q: 'What counts as a graduate student for the new limits?', a: `A student in a program above the bachelor’s level that awards a graduate credential other than a professional degree. That covers most master’s and doctoral programs. When one program awards both a graduate and a professional degree, the student counts as professional only if more than half of the credit hours count toward the professional degree.` },
+  ],
+  body: (h) => `
+<h2>Old ceiling, new ceiling</h2>
+${h.table(['Rule', `Before ${day(P.law.newPlansStart)}`, 'From 2026-27'], [
+  ['Direct Unsubsidized, per year', usd(O.annualUnsub), usd(G.annual)],
+  ['Grad PLUS', 'Up to cost of attendance minus aid', 'No new loans'],
+  ['Graduate aggregate', `${usd(O.aggregate)}, undergraduate loans included`, `${usd(G.aggregate)}, on top of undergraduate loans`],
+  ['Part-time enrollment', 'Full annual limit', 'Reduced in proportion'],
+  ['Rate on new loans', `${pct(P.rates.history[1].grad)} unsubsidized, ${pct(P.rates.history[1].plus)} PLUS (2025-26)`, `${pct(R.grad)} unsubsidized`],
+], 'Graduate students outside professional degree programs.', ['l', 'l', 'l'])}
+<p>The annual number in the first row is identical, which is why the change is easy to underestimate. Under the old system ${usd(O.annualUnsub)} was a floor rather than a ceiling: a student admitted to a program costing ${usd(70000)} a year could cover the difference with Grad PLUS. The 2025 law removed that second layer for new periods of instruction and wrote a separate graduate aggregate into section 455(a) of the Higher Education Act (${h.src('obbba', 'Public Law 119-21, section 81001')}). The regulation that applies it is 34 CFR 685.203, amended by the RISE final rule of ${day(P.law.riseFinalPublished)}.</p>
+<h2>Sizing the gap for a real program</h2>
+<p>The useful question is no longer how much you can borrow but how much is left over. Take a two-year master’s program with a cost of attendance of ${usd(cost)} a year, tuition and living allowance included, and a ${usd(aid)} departmental scholarship. Federal loans cover ${usd(G.annual)} of the remaining ${usd(cost - aid)}, leaving ${usd(gapYear)} a year, or ${usd(gapYear * 2)} over the degree, to find elsewhere. The mini-calculator above does that subtraction for any cost, aid and program length, and it tracks the ${usd(G.aggregate)} aggregate for longer programs.</p>
+<p>Doctoral students hit a second wall. At the full annual amount, the aggregate runs out in year ${phdYears}, with ${usd(lastYear)} left that year and nothing after. In practice many research doctorates carry stipends and tuition remission, so the cap bites hardest on self-funded doctorates and on long programs in fields with little institutional funding. A student who borrowed for an earlier master’s under the new rules starts the doctorate with less room under the same ${usd(G.aggregate)}.</p>
+<h2>Graduate or professional: the line that doubles the cap</h2>
+<p>The same law created a professional student category with a ${usd(P.limits.professional.annual)} annual limit and a ${usd(P.limits.professional.aggregate)} aggregate. Which side of the line a program falls on is decided by the professional degree framework in the regulations, not by its name or by whether graduates need a license. The Department says plainly that a student in graduate-level enrollment is treated as a graduate student unless the program satisfies that framework (${h.src('riseFinal', 'RISE final rule preamble')}). For joint programs, 34 CFR 685.203(l) settles it by credit hours: more than half toward the professional degree makes the student professional. The ${h.a('professional-loan-limits', 'professional limits page')} covers law, medicine and dentistry in detail.</p>
+<h2>Part-time study and program caps set by schools</h2>
+<p>Working students feel the proration rule most. A student enrolled at half time can borrow roughly half of ${usd(G.annual)} for the year, and the reduction is computed term by term from the enrollment the school records when it checks eligibility for a disbursement. The aggregate is not prorated, so part-time students simply take longer to reach it.</p>
+<p>Schools also gained a new power on ${day(P.law.newPlansStart)}: they may set a lower annual limit for a whole program, as long as it applies to every student in it. A school that does so must document the decision, describe the limited programs clearly in its catalog, on its website and in award notices, and tell affected students before the limit takes effect (${h.src('ecfr203', '34 CFR 685.203(m)(2)')}). Read your award letter for that notice before assuming the full federal amount.</p>
+<h2>Paying for what the cap does not cover</h2>
+<p>The Department presents the caps as pressure on prices, and its July 2026 fact sheet points to the University of California at Irvine, which it says cut tuition for its MBA by more than 20% (${h.src('edJuly1', 'Department of Education, July 1, 2026')}). Whether your program follows is something to ask the admissions office directly. Beyond price, the realistic sources are assistantships and fellowships, which often waive tuition; employer tuition help, of which up to ${usd(P.employer127.max)} a year can be tax-free under section 127, as explained in ${h.a('employer-student-loan-repayment', 'employer student loan repayment')}; personal savings; and private loans, which come without income-driven repayment, without PSLF and with a credit-based rate.</p>
+<p>Borrowing less also changes the repayment picture. A master’s student who takes the full ${usd(masters)} at ${pct(R.grad)} owes about ${usd(t.payment)} a month on the Tiered Standard plan, which sets a ${t.years}-year term for that balance. On the Repayment Assistance Plan, a single graduate earning ${usd(68000)} would pay about ${usd(rap)} a month, whatever the balance. Interest starts on the day of disbursement: the full annual loan accrues about ${usd(yearInt)} in its first year. The ${h.a('home', 'plan comparator')} lets you test both plans on the balance you expect to leave school with.</p>
+<h2>Questions worth asking before you enroll</h2>
+<p>An admission letter rarely spells out the federal shortfall, so it pays to ask for the numbers in writing. Start with the full cost of attendance the school uses for your program, not just tuition: the loan cap is compared with that figure, and the housing and living allowance inside it can be large. Ask whether the program has a school-set loan limit below ${usd(G.annual)}, and whether the school classifies it as a graduate or a professional program for loan purposes, since that single label moves the annual cap from ${usd(G.annual)} to ${usd(P.limits.professional.annual)}.</p>
+<p>Then ask about money that does not need repaying. Departments often hold assistantships, teaching positions or tuition waivers that are not advertised on the admissions page, and a waiver of even part of tuition can close most of the gap computed above. If you plan to keep working, ask your employer whether it runs an educational assistance program and whether it covers tuition, loan payments or both. Finally, ask how many credits count as full time in your program. A student one course short of full time loses part of the annual limit under the proration rule, and adding a course can sometimes cost less than the loan it unlocks.</p>
+<p>None of these answers changes the federal ceiling, but together they decide whether the gap is ${usd(0)} or tens of thousands of dollars. Families used to Grad PLUS filling every hole should treat the first year’s numbers as the pattern for the whole degree, because the cap does not rise with tuition increases and the aggregate does not reset between programs.</p>
+<h2>If you were already enrolled</h2>
+<p>A student who was in a graduate program on June 30, 2026 and had received a Direct Loan for it keeps the old limits, including Grad PLUS, for the expected time to credential: three academic years at most, less if the program ends sooner. Withdrawing ends the exception, while switching majors inside the same degree does not. ${h.a('grad-plus-ending', 'Grad PLUS loans ending')} works through the calculation, and the ${h.a('lifetime-loan-limit', 'lifetime limit page')} explains the ${usd(P.limits.lifetime)} cap that sits above every program limit.</p>`,
+  related: ['how-much-student-loan', 'professional-loan-limits', 'grad-plus-ending', 'lifetime-loan-limit', 'interest-rates', 'employer-student-loan-repayment'],
+  sources: ['ecfr203', 'obbba', 'riseFinal', 'edJuly1'],
+});

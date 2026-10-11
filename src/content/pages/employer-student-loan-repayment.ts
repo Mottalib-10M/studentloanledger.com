@@ -1,0 +1,59 @@
+import { definePage } from '../../lib/page-types';
+import { P, R, usd, pct, standard10, payoff, rapPayment } from '../../lib/kit';
+
+const E = P.employer127;
+const monthly = 300; const yearly = monthly * 12;
+const saved22 = (yearly * 22) / 100;
+const over = 6000; const overTax = over - E.max;
+const tuition = 3000; const leftForLoans = E.max - tuition;
+const bal = 38000; const base = standard10(bal, R.undergrad);
+const plain = payoff(bal, R.undergrad, base);
+const boosted = payoff(bal, R.undergrad, base, E.max / 12);
+const agi = 56000;
+const rapSalary = rapPayment({ agi: agi + E.max, dependents: 0 }).payment;
+const rapBenefit = rapPayment({ agi, dependents: 0 }).payment;
+
+export default definePage({
+  id: 'employer-student-loan-repayment',
+  group: 'tax',
+  kind: 'guide',
+  order: 100,
+  slug: 'employer-student-loan-repayment',
+  nav: 'Employer loan repayment',
+  card: `Up to ${usd(E.max)} a year of student loan payments from your employer, free of income tax for good`,
+  title: `Employer Student Loan Repayment 2026: Tax-Free up to ${usd(E.max)}`,
+  description: `Employer student loan repayment in 2026: up to ${usd(E.max)} a year tax-free under section 127, now permanent and indexed from ${E.indexedFrom}. See the tax saved at your rate.`,
+  h1: 'Employer student loan repayment, tax-free',
+  intro: 'An employer can pay part of your student loans without it showing up as taxable pay, and the 2025 law turned that from a temporary break into a permanent one.',
+  resume: `An employer can pay up to ${usd(E.max)} a year toward an employee’s student loans, principal or interest, and none of it counts as taxable income, as long as it is paid through an educational assistance program under section 127 of the tax code. The loan part began as a temporary expansion due to expire for payments after 2025. Public Law 119-21 made it permanent for payments made after December 31, 2025, and indexed the ${usd(E.max)} ceiling to inflation for taxable years beginning after 2026, so the first adjusted figure will apply in ${E.indexedFrom}. The ceiling is shared: tuition help and loan payments from the employer count against the same ${usd(E.max)}. For a worker in the 22% federal bracket, ${usd(monthly)} a month of employer payments, ${usd(yearly)} a year, is worth about ${usd(saved22)} more than the same money paid as salary, before payroll and state taxes. Anything above the ceiling is taxed as wages. Because the benefit never enters adjusted gross income, it also keeps income-driven payments lower.`,
+  mini: 'employerTaxFree',
+  faqs: [
+    { q: 'Is employer student loan repayment taxable in 2026?', a: `Not up to ${usd(E.max)} for the year, if your employer pays through a qualifying educational assistance program under section 127. The 2025 law removed the end date that would have made these payments taxable after 2025, so the exclusion now applies to every year going forward. Amounts above the limit are reported as wages.` },
+    { q: `Does the ${usd(E.max)} limit cover both tuition assistance and loan payments?`, a: `Yes. Section 127 has one annual ceiling for all educational assistance an employee receives, so tuition reimbursement and student loan payments are added together. A worker who gets ${usd(tuition)} of tuition help for a course has ${usd(leftForLoans)} of tax-free room left for loan payments that year. Check what your employer already pays before agreeing to a larger loan benefit.` },
+    { q: `Will the ${usd(E.max)} employer limit go up?`, a: `Yes, starting with taxable years beginning after 2026. The law ties the amount to the cost-of-living adjustment of the tax code with 2025 as the base year, and rounds each increase to the nearest multiple of ${usd(50)}. The IRS publishes the new figure in its yearly inflation revenue procedure; the ${E.indexedFrom} amount was not yet published when this page was written.` },
+    { q: 'What happens if my employer pays more than the limit toward my loans?', a: `The excess is taxable wages. If your employer pays ${usd(over)} in a year with no other educational assistance, ${usd(E.max)} is excluded and ${usd(overTax)} goes on your W-2 like salary, subject to income tax withholding. The loan still receives the full ${usd(over)}; only the tax treatment changes.` },
+    { q: 'Do employer loan payments raise my RAP payment?', a: `No, as long as they stay within the limit. RAP and IBR are based on adjusted gross income, and excluded employer payments are never part of it. A single borrower earning ${usd(agi)} who received the same ${usd(E.max)} as a raise would see the RAP payment move from about ${usd(rapBenefit)} to ${usd(rapSalary)} a month.` },
+  ],
+  body: (h) => `
+<h2>What the 2025 law changed</h2>
+<p>Section 127 of the Internal Revenue Code lets an employer pay for an employee’s education tax-free, up to ${usd(E.max)} a year. Payments of principal or interest on a qualified education loan were added as a temporary expansion, limited to payments made before January 1, 2026. Section 70412 of Public Law 119-21 struck that end date and applied the change to payments made after December 31, 2025, so the loan benefit is now as permanent as the rest of section 127 (${h.src('obbba', 'Public Law 119-21, section 70412')}). The same section added an inflation adjustment: for taxable years beginning after 2026, the ${usd(E.max)} amount rises with the cost-of-living index, using 2025 as the base year, rounded to the nearest ${usd(50)}. The IRS confirmed both points in Revenue Procedure 2025-32 (${h.src('irsRp2532', 'IRS Rev. Proc. 2025-32, section 3.09')}).</p>
+<p>Until now the ${usd(E.max)} figure was fixed in the statute with no inflation adjustment, which is why the indexing matters. Each year from ${E.indexedFrom} on, the ceiling should creep up by the inflation rate, rounded to ${usd(50)} steps. For tax year 2026 it remains ${usd(E.max)}.</p>
+<h2>How much the tax break is worth</h2>
+<p>The value of the exclusion equals the tax you would otherwise pay on the same money. Compare two offers from an employer: a ${usd(yearly)} raise, or ${usd(monthly)} a month sent to your loan servicer. The raise is taxed as wages; the loan payment is not. At a 22% federal bracket, the raise leaves ${usd(yearly - saved22)} after federal income tax, while the loan benefit puts the full ${usd(yearly)} on the loan, a difference of about ${usd(saved22)} a year. In the 12% bracket the gap is ${usd((yearly * 12) / 100)}; in the 32% bracket, ${usd((yearly * 32) / 100)}. Payroll taxes and state income tax can widen it further, but the mini-calculator sticks to federal income tax, the part the statute settles.</p>
+${h.table(['Federal bracket', `Tax saved on ${usd(yearly)}`, `Tax saved on ${usd(E.max)}`], [10, 12, 22, 24, 32, 35, 37].map((b) => [`${b}%`, usd((yearly * b) / 100), usd((E.max * b) / 100)]), 'Federal income tax only, compared with the same amount paid as salary.', ['l', 'r', 'r'])}
+<h2>One ceiling for tuition and loans</h2>
+<p>The limit is not per purpose. Section 127 caps all educational assistance one employee receives in a year, so an employer that reimburses ${usd(tuition)} of tuition for a certificate course and also pays student loans can exclude only ${usd(leftForLoans)} of loan payments that year. Whatever goes beyond the shared ceiling shows up as wages on the W-2. Workers who are both studying and repaying should ask their benefits team how the two programs are tracked, so the total stays under the ceiling.</p>
+<p>The benefit also has to run through a real educational assistance program that the employer sets up under section 127; a bonus that you then send to your servicer yourself is ordinary pay. Whether your employer offers such a program, and how much it pays, is entirely up to the employer. The tax law only sets the ceiling on what can be excluded.</p>
+<h2>Which loans an employer can pay</h2>
+<p>Section 127 refers to payments of principal or interest on a qualified education loan, the same term the tax code uses for the student loan interest deduction. That definition looks at what the money paid for, qualified higher education costs, rather than at who lent it, so federal Direct Loans, older FFEL loans and private student loans can all fit. Credit cards and personal loans used for school do not qualify, because they were not taken out solely for education costs.</p>
+<p>What the employer’s own program covers is a separate question. A plan can be narrower than the law, for example limited to federal loans, capped at a lower monthly amount or tied to a minimum length of service, and some employers require proof that the money reached the servicer. Before counting on the benefit in a budget, read the plan document and ask three things: the monthly amount, whether it is paid to you or directly to the servicer, and what happens to it if you leave mid-year. Loans you took out for someone else, such as a parent PLUS loan for a child, are worth a specific question to the plan administrator rather than an assumption.</p>
+<p>Timing follows the calendar year in which the employer pays. A payment the employer makes in January counts against that year’s ceiling even if it covers a December bill, so an employer that front-loads payments early in the year can use up the ${usd(E.max)} sooner than a monthly schedule suggests.</p>
+<h2>What the money does to a loan</h2>
+<p>Employer dollars are extra payments, and extra payments shorten a loan. Take ${usd(bal)} of undergraduate loans at ${pct(R.undergrad)} on a 10-year schedule of about ${usd(base)} a month. Paid alone, the loan costs ${usd(plain.interest)} in interest. If an employer adds the full ${usd(E.max)} a year, ${usd(E.max / 12)} a month, the loan is gone in about ${Math.ceil(boosted.months / 12)} years instead of ten, and interest falls to ${usd(boosted.interest)}. The ${h.a('student-loan-payoff-calculator', 'payoff calculator')} runs that comparison for any balance.</p>
+<p>Borrowers on the Repayment Assistance Plan should know one mechanical detail. Paying more than the amount due advances your next due date, and RAP’s matching principal payment is not made for months in which no payment is due. Under 34 CFR 685.209(o)(3) you can ask your servicer not to advance the due date, so extra money goes to principal while the monthly payment and the match continue (${h.src('ecfr209', '34 CFR 685.209(o)')}). Borrowers aiming for PSLF face a different question: every extra dollar paid lowers the amount eventually forgiven, so employer money is worth more to them if it goes to other debts or savings, a point the ${h.a('pslf-calculator', 'PSLF calculator')} makes concrete.</p>
+<h2>Income-driven payments and the interest deduction</h2>
+<p>Because excluded payments never enter adjusted gross income, they do not raise an income-driven payment the way a raise would. A single borrower with ${usd(agi)} of AGI owes about ${usd(rapBenefit)} a month on RAP. Add ${usd(E.max)} as salary and AGI moves past the ${usd(60000)} bracket line, pushing the payment to about ${usd(rapSalary)}. Delivered through section 127 instead, the same money leaves the RAP payment unchanged. The ${h.a('rap-calculator', 'RAP calculator')} shows where the bracket lines fall.</p>
+<p>The tax code does not allow a double benefit on the same dollars: interest your employer paid tax-free is not interest you can deduct. Interest you pay yourself stays deductible within the ${usd(P.deduction.max)} limit and the 2026 income phase-out, explained on the ${h.a('student-loan-interest-deduction', 'interest deduction page')}. In practice, an employer payment is worth more than the deduction, because the exclusion covers principal too and has no income phase-out.</p>`,
+  related: ['student-loan-interest-deduction', 'student-loan-payoff-calculator', 'rap-calculator', 'pslf-calculator', 'forgiveness-taxes', 'graduate-loan-limits'],
+  sources: ['obbba', 'irsRp2532', 'irc127', 'ecfr209'],
+});
