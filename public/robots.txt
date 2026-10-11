@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /*?*
 
-Sitemap: https://us-student-loans.example/sitemap-index.xml
+Sitemap: https://studentloanledger.com/sitemap-index.xml

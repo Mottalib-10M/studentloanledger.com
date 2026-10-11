@@ -10,9 +10,9 @@
  "founded": "2026",
  "volumes": "/Users/mottalib/Documents/GitHub/reports/volumes-2026-10-10b/topic-us-student-finance.csv",
  "volumesNote": "Environ 572 000 recherches/mois mesurées au Keyword Planner (plan US 1442433080) ; site validé par l'éditeur le 2026-10-11.",
- "folder": "us-student-loans",
+ "folder": "studentloanledger.com",
  "outDir": "a-publier/Mottalib-10M",
- "url": "https://us-student-loans.example",
+ "url": "https://studentloanledger.com",
  "locales": [
   "en"
  ],
@@ -36,7 +36,7 @@
  "authorDesc": {
   "en": "Radif Partners builds free calculators that apply the 2025 student loan law (Public Law 119-21), the Department of Education's May 2026 regulations and the 2026-27 Federal Register notices to one borrower's own numbers: the Repayment Assistance Plan with its interest waiver and $50 principal match, Income-Based Repayment, the Tiered Standard plan, PSLF timelines, the student loan interest deduction and the Student Aid Index, each figure dated and linked to its official text."
  },
- "email": "contact@us-student-loans.example",
+ "email": "contact@studentloanledger.com",
  "indexnow": "5b7e1c94d2a04f6e8c3a9b0d71e2f458",
  "shortName": "Student Loan Ledger",
  "description": "Student loan calculator after the 2025 law: RAP, IBR, Tiered Standard and PSLF compared for your loans, plus the 2026-27 SAI, Pell Grant and interest rates.",

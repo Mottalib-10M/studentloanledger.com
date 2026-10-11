@@ -1,4 +1,4 @@
-# Écrire ou étoffer une page de « Student Loan Ledger » (us-student-loans)
+# Écrire ou étoffer une page de « Student Loan Ledger » (studentloanledger.com)
 
 Notice pour les agents qui écrivent ou étoffent une page. À lire en entier, avec `~/Documents/GitHub/RECETTE-SITE.md`
 (§0, §6, §6.5, §7, §9.3, §11, §17.4, §21, §26) et **`research/FACTS.md`** (les seuls faits publiables comme certains).
@@ -64,7 +64,7 @@ caractères) : écrire ce qui n'appartient qu'à la page, avec un vocabulaire pr
 ## Contrôles
 
 ```bash
-cd ~/Documents/GitHub/a-publier/Mottalib-10M/us-student-loans
+cd ~/Documents/GitHub/a-publier/Mottalib-10M/studentloanledger.com
 ALLOW_PLANNED=1 PAGE_FILES=rap-calculator,rap-vs-ibr npx vitest run tests/pages.test.ts   # vos pages
 npx vitest run                                    # tout (moteurs + pages, plan complet exigé)
 npm run build                                     # inclut typo-nbsp et check-snippets (bloquant)

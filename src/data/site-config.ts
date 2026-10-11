@@ -1,5 +1,5 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://us-student-loans.example";
+export const SITE_URL = "https://studentloanledger.com";
 export const SITE_NAMES: Record<string, string> = {"en": "Student Loan Ledger"};
 export const LANG_TAGS: Record<string, string> = {"en": "en-US"};
 export const OG_LOCALES: Record<string, string> = {"en": "en_US"};
@@ -16,7 +16,7 @@ export const AUTHOR_DESC: Record<string, string> = {"en": "Radif Partners builds
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"en": ["Federal student loan repayment plans", "Repayment Assistance Plan (RAP)", "Income-Based Repayment (IBR)", "Public Service Loan Forgiveness", "Student loan interest deduction", "FAFSA Student Aid Index", "Federal Pell Grant"]};
-export const CONTACT_EMAIL = "contact@us-student-loans.example";
+export const CONTACT_EMAIL = "contact@studentloanledger.com";
 export const THEME_COLOR = '#8A1C1C';
 export const LOGO_SYMBOL = 'EDU';
 export const BING_VERIFY_CODE = '';
