@@ -23,7 +23,7 @@ export default function IbrCalculator({ methodHref = '/en/method/', idPrefix = '
         <NumberField id={`${p}-agi`} label="Your adjusted gross income (AGI)" value={v.i} onChange={set('i')} unit="$" max={5000000} help="From your latest federal tax return." />
         <SelectField id={`${p}-fil`} label="Tax filing status" value={v.f} onChange={set('f')} options={FILING_OPTIONS} />
         {filing === 'mfj' && <NumberField id={`${p}-sp`} label="Spouse's AGI" value={v.s} onChange={set('s')} unit="$" max={5000000} />}
-        <SelectField id={`${p}-size`} label="Family size" value={String(v.n)} onChange={(x) => set('n')(Number(x))} options={SIZES} help="You, a spouse on a joint return, and the people you support." />
+        <SelectField id={`${p}-size`} label="Family size" value={String(v.n)} onChange={(x) => set('n')(Number(x))} options={SIZES} help="You, a spouse on a joint return, and the people you support." className="lg:col-span-2" />
         <SelectField id={`${p}-area`} label="Where you live" value={v.a} onChange={set('a')} options={AREA_OPTIONS} />
         <Toggle id={`${p}-old`} label="Owed a federal loan before July 1, 2014?" value={v.o} onChange={set('o')} options={YES_NO} />
         <NumberField id={`${p}-bal`} label="Balance of eligible loans" value={v.b} onChange={set('b')} unit="$" max={2000000} />

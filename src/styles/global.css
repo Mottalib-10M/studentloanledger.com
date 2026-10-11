@@ -71,3 +71,10 @@ h1 { font-weight: 700; } h2 { font-weight: 650; } h3 { font-weight: 600; }
   .boxnote > .boxnote-title { font-variant: small-caps; letter-spacing: .03em; font-weight: 700; color: var(--color-accent-700); margin: 0 0 .25rem; }
 }
 .prose .not-prose table { margin-top: 0; margin-bottom: 0; }
+/* Le simulateur se voit sans défiler (RECETTE §5, 2026-10-11) : sur ordinateur, les champs à
+   gauche et le résultat à droite, collé en haut pendant qu'on fait défiler les champs. */
+@media (min-width: 1024px) {
+  .rechner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: 1.5rem; align-items: start; }
+  .rechner > [data-resultat] { position: sticky; top: 5rem; }
+}
+.lead-mini .rechner-mini { margin-top: 0; }

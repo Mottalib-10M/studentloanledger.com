@@ -28,7 +28,7 @@ export default function LimitsCalculator({ methodHref = '/en/method/', idPrefix 
         <SelectField id={`${p}-k`} label="You are" value={v.k} onChange={set('k')} options={KIND} />
         {undergrad && <SelectField id={`${p}-y`} label="Year in school" value={String(v.y)} onChange={(x) => set('y')(Number(x))} options={[{ value: '1', label: 'First year' }, { value: '2', label: 'Second year' }, { value: '3', label: 'Third year or later' }]} />}
         {!undergrad && <Toggle id={`${p}-e`} label="Enrolled with a federal loan for this program by June 30, 2026?" value={v.e} onChange={set('e')} options={YES_NO} />}
-        {!r.legacy && <NumberField id={`${p}-c`} label="Enrollment, share of full time" value={v.c} onChange={set('c')} unit="%" max={100} help="Less than full time reduces the annual limit in proportion." />}
+        {!r.legacy && <NumberField id={`${p}-c`} label="Enrollment, share of full time" value={v.c} onChange={set('c')} unit="%" max={100} help="Less than full time reduces the annual limit in proportion." className="lg:col-span-2" />}
         <NumberField id={`${p}-a`} label={undergrad ? 'Already borrowed as an undergraduate' : 'Already borrowed for graduate or professional study'} value={v.a} onChange={set('a')} unit="$" max={1000000} />
         <NumberField id={`${p}-l`} label="All federal student loans borrowed so far" value={v.l} onChange={set('l')} unit="$" max={1000000} help={`Lifetime cap ${usd(P.limits.lifetime)}, parent PLUS excluded.`} />
       </form>

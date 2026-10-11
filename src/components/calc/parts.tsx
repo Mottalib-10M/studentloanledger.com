@@ -1,5 +1,5 @@
 /** Shared pieces of the calculators: result card, detail rows, share and print bar, locked state field. */
-import { useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { formatMoney, formatNumber } from '../../lib/format';
 
 export const usd = (n: number) => formatMoney(Math.round(n), 0);
@@ -27,8 +27,18 @@ export function Rows({ rows }: { rows: Array<[string, string]> }) {
 export function Result({ label, value, sub, children, methodHref, note }: { label: string; value: string; sub?: string; children?: ReactNode; methodHref: string; note: string }) {
   const [copied, setCopied] = useState(false);
   const copy = () => { navigator.clipboard?.writeText(window.location.href).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1500); }); };
+  // Téléphone (RECETTE §5, 2026-10-11) : tant que le résultat est sous l'écran, une barre collante
+  // en bas montre le chiffre clé ; un toucher y descend. Ordinateur : le résultat est à côté des champs.
+  const box = useRef<HTMLDivElement>(null);
+  const [below, setBelow] = useState(false);
+  useEffect(() => {
+    const el = box.current; if (!el || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(([e]) => setBelow(!e.isIntersecting && e.boundingClientRect.top > 0));
+    io.observe(el); return () => io.disconnect();
+  }, []);
   return (
-    <div aria-live="polite" className="mt-6 rounded-xl bg-accent-50 p-4 sm:p-5">
+    <>
+    <div ref={box} data-resultat aria-live="polite" className="mt-6 rounded-xl bg-accent-50 p-4 sm:p-5 lg:mt-0">
       <p className="text-sm font-medium text-navy-700">{label}</p>
       <p className="tabular-nums mt-1 text-4xl font-bold text-navy-900">{value}</p>
       {sub && <p className="mt-1 text-sm text-navy-700">{sub}</p>}
@@ -39,6 +49,13 @@ export function Result({ label, value, sub, children, methodHref, note }: { labe
         <button type="button" onClick={() => window.print()} className="rounded-lg border border-navy-300 bg-white px-3 py-1.5 font-medium text-navy-800 hover:bg-navy-50">Print</button>
       </div>
     </div>
+    {below && (
+      <button type="button" data-chrome onClick={() => box.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-accent-200 bg-accent-50 px-4 py-3 text-left shadow-lg lg:hidden">
+        <span className="text-sm font-medium text-navy-700">{label}</span>
+        <span className="tabular-nums text-xl font-bold text-navy-900">{value}</span>
+      </button>
+    )}
+    </>
   );
 }
 
