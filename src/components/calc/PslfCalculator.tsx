@@ -22,7 +22,7 @@ export default function PslfCalculator({ methodHref = '/en/method/', idPrefix = 
   const best = r.onIbr && r.onIbr.paid < r.onRap.paid ? { name: 'IBR', x: r.onIbr, pay: r.ibr! } : { name: 'RAP', x: r.onRap, pay: r.rap };
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-q`} label="Qualifying payments already counted" value={v.q} onChange={set('q')} unit="payments" max={120} help={`PSLF forgives after ${P.pslf.payments}.`} />
         <NumberField id={`${p}-bal`} label="Direct Loan balance" value={v.b} onChange={set('b')} unit="$" max={2000000} />
         <NumberField id={`${p}-rate`} label="Interest rate" value={v.r} onChange={set('r')} unit="%" max={20} decimals={2} />

@@ -18,7 +18,7 @@ export default function ParentPlusCalculator({ methodHref = '/en/method/', idPre
   const p = idPrefix;
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-a`} label="Parent PLUS you want each year" value={v.a} onChange={set('a')} unit="$" max={200000} help={`Capped at ${usd(P.limits.parentPlus.annual)} per student for all parents.`} />
         <NumberField id={`${p}-y`} label="Years of college to finance" value={v.y} onChange={set('y')} unit="years" max={8} />
         <NumberField id={`${p}-s`} label="Parent PLUS already borrowed for this student" value={v.s} onChange={set('s')} unit="$" max={500000} />

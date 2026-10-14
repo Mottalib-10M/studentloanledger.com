@@ -26,7 +26,7 @@ export default function ForgivenessCalculator({ methodHref = '/en/method/', idPr
   const head = r.pslf ? r.pslf.forgiven : Math.max(r.rap.forgiven, r.ibr?.forgiven ?? 0);
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-bal`} label="Federal loan balance" value={v.b} onChange={set('b')} unit="$" max={2000000} />
         <NumberField id={`${p}-rate`} label="Interest rate" value={v.r} onChange={set('r')} unit="%" max={20} decimals={2} />
         <NumberField id={`${p}-agi`} label="Your AGI" value={v.i} onChange={set('i')} unit="$" max={5000000} />

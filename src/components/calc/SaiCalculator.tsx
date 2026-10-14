@@ -22,7 +22,7 @@ export default function SaiCalculator({ methodHref = '/en/method/', idPrefix = '
   const pellFirst = mode === 'pell';
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <Toggle id={`${p}-dep`} label="Dependent student (parents on the FAFSA)?" value={v.dep} onChange={set('dep')} options={YES_NO} />
         <Toggle id={`${p}-m`} label={dependent ? 'Parents married or living together?' : 'Are you married?'} value={v.m} onChange={set('m')} options={YES_NO} />
         <SelectField id={`${p}-n`} label="Family size" value={String(v.n)} onChange={(x) => set('n')(Number(x))} options={SIZES} help={dependent ? 'Student, parents and the people they support.' : 'You, a spouse and the people you support.'} />

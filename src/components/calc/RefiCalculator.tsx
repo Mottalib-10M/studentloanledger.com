@@ -17,7 +17,7 @@ export default function RefiCalculator({ methodHref = '/en/method/', idPrefix = 
   const saved = r.nowTotal - r.neuTotal;
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-bal`} label="Federal balance to refinance" value={v.b} onChange={set('b')} unit="$" max={2000000} />
         <NumberField id={`${p}-r`} label="Current federal rate" value={v.r} onChange={set('r')} unit="%" max={20} decimals={2} />
         <NumberField id={`${p}-y`} label="Years left on your current plan" value={v.y} onChange={set('y')} unit="years" max={30} />

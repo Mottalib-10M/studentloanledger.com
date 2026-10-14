@@ -13,7 +13,7 @@ export function S529({ methodHref = '/en/method/', idPrefix = 's529' }: { method
   const p = idPrefix;
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-s`} label="In the 529 today" value={v.s} onChange={set('s')} unit="$" max={5000000} />
         <NumberField id={`${p}-m`} label="Monthly contribution" value={v.m} onChange={set('m')} unit="$" max={100000} />
         <NumberField id={`${p}-y`} label="Years until the money is used" value={v.y} onChange={set('y')} unit="years" max={40} />
@@ -44,7 +44,7 @@ export function CollegeSavings({ methodHref = '/en/method/', idPrefix = 'cs' }: 
   const p = idPrefix;
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-c`} label="Yearly cost today (net price)" value={v.c} onChange={set('c')} unit="$" max={500000} help="From the school's net price calculator." />
         <NumberField id={`${p}-n`} label="Years of college" value={v.n} onChange={set('n')} unit="years" max={8} />
         <NumberField id={`${p}-y`} label="Years until college starts" value={v.y} onChange={set('y')} unit="years" max={25} />

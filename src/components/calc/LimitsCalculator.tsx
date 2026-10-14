@@ -24,7 +24,7 @@ export default function LimitsCalculator({ methodHref = '/en/method/', idPrefix 
   const p = idPrefix;
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <SelectField id={`${p}-k`} label="You are" value={v.k} onChange={set('k')} options={KIND} />
         {undergrad && <SelectField id={`${p}-y`} label="Year in school" value={String(v.y)} onChange={(x) => set('y')(Number(x))} options={[{ value: '1', label: 'First year' }, { value: '2', label: 'Second year' }, { value: '3', label: 'Third year or later' }]} />}
         {!undergrad && <Toggle id={`${p}-e`} label="Enrolled with a federal loan for this program by June 30, 2026?" value={v.e} onChange={set('e')} options={YES_NO} />}

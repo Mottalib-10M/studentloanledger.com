@@ -15,7 +15,7 @@ export default function PayoffCalculator({ methodHref = '/en/method/', idPrefix 
   const never = base.never;
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-bal`} label="Loan balance" value={v.b} onChange={set('b')} unit="$" max={2000000} />
         <NumberField id={`${p}-rate`} label="Interest rate" value={v.r} onChange={set('r')} unit="%" max={25} decimals={2} />
         <NumberField id={`${p}-pay`} label="Monthly payment now" value={v.m} onChange={set('m')} unit="$" max={100000} help="Your current required payment." />

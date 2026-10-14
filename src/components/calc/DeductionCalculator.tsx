@@ -15,7 +15,7 @@ export default function DeductionCalculator({ methodHref = '/en/method/', idPref
   const p = idPrefix;
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-i`} label="Student loan interest paid in 2026" value={v.i} onChange={set('i')} unit="$" max={1000000} help="Box 1 of the Form 1098-E from your servicer." />
         <NumberField id={`${p}-m`} label="Modified AGI" value={v.m} onChange={set('m')} unit="$" max={5000000} help="AGI before this deduction, plus excluded foreign income." />
         <SelectField id={`${p}-f`} label="Filing status" value={v.f} onChange={set('f')} options={FILING_OPTIONS} />

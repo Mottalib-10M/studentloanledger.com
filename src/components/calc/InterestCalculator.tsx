@@ -21,7 +21,7 @@ export default function InterestCalculator({ methodHref = '/en/method/', idPrefi
   const pick = (t: string) => { set('t')(t); if (t in R) set('r')(R[t as 'undergrad' | 'grad' | 'plus']); };
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-bal`} label="Principal" value={v.b} onChange={set('b')} unit="$" max={2000000} />
         <SelectField id={`${p}-type`} label="Loan type (2026-27 rate)" value={v.t} onChange={pick} options={[{ value: 'undergrad', label: `Undergraduate, ${R.undergrad}%` }, { value: 'grad', label: `Graduate unsubsidized, ${R.grad}%` }, { value: 'plus', label: `PLUS, ${R.plus}%` }, { value: 'other', label: 'Other rate' }]} />
         <NumberField id={`${p}-rate`} label="Interest rate" value={v.r} onChange={(x) => { set('r')(x); set('t')('other'); }} unit="%" max={25} decimals={2} />

@@ -19,7 +19,7 @@ export default function IbrCalculator({ methodHref = '/en/method/', idPrefix = '
   const p = idPrefix;
   return (
     <div className="rechner rounded-xl border border-navy-200 bg-white p-4 sm:p-6">
-      <form className="grid gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+      <form className="grid content-start gap-x-5 gap-y-4 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
         <NumberField id={`${p}-agi`} label="Your adjusted gross income (AGI)" value={v.i} onChange={set('i')} unit="$" max={5000000} help="From your latest federal tax return." />
         <SelectField id={`${p}-fil`} label="Tax filing status" value={v.f} onChange={set('f')} options={FILING_OPTIONS} />
         {filing === 'mfj' && <NumberField id={`${p}-sp`} label="Spouse's AGI" value={v.s} onChange={set('s')} unit="$" max={5000000} />}
